@@ -85,7 +85,8 @@ padding.px: 40
 
 -- end: example
 
--- example: Component
+-- example: 2-Component
+url: https://github.com/fastn-stack/ftd/blob/main/t/html/2-component.ftd
 
 -- code: 
 lang: ftd
@@ -114,7 +115,8 @@ padding.px: 40
 
 -- end: example
 
--- example: Boolean
+-- example: 3-component
+url: https://github.com/fastn-stack/ftd/blob/main/t/html/3-component.ftd
 
 -- code: 
 lang: ftd
@@ -154,7 +156,8 @@ padding.px: 2
 
 -- end: example
 
--- example: Component
+-- example: 4-Component
+url: https://github.com/fastn-stack/ftd/blob/main/t/html/4-component.ftd
 
 -- code: 
 lang: ftd
@@ -187,7 +190,8 @@ name: Hello Again
 -- end: example
 
 
--- example: Component recursion
+-- example: 5-Component recursion
+url: https://github.com/fastn-stack/ftd/blob/main/t/html/5-component-recursion.ftd
 
 -- code: 
 lang: ftd
@@ -245,7 +249,8 @@ item: $rd.toc
 -- end: example
 
 
--- example: 10-conditional-properties.ftd
+-- example: 10-conditional-properties
+url: https://github.com/fastn-stack/ftd/blob/main/t/html/10-conditional-properties.ftd
 
 -- code: 
 lang: ftd
@@ -402,7 +407,7 @@ margin-bottom.px: 24
 width: fill-container
 padding-horizontal.px: 24
 padding-vertical.px: 24
-border-bottom-width.px: 1
+border-bottom-width.px if { example.open }: 1
 border-color: $inherited.colors.border-strong
 
 -- ftd.row:
@@ -442,6 +447,7 @@ color: $inherited.colors.text
 -- end: ftd.row
 
 -- end: ftd.row
+
 -- ftd.row:
 if: {example.open}
 children: $example.wrapper
@@ -496,7 +502,7 @@ border-bottom-right-radius.px: 4
 ;; border-width.px: 1
 ;; border-color: $code-bg-dark
 overflow-x: auto
-max-height.fixed.px: 300
+max-height.fixed.px: 400
 
 
 -- end: ftd.column
@@ -530,6 +536,7 @@ width: fill-container
 color: $inherited.colors.text
 padding-horizontal.px: 24
 padding-vertical.px: 24
+max-height.fixed.px: 400
 
 -- end: ftd.column
 
