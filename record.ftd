@@ -26,7 +26,6 @@ name: TOC title 4
 -- end: toc.children
 
 
-
 -- component print-toc-item:
 toc-item item:
 

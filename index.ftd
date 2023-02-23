@@ -18,7 +18,8 @@ name: fifthtry.github.io/roboto-font
 
 This component consist of Google Roboto font with all it's styles from Thin-100 to Black-900 Italic.
 
--- display:  Component
+-- example:  1-Component
+url: https://github.com/fastn-stack/ftd/blob/main/t/html/1-component.ftd
 
 -- code: 
 lang: ftd
@@ -81,9 +82,9 @@ padding.px: 40
 
 -- end: output
 
--- end: display
+-- end: example
 
--- display: Component
+-- example: Component
 
 -- code: 
 lang: ftd
@@ -110,9 +111,9 @@ padding.px: 40
 
 -- end: output
 
--- end: display
+-- end: example
 
--- display: Boolean
+-- example: Boolean
 
 -- code: 
 lang: ftd
@@ -150,9 +151,9 @@ padding.px: 2
 
 -- end: output
 
--- end: display
+-- end: example
 
--- display: Component
+-- example: Component
 
 -- code: 
 lang: ftd
@@ -182,10 +183,10 @@ name: Hello Again
 
 -- end: output
 
--- end: display
+-- end: example
 
 
--- display: Component recursion
+-- example: Component recursion
 
 -- code: 
 lang: ftd
@@ -240,7 +241,7 @@ item: $rd.toc
 
 -- end: output
 
--- end: display
+-- end: example
 
 
 
@@ -299,10 +300,11 @@ item: $rd.toc
 
 
 
--- component display:
+-- component example:
 caption title:
 children wrapper:
-boolean $open : true
+boolean $open : false
+string url: /
 
 
 -- ftd.column:
@@ -321,21 +323,46 @@ padding-vertical.px: 24
 border-bottom-width.px: 1
 border-color: $inherited.colors.border-strong
 
--- ftd.text: $display.title
-role: $inherited.types.heading-large
-color: $inherited.colors.text
+-- ftd.row:
+align-self: start
 width: fill-container
+spacing.fixed.px: 12
+
+-- ftd.text: $example.title
+role: $inherited.types.heading-small
+color: $inherited.colors.text-strong
 
 
--- ftd.text: close
-$on-click$: $ftd.toggle($a = $display.open)
-role: $inherited.types.heading-large
+-- ftd.text: ¶
+role: $inherited.types.heading-small
 color: $inherited.colors.text
+link: $example.url
+
+
 -- end: ftd.row
 
 -- ftd.row:
-if: {display.open}
-children: $display.wrapper
+align-self: end
+
+-- ftd.text: Click to expand
+if: { !example.open }
+$on-click$: $ftd.toggle($a = $example.open)
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+white-space: nowrap
+
+-- ftd.text: close
+if: { example.open }
+$on-click$: $ftd.toggle($a = $example.open)
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+-- end: ftd.row
+
+-- end: ftd.row
+-- ftd.row:
+if: {example.open}
+children: $example.wrapper
 width: fill-container
 
 -- end: ftd.row
@@ -343,7 +370,7 @@ width: fill-container
 -- end: ftd.column
 
 
--- end: display
+-- end: example
 
 
 
@@ -401,6 +428,7 @@ children data:
 
 -- ftd.column:
 width: fill-container
+color: $inherited.colors.text
 
 -- ftd.text: $output.title
 if: { $output.title != NULL }
@@ -414,10 +442,10 @@ border-color: $inherited.colors.border-strong
 ;;spacing.fixed.px: 24
 
 
-
 -- ftd.column:
 children: $output.data
 width: fill-container
+color: $inherited.colors.text
 
 -- end: ftd.column
 
