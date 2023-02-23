@@ -3236,7 +3236,7 @@ a = a + " " + b
 
 -- output:
 
--- ftd.text: Hello
+-- ftd.text: Click here to `append`
 if: { ftd.is_empty(optional.name) }
 $on-click$: $optional.append($a = $optional.name, b = FifthTry)
 
