@@ -3,6 +3,7 @@
 -- import: fifthtry.github.io/package-doc/code-block as cb
 -- import: fifthtry.github.io/package-doc/typography as tf
 -- import: fifthtry.github.io/ftd-examples/record as rd
+-- import: fifthtry.github.io/ftd-examples/10-conditional-properties as cp
 -- import: fastn
 
 -- boolean flag: true
@@ -244,6 +245,87 @@ item: $rd.toc
 -- end: example
 
 
+-- example: 10-conditional-properties.ftd
+
+-- code: 
+lang: ftd
+
+
+\-- void increment(a):
+integer $a:
+
+a += 1
+
+
+\-- component boo:
+integer bv:
+
+\-- ftd.column:
+
+\-- ftd.text: boo
+
+\-- ftd.integer: $boo.bv
+
+\-- end: ftd.column
+
+\-- end: boo
+
+
+
+\-- component moo:
+integer $fv:
+integer mv:
+
+\-- ftd.column:
+
+\-- boo:
+bv if { moo.fv > 10 }: 10
+bv if { moo.mv > 6 }: 5
+bv: 4
+
+\-- ftd.text: moo
+
+\-- ftd.integer: $moo.fv
+\-- ftd.integer: $moo.mv
+
+\-- end: ftd.column
+
+\-- end: moo
+
+
+
+
+\-- component foo:
+integer $fv:
+
+\-- ftd.column:
+
+\-- moo:
+mv if { foo.fv > 2 }: 6
+mv: 7
+$fv: $foo.fv
+
+\-- ftd.text: click here to see `increment` in action.
+$on-click$: $increment($a = $foo.fv)
+
+\-- ftd.integer: $foo.fv
+
+
+\-- end: ftd.column
+
+\-- end: foo
+
+
+\-- foo:
+$fv: 1
+
+-- output:
+
+-- cp.foo:
+$fv: 1
+-- end: output
+
+-- end: example
 
 
 
@@ -446,6 +528,8 @@ border-color: $inherited.colors.border-strong
 children: $output.data
 width: fill-container
 color: $inherited.colors.text
+padding-horizontal.px: 24
+padding-vertical.px: 24
 
 -- end: ftd.column
 
