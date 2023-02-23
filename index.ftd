@@ -2,9 +2,10 @@
 -- import: fifthtry.github.io/package-doc/doc as pd
 -- import: fifthtry.github.io/package-doc/code-block as cb
 -- import: fifthtry.github.io/package-doc/typography as tf
--- import: fifthtry.github.io/ftd-examples/record as rd
--- import: fifthtry.github.io/ftd-examples/10-conditional-properties as cp
+-- import: fifthtry.github.io/ftd-examples/examples/record as rd
+-- import: fifthtry.github.io/ftd-examples/examples/10-conditional-properties as cp
 -- import: fastn
+-- import: fifthtry.github.io/ftd-examples/examples/11-external-children as ec
 
 -- boolean flag: true
 
@@ -333,6 +334,180 @@ $fv: 1
 -- end: example
 
 
+-- example: 11-external-children
+ 
+
+-- code:
+lang: diff
+
+\-- void increment(a):
+integer $a:
+
+a += 1
+
+
+\-- component counter:
+integer $count:
+
+\-- ftd.integer: $counter.count
+$on-click$: $increment($a = $counter.count)
+
+\-- end: counter
+
+
+
+\-- integer $count: 1
+
+
+
+
+\-- component page:
+ftd.ui list extra-headers:
+children body:
+
+\-- ftd.column:
+padding.px: 80
+
+\-- ftd.text: ...................................................................
+
+\-- ftd.row:
+
+\-- ftd.text: LOGO
+padding.px: 2
+
+\-- ftd.text: Home
+padding.px: 2
+
+\-- ftd.row:
+children: $page.extra-headers
+
+\-- end: ftd.row
+
+\-- end: ftd.row
+
+\-- ftd.text: ...................................................................
+
+\-- ftd.column:
+padding.px: 40
+children: $page.body
+
+\-- end: ftd.column
+
+\-- ftd.text: ...................................................................
+
+\-- end: ftd.column
+
+\-- end: page
+
+
+
+
+\-- page:
+
+\-- page.extra-headers:
+
+\-- ftd.text: Header 1
+padding.px: 2
+
+\-- ftd.text: Header 2
+padding.px: 2
+
+\-- ftd.text: Header 3
+padding.px: 2
+
+\-- ftd.text: Header 4
+padding.px: 2
+
+
+\-- end: page.extra-headers
+
+
+\-- ftd.text: Body Text
+
+\-- ftd.row:
+
+\-- ftd.text: Counter 1:
+
+\-- counter:
+$count: $count
+
+\-- end: ftd.row
+
+
+\-- ftd.row:
+
+\-- ftd.text: Counter 2:
+
+\-- counter:
+$count: $count
+
+\-- end: ftd.row
+
+
+\-- end: page
+
+
+\-- page:
+
+\-- ftd.text: Hello
+
+\-- end: page
+
+-- output: 
+
+-- ec.page:
+
+-- ec.page.extra-headers:
+
+-- ftd.text: Header 1
+padding.px: 2
+
+-- ftd.text: Header 2
+padding.px: 2
+
+-- ftd.text: Header 3
+padding.px: 2
+
+-- ftd.text: Header 4
+padding.px: 2
+
+
+-- end: ec.page.extra-headers
+
+
+-- ftd.text: Body Text
+
+-- ftd.row:
+
+-- ftd.text: Counter 1:
+
+-- ec.counter:
+$count: $ec.count
+
+-- end: ftd.row
+
+
+-- ftd.row:
+
+-- ftd.text: Counter 2:
+
+-- ec.counter:
+$count: $ec.count
+
+-- end: ftd.row
+
+-- end: ec.page
+
+-- ec.page:
+
+-- ftd.text: Hello
+
+-- end: ec.page
+
+-- end: output
+
+-- end: example
+
 
 -- end: ftd.column
 
@@ -537,6 +712,7 @@ color: $inherited.colors.text
 padding-horizontal.px: 24
 padding-vertical.px: 24
 max-height.fixed.px: 400
+overflow-x: auto
 
 -- end: ftd.column
 
