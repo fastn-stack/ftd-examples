@@ -5,6 +5,7 @@
 -- import: fifthtry.github.io/ftd-examples/examples/record as rd
 -- import: fifthtry.github.io/ftd-examples/examples/10-conditional-properties as cp
 -- import: fastn
+-- import: fifthtry.github.io/ftd-examples/examples/12-conditional-component as cc
 -- import: fifthtry.github.io/ftd-examples/examples/11-external-children as ec
 
 -- boolean flag: true
@@ -508,7 +509,70 @@ $count: $ec.count
 
 -- end: example
 
+-- example: 12-conditional-component
+url: https://github.com/fastn-stack/ftd/blob/main/t/html/12-conditional-component.ftd
 
+-- code:
+lang: ftd
+
+\-- foo:
+if: { num > 2 }
+
+
+\-- ftd.integer: $num
+
+\-- ftd.text: Gee
+if: { flag }
+
+
+\-- ftd.text: Click here
+$on-click$: $increment($a = $num)
+$on-click$: $toggle($a = $flag)
+
+
+\-- boolean $flag: true
+
+\-- integer $num: 0
+
+\-- component foo:
+
+\-- ftd.text: Hello World
+padding.px if { flag }: 50
+
+
+\-- end: foo
+
+
+
+\-- void increment(a):
+integer $a:
+
+a += 1
+
+
+\-- void toggle(a):
+boolean $a:
+
+a = !a;
+
+-- output:
+
+-- cc.foo:
+if: { cc.num > 2 }
+
+-- ftd.integer: $cc.num
+
+-- ftd.text: Gee
+if: { cc.flag }
+
+
+-- ftd.text: Click here
+$on-click$: $cc.increment($a = $cc.num)
+$on-click$: $cc.toggle($a = $cc.flag)
+
+-- end: output
+
+-- end: example
 -- end: ftd.column
 
 
