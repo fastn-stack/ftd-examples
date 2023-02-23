@@ -1,57 +1,433 @@
 -- import: fifthtry.github.io/ftd-examples/assets
+-- import: fifthtry.github.io/package-doc/doc as pd
+-- import: fifthtry.github.io/package-doc/code-block as cb
+-- import: fifthtry.github.io/package-doc/typography as tf
+-- import: fifthtry.github.io/ftd-examples/record as rd
+-- import: fastn
+
+-- boolean flag: true
+
+-- ftd.column:
+width: fill-container
+padding-horizontal.px: 50
+padding-horizontal.px if { ftd.device == "mobile" }: 20
+background.solid: $inherited.colors.background.base
+
+-- pd.package: Roboto - fastn font
+name: fifthtry.github.io/roboto-font
+
+This component consist of Google Roboto font with all it's styles from Thin-100 to Black-900 Italic.
+
+-- display:  Component
+
+-- code: 
+lang: ftd
+
+\-- ftd.row:
+padding.px: 40
+
+\-- ftd.text: Hello World
+padding.px: 2
+
+\-- ftd.text: again
+padding.px: 2
+
+\-- end: ftd.row
+
+
+\-- ftd.row:
+padding.px: 40
+
+\-- ftd.text: Hello
+padding.px: 2
+
+\-- ftd.text: again
+padding.px: 2
+
+\-- end: ftd.row
+
+
+\-- ftd.text: Hello from text
+padding.px: 40
+
+-- output: 
+
+-- ftd.row:
+padding.px: 40
+
+-- ftd.text: Hello World
+padding.px: 2
+
+-- ftd.text: again
+padding.px: 2
+
+-- end: ftd.row
+
+
+-- ftd.row:
+padding.px: 40
+
+-- ftd.text: Hello
+padding.px: 2
+
+-- ftd.text: again
+padding.px: 2
+
+-- end: ftd.row
+
+
+-- ftd.text: Hello from text
+padding.px: 40
+
+-- end: output
+
+-- end: display
+
+-- display: Component
+
+-- code: 
+lang: ftd
+
+\-- ftd.column:
+padding.px: 40
+
+\-- ftd.text: Hello World
+
+\-- ftd.text: again
+
+\-- end: ftd.column
+
+-- output:
+
+-- ftd.column:
+padding.px: 40
+
+-- ftd.text: Hello World
+
+-- ftd.text: again
+
+-- end: ftd.column
+
+-- end: output
+
+-- end: display
+
+-- display: Boolean
+
+-- code: 
+lang: ftd
+
+
+\-- boolean flag: true
+
+\-- ftd.row:
+padding.px: 40
+
+\-- ftd.text: Hello World
+padding.px if {flag}: 20
+padding.px: 2
+
+\-- ftd.text: again
+padding.px if {!flag}: 20
+padding.px: 2
+
+\-- end: ftd.row
+
+-- output:
+
+-- ftd.row:
+padding.px: 40
+
+-- ftd.text: Hello World
+padding.px if {flag}: 20
+padding.px: 2
+
+-- ftd.text: again
+padding.px if {!flag}: 20
+padding.px: 2
+
+-- end: ftd.row
+
+-- end: output
+
+-- end: display
+
+-- display: Component
+
+-- code: 
+lang: ftd
+
+\-- component print:
+string name:
+
+\-- ftd.column:
+
+\-- ftd.text: $print.name
+
+\-- end: ftd.column
+
+\-- end: print
+
+\-- print:
+name: Hello
+
+\-- print:
+name: Hello Again
+
+-- output:
+
+-- ftd.text: Hello
+
+-- ftd.text: Hello Again
+
+-- end: output
+
+-- end: display
+
+
+-- display: Component recursion
+
+-- code: 
+lang: ftd
+
+\-- record toc-item:
+string name:
+toc-item list children:
+
+\-- toc-item toc:
+name: TOC title 1
+
+\-- toc.children:
+
+\-- toc-item:
+name: TOC title 2
+
+\-- toc-item:
+name: TOC title 3
+
+\-- toc-item.children:
+
+\-- toc-item:
+name: TOC title 4
+
+\-- end: toc-item.children
+
+\-- end: toc.children
+
+\-- component print-toc-item:
+toc-item item:
+
+\-- ftd.column:
+padding.px: 30
+
+\-- ftd.text: $print-toc-item.item.name
+
+\-- print-toc-item:
+item: $obj
+$loop$: $print-toc-item.item.children as $obj
+
+\-- end: ftd.column
+
+\-- end: print-toc-item
+
+\-- print-toc-item:
+item: $toc
+
+-- output:
+
+-- rd.print-toc-item:
+item: $rd.toc
+
+-- end: output
+
+-- end: display
 
 
 
--- ds.page: Welcome to your [FASTN site](https://fastn.dev/)
-
-FASTN Blank Package Template Repo
-
-🧑‍🚀 **Seasoned traveler?** update this file. Enjoy!
 
 
---- ds.image: doc-site
-src: $assets.files.doc-site-example.png
-width: fill
-
-
---- ds.h1: 🚀 Project Structure
-
-Inside of your FASTN project, you'll see the following folders and files:
-
-
---- ds.code:
-lang:
-
-/
-├── .build/
-│   └── index.html
-├── .packages/
-│   └── fifthtry.github.io/
-│   	└── All downloaded dependencies
-│   	
-├── FASTN.ftd
-├── index.ftd
-└── README.md
+-- end: ftd.column
 
 
 
---- ds.h1: 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
---- ds.code:
-lang:
-
-=======================================================================
-| Command                | Action                                     |
-| :--------------------- | :----------------------------------------- |
-| fastn build              | FASTN builder installs all `FASTN` dependencies|
-| fastn serve              | Starts local dev server at available port  |
-|                        | `localhost:8000`                           |
-=======================================================================
 
 
---- ds.h1: 👀 Want to learn more?
 
-Feel free to check [our documentation](https://fastn.dev/) or jump into our [FifthTry Discord server](https://discord.gg/bucrdvptYd).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- component display:
+caption title:
+children wrapper:
+boolean $open : true
+
+
+-- ftd.column:
+width: fill-container
+border-width.px: 1
+border-color: $inherited.colors.border-strong
+;;spacing.fixed.px: 24
+border-radius.px: 8
+margin-top.px: 24
+margin-bottom.px: 24
+
+-- ftd.row:
+width: fill-container
+padding-horizontal.px: 24
+padding-vertical.px: 24
+border-bottom-width.px: 1
+border-color: $inherited.colors.border-strong
+
+-- ftd.text: $display.title
+role: $inherited.types.heading-large
+color: $inherited.colors.text
+width: fill-container
+
+
+-- ftd.text: close
+$on-click$: $ftd.toggle($a = $display.open)
+role: $inherited.types.heading-large
+color: $inherited.colors.text
+-- end: ftd.row
+
+-- ftd.row:
+if: {display.open}
+children: $display.wrapper
+width: fill-container
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+
+-- end: display
+
+
+
+
+
+
+-- component code:
+caption title: FTD Code
+string lang:
+body body:
+
+-- ftd.column:
+width: fill-container
+;;spacing.fixed.px: 8
+border-right-width.px: 1
+border-color: $inherited.colors.border-strong
+
+-- ftd.text: $code.title
+if: { $code.title != NULL }
+role: $inherited.types.button-large
+color: $inherited.colors.text
+width: fill-container
+border-bottom-width.px: 1
+padding-horizontal.px: 24
+padding-vertical.px: 24
+border-color: $inherited.colors.border-strong
+;;spacing.fixed.px: 24
+
+
+-- ftd.code:
+text: $code.body
+lang: $code.lang
+width: fill-container
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+padding-horizontal.px: 24
+padding-vertical.px: 24
+background.solid: $code-bg-dark
+border-bottom-left-radius.px: 4
+border-bottom-right-radius.px: 4
+;; border-width.px: 1
+;; border-color: $code-bg-dark
+overflow-x: auto
+max-height.fixed.px: 300
+
+
+-- end: ftd.column
+
+-- end: code
+
+
+-- component output:
+caption title: Output on browser
+children data:
+
+-- ftd.column:
+width: fill-container
+
+-- ftd.text: $output.title
+if: { $output.title != NULL }
+role: $inherited.types.button-large
+color: $inherited.colors.text
+width: fill-container
+border-bottom-width.px: 1
+padding-horizontal.px: 24
+padding-vertical.px: 24
+border-color: $inherited.colors.border-strong
+;;spacing.fixed.px: 24
+
+
+
+-- ftd.column:
+children: $output.data
+width: fill-container
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: output
+
+-- ftd.color code-bg-dark:
+light: #18181b
+dark: #2b303b
+
+
 
