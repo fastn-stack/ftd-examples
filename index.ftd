@@ -4,6 +4,7 @@
 -- import: fifthtry.github.io/package-doc/typography as tf
 -- import: fifthtry.github.io/ftd-examples/examples/record as rd
 -- import: fifthtry.github.io/ftd-examples/examples/10-conditional-properties as cp
+-- import: fifthtry.github.io/ftd-examples/examples/image as image
 -- import: fastn
 -- import: fifthtry.github.io/ftd-examples/examples/12-conditional-component as cc
 -- import: fifthtry.github.io/ftd-examples/examples/11-external-children as ec
@@ -509,70 +510,85 @@ $count: $ec.count
 
 -- end: example
 
--- example: 12-conditional-component
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/12-conditional-component.ftd
+-- example: 13-image
+url: https://github.com/fastn-stack/ftd/blob/main/t/html/13-image.ftd
 
 -- code:
 lang: ftd
 
-\-- foo:
-if: { num > 2 }
-
-
-\-- ftd.integer: $num
-
-\-- ftd.text: Gee
-if: { flag }
-
-
-\-- ftd.text: Click here
-$on-click$: $increment($a = $num)
-$on-click$: $toggle($a = $flag)
-
-
 \-- boolean $flag: true
 
-\-- integer $num: 0
+\-- ftd.boolean: $ftd.dark-mode
 
-\-- component foo:
+\-- ftd.image:
+$on-click$: $toggle-dark-mode($a = $ftd.dark-mode)
+width.fixed.px: 100
+src: $src
 
-\-- ftd.text: Hello World
-padding.px if { flag }: 50
+\-- ftd.image:
+src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
+width.fixed.px: 100
+
+\-- ftd.image:
+src: $new-src
+width.fixed.px: 100
+height: auto
 
 
-\-- end: foo
+\-- ftd.image:
+src: $src
+src if { flag }: $tom-and-jerry
+width.fixed.px: 100
+$on-click$: $ftd.toggle($a = $flag)
 
 
 
-\-- void increment(a):
-integer $a:
-
-a += 1
-
-
-\-- void toggle(a):
+\-- void toggle-dark-mode(a):
 boolean $a:
 
-a = !a;
+a = !a
+
+
+\-- ftd.image-src src:
+light: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
+dark: https://upload.wikimedia.org/wikipedia/en/d/d4/Mickey_Mouse.png
+
+
+\-- string new-src: https://upload.wikimedia.org/wikipedia/en/d/d4/Mickey_Mouse.png
+
+
+\-- ftd.image-src tom-and-jerry:
+light: https://wallpaperaccess.com/full/215445.jpg
+dark: https://wallpapers.com/images/file/tom-and-jerry-in-the-dog-house-myfg3ooaklw9fk9q.jpg
 
 -- output:
 
--- cc.foo:
-if: { cc.num > 2 }
+-- ftd.image:
+$on-click$: $image.toggle-dark-mode($a = $ftd.dark-mode)
+width.fixed.px: 100
+src: $image.src
 
--- ftd.integer: $cc.num
+-- ftd.image:
+src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
+width.fixed.px: 100
 
--- ftd.text: Gee
-if: { cc.flag }
+-- ftd.image:
+src: $image.new-src
+width.fixed.px: 100
+height: auto
 
 
--- ftd.text: Click here
-$on-click$: $cc.increment($a = $cc.num)
-$on-click$: $cc.toggle($a = $cc.flag)
+-- ftd.image:
+src: $image.src
+src if { image.flag }: $image.tom-and-jerry
+width.fixed.px: 100
+$on-click$: $ftd.toggle($a = $image.flag)
+
 
 -- end: output
 
 -- end: example
+
 -- end: ftd.column
 
 
@@ -742,7 +758,7 @@ border-bottom-right-radius.px: 4
 ;; border-color: $code-bg-dark
 overflow-x: auto
 max-height.fixed.px: 400
-
+max-width.fixed.px: 488
 
 -- end: ftd.column
 
