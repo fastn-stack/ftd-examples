@@ -1,0 +1,51 @@
+-- ftd.text: Hello from FTD
+padding.px: 20
+
+
+-- integer $value: 20
+
+-- ftd.text: Hello from FTD
+padding.px: $value
+$on-click$: $increment($a = $value)
+
+
+
+-- ftd.length.px len: 20
+
+-- ftd.text: Hello from FTD
+padding: $len
+
+
+
+-- boolean $flag: true
+
+-- ftd.text:
+text: Hello from FTD
+padding: $len
+padding.percent if { flag }: 20
+$on-click$: $toggle($a = $flag)
+
+
+
+
+-- void increment(a):
+integer $a:
+
+a += 1
+
+
+-- void toggle(a):
+boolean $a:
+
+a = !a
+
+
+/-- or-type length:
+
+-- px:
+caption integer value:
+
+-- percent:
+caption decimal value:
+
+-- end: length

@@ -7,6 +7,8 @@
 -- import: fifthtry.github.io/ftd-examples/examples/image as image
 -- import: fastn
 -- import: fifthtry.github.io/ftd-examples/examples/12-conditional-component as cc
+-- import: fifthtry.github.io/ftd-examples/examples/16-or-type as type
+-- import: fifthtry.github.io/ftd-examples/examples/record-data as rdt
 -- import: fifthtry.github.io/ftd-examples/examples/11-external-children as ec
 
 -- boolean flag: true
@@ -589,6 +591,151 @@ $on-click$: $ftd.toggle($a = $image.flag)
 
 -- end: example
 
+-- example: 16-or-type
+url: https://github.com/fastn-stack/ftd/blob/main/t/html/16-or-type.ftd
+
+-- code:
+lang: ftd
+
+\-- ftd.text: Hello from FTD
+padding.px: 20
+
+
+\-- integer $value: 20
+
+\-- ftd.text: Hello from FTD
+padding.px: $value
+$on-click$: $increment($a = $value)
+
+
+
+\-- ftd.length.px len: 20
+
+\-- ftd.text: Hello from FTD
+padding: $len
+
+
+
+\-- boolean $flag: true
+
+\-- ftd.text:
+text: Hello from FTD
+padding: $len
+padding.percent if { flag }: 20
+$on-click$: $toggle($a = $flag)
+
+
+
+
+\-- void increment(a):
+integer $a:
+a += 1
+
+
+\-- void toggle(a):
+boolean $a:
+
+a = !a
+
+
+
+\-- px:
+caption integer value:
+
+\-- percent:
+caption decimal value:
+
+\-- end: length
+
+-- output:
+
+-- ftd.text: Hello from FTD
+padding.px: 20
+
+-- ftd.text: click here to see `increment in length` in action.
+$on-click$: $type.increment($a = $type.value)
+
+-- ftd.text: Hello from FTD
+padding.px: $type.value
+$on-click$: $type.increment($a = $type.value)
+
+-- ftd.text: Hello from FTD
+padding: $type.len
+
+-- ftd.text: click here to see `increment` in action.
+$on-click$: $type.toggle($a = $type.flag)
+
+-- ftd.text:
+text: Hello from FTD
+padding: $type.len
+padding.percent if { type.flag }: 20
+
+
+-- end: output
+
+-- end: example
+
+-- example: 17-record
+url: https://github.com/fastn-stack/ftd/blob/main/t/html/17-record.ftd
+
+-- code:
+lang: ftd
+
+\-- record full-name:
+caption first-name:
+optional string middle-name:
+optional string last-name:
+
+
+\-- record person:
+full-name name:
+integer age:
+
+
+\-- string $name: Arpita
+
+\-- person $arpita:
+name: *$name
+age: 20
+
+
+\-- ftd.text: $arpita.name.first-name
+
+\-- ftd.text: $name
+
+
+\-- ftd.text: Change arpita.name.first-name
+$on-click$: $append($a = $arpita.name.first-name, b = FifthTry)
+
+\-- ftd.text: Change name
+$on-click$: $append($a = $name, b = FifthTry)
+
+
+
+
+\-- void append(a,b):
+string $a:
+string b:
+
+a = a + " " + b
+
+-- output:
+
+-- ftd.text: $rdt.arpita.name.first-name
+
+-- ftd.text: $rdt.name
+
+
+-- ftd.text: Change arpita.name.first-name
+$on-click$: $rdt.append($a = $rdt.arpita.name.first-name, b = FifthTry)
+
+-- ftd.text: Change name
+$on-click$: $rdt.append($a = $rdt.name, b = FifthTry)
+
+-- end: output
+
+-- end: example
+
 -- end: ftd.column
 
 
@@ -758,7 +905,7 @@ border-bottom-right-radius.px: 4
 ;; border-color: $code-bg-dark
 overflow-x: auto
 max-height.fixed.px: 400
-max-width.fixed.px: 488
+max-width.fixed.px: 709
 
 -- end: ftd.column
 
