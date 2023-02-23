@@ -1,0 +1,286 @@
+-- integer $num: 0
+
+-- ftd.column:
+spacing.fixed.px: 20
+
+-- ftd.text: Click Here!!
+color: red
+$on-click$: $increment($a=$num)
+
+
+-- ftd.integer: $num
+
+
+-- ftd.row:
+spacing.fixed.px: 20
+wrap: true
+
+
+
+-- ftd.column:
+spacing.fixed.px: 20
+align-content if { num % 9 == 0 }: top-left
+align-content if { num % 9 == 1 }: top-center
+align-content if { num % 9 == 2 }: top-right
+align-content if { num % 9 == 3 }: left
+align-content if { num % 9 == 4 }: center
+align-content if { num % 9 == 5 }: right
+align-content if { num % 9 == 6 }: bottom-left
+align-content if { num % 9 == 7 }: bottom-center
+align-content if { num % 9 == 8 }: bottom-right
+background.solid: red
+width.fixed.px: 200
+height.fixed.px: 200
+border-width.px: 1
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: yellow
+border-width.px: 1
+
+-- end: ftd.column
+
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: orange
+border-width.px: 1
+
+-- end: ftd.column
+
+
+-- end: ftd.column
+
+
+
+
+
+
+
+-- ftd.row:
+spacing.fixed.px: 20
+align-content if { num % 9 == 0 }: top-left
+align-content if { num % 9 == 1 }: top-center
+align-content if { num % 9 == 2 }: top-right
+align-content if { num % 9 == 3 }: left
+align-content if { num % 9 == 4 }: center
+align-content if { num % 9 == 5 }: right
+align-content if { num % 9 == 6 }: bottom-left
+align-content if { num % 9 == 7 }: bottom-center
+align-content if { num % 9 == 8 }: bottom-right
+background.solid: red
+width.fixed.px: 200
+height.fixed.px: 200
+border-width.px: 1
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: yellow
+border-width.px: 1
+
+-- end: ftd.column
+
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: orange
+border-width.px: 1
+
+-- end: ftd.column
+
+
+-- end: ftd.row
+
+
+
+
+
+
+
+
+-- ftd.row:
+spacing.fixed.px: 20
+align-content if { num % 9 == 0 }: top-left
+align-content if { num % 9 == 1 }: top-center
+align-content if { num % 9 == 2 }: top-right
+align-content if { num % 9 == 3 }: left
+align-content if { num % 9 == 4 }: center
+align-content if { num % 9 == 5 }: right
+align-content if { num % 9 == 6 }: bottom-left
+align-content if { num % 9 == 7 }: bottom-center
+align-content if { num % 9 == 8 }: bottom-right
+/spacing: space-between
+background.solid: green
+width.fixed.px: 200
+height.fixed.px: 200
+border-width.px: 1
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: yellow
+border-width.px: 1
+
+-- end: ftd.column
+
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: orange
+border-width.px: 1
+
+-- end: ftd.column
+
+
+-- end: ftd.row
+
+
+
+
+
+-- ftd.column:
+spacing.fixed.px: 20
+align-content if { num % 9 == 0 }: top-left
+align-content if { num % 9 == 1 }: top-center
+align-content if { num % 9 == 2 }: top-right
+align-content if { num % 9 == 3 }: left
+align-content if { num % 9 == 4 }: center
+align-content if { num % 9 == 5 }: right
+align-content if { num % 9 == 6 }: bottom-left
+align-content if { num % 9 == 7 }: bottom-center
+align-content if { num % 9 == 8 }: bottom-right
+/spacing: space-evenly
+background.solid: green
+width.fixed.px: 200
+height.fixed.px: 200
+border-width.px: 1
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: yellow
+border-width.px: 1
+
+-- end: ftd.column
+
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: orange
+border-width.px: 1
+
+-- end: ftd.column
+
+
+-- end: ftd.column
+
+
+
+
+
+-- ftd.column:
+spacing.fixed.px: 20
+background.solid: blue
+width.fixed.px: 200
+height.fixed.px: 200
+border-width.px: 1
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: yellow
+border-width.px: 1
+align-self if { num % 3 == 0 }: start
+align-self if { num % 3 == 1 }: center
+align-self if { num % 3 == 2 }: end
+
+-- end: ftd.column
+
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: orange
+border-width.px: 1
+
+-- end: ftd.column
+
+
+-- end: ftd.column
+
+
+
+-- ftd.row:
+spacing.fixed.px: 20
+background.solid: blue
+width.fixed.px: 200
+height.fixed.px: 200
+border-width.px: 1
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: yellow
+border-width.px: 1
+align-self if { num % 3 == 0 }: start
+align-self if { num % 3 == 1 }: center
+align-self if { num % 3 == 2 }: end
+
+-- end: ftd.column
+
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: orange
+border-width.px: 1
+
+-- end: ftd.column
+
+
+-- end: ftd.row
+
+
+
+-- ftd.row:
+spacing.fixed.px: 20
+background.solid: pink
+width.fixed.px: 200
+height.fixed.px: 200
+border-width.px: 1
+
+-- ftd.text:
+background.solid: yellow
+width: fill-container
+height: fill-container
+text-align if { num % 4 == 0 }: start
+text-align if { num % 4 == 1 }: center
+text-align if { num % 4 == 2 }: end
+text-align if { num % 4 == 3 }: justify
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at
+erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam,
+consequat gravida libero rhoncus ut.
+
+
+-- end: ftd.row
+
+
+
+
+-- end: ftd.row
+-- end: ftd.column
+
+
+
+-- void increment(a):
+integer $a:
+
+a += 1;

@@ -1,0 +1,118 @@
+-- boolean $flag: true
+
+-- ftd.text: Click me
+$on-click$: $toggle($a = $flag)
+
+-- ftd.text: Hello
+padding-left.px: 40
+padding-right.percent: 10
+padding-top.px: 50
+padding-bottom.percent: 7.9
+border-width.px: 2
+border-top-left-radius.percent if { flag }: 18
+z-index: -5
+
+
+-- ftd.text: Hello
+padding-vertical.px: 40
+padding-horizontal.percent if { flag } : 10
+
+
+-- ftd.row:
+spacing.fixed.px: 20
+spacing.fixed.px if { flag }: 40
+wrap: true
+wrap if { flag }: false
+border-width.px: 4
+border-width.px if { flag }: 2
+border-radius.percent: 18
+
+-- ftd.text: Hello
+
+-- ftd.text: World
+
+-- end: ftd.row
+
+
+
+-- ftd.row:
+spacing.fixed.px: 20
+align-content if { flag }: top-left
+align-content: top-center
+background.solid: red
+width.fixed.px: 400
+height.fixed.px: 100
+border-width.px: 1
+
+-- ftd.text: Hello
+-- ftd.text: World
+
+-- end: ftd.row
+
+
+-- ftd.column:
+spacing.fixed.px: 2
+align-content if { flag }: top-left
+align-content: top-center
+width.fixed.px: 400
+height.fixed.px: 100
+border-width.px: 1
+
+-- ftd.text: Hello
+-- ftd.text: World
+
+-- end: ftd.column
+
+
+-- ftd.row:
+spacing.fixed.px: 20
+width.fixed.px: 400
+width if { flag }: hug-content
+height.fixed.percent: 20
+height if { flag }: fill-container
+align-content: top-center
+border-width.px: 1
+
+
+-- ftd.text: Hello
+-- ftd.text: World
+
+-- end: ftd.row
+
+
+-- ftd.text: Hello World
+max-width.fixed.px: 20
+min-height.fixed.px: 60
+background.solid: yellow
+
+
+-- integer $num: 0
+
+
+-- ftd.text: Data
+width.fixed.px if { num % 7 == 0 }: 20
+width.fixed.percent if { num % 7 == 1 }: 20
+width.fixed.calc if { num % 7 == 2 }: 20
+width.fixed.vh if { num % 7 == 3 }: 20
+width.fixed.vw if { num % 7 == 4 }: 20
+width.fixed.em if { num % 7 == 5 }: 20
+width.fixed.rem if { num % 7 == 6 }: 20
+background.solid: red
+$on-click$: $increment($a = $num)
+
+
+
+-- void increment(a):
+integer $a:
+
+a += 1
+
+
+
+
+
+
+-- void toggle(a):
+boolean $a:
+
+a = !a

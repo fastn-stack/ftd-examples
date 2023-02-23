@@ -1,0 +1,223 @@
+-- boolean $flag: true
+
+-- void toggle(a):
+boolean $a:
+
+a = !a
+
+-- ftd.row:
+align-content: center
+
+-- ftd.text: overflow
+
+-- end: ftd.row
+
+
+-- ftd.row:
+margin-bottom.px: 100
+padding.px: 40
+spacing.fixed.px: 40
+width: fill-container
+
+
+-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow if { flag }: scroll
+$on-click$: $toggle($a=$flag)
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow: visible
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow: hidden
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+
+-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow: auto
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+-- end: ftd.row
+
+-- boolean $flag: true
+
+
+
+
+
+
+
+
+-- ftd.row:
+align-content: center
+
+-- ftd.text: overflow-x
+
+-- end: ftd.row
+
+
+-- ftd.row:
+margin-top.px: 40
+padding.px: 40
+spacing.fixed.px: 40
+width: fill-container
+
+
+-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-x: scroll
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-x: visible
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-x: hidden
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+
+-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-x: auto
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+-- end: ftd.row
+
+
+
+
+
+-- ftd.row:
+align-content: center
+
+-- ftd.text: overflow-y
+
+-- end: ftd.row
+
+
+-- ftd.row:
+margin-top.px: 40
+padding.px: 40
+spacing.fixed.px: 40
+width: fill-container
+
+
+-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-y: scroll
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-y: visible
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-y: hidden
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+
+-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-y: auto
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+
+-- ftd.column:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+resize: both
+
+-- end: ftd.column
+
+-- end: ftd.row
+
+
+
+
+
+
+
+

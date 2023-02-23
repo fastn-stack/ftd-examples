@@ -1,0 +1,139 @@
+-- ftd.row:
+spacing.fixed.px: 20
+
+-- ftd.row:
+spacing.fixed.px: 5
+
+-- ftd.text: ftd.dark-mode:
+
+-- ftd.boolean: $ftd.dark-mode
+color: $bgcolor
+
+-- end: ftd.row
+
+
+
+-- ftd.row:
+spacing.fixed.px: 5
+
+-- ftd.text: ftd.system-dark-mode:
+
+-- ftd.boolean: $ftd.system-dark-mode
+color: $bgcolor
+
+-- end: ftd.row
+
+
+-- ftd.row:
+spacing.fixed.px: 5
+
+-- ftd.text: ftd.follow-system-dark-mode:
+
+-- ftd.boolean: $ftd.follow-system-dark-mode
+color: $bgcolor
+
+-- end: ftd.row
+
+
+
+-- end: ftd.row
+
+-- ftd.column:
+spacing.fixed.px: 40
+
+-- ftd.row:
+spacing.fixed.px: 20
+
+-- ftd.text: Dark Mode
+$on-click$: $set-dark()
+
+-- ftd.text: Light Mode
+$on-click$: $set-light()
+
+-- ftd.text: System Mode
+$on-click$: $set-system()
+
+-- end: ftd.row
+
+-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+align-content: center
+background.solid: red
+border-width.px: 3
+border-color: $bgcolor
+
+-- ftd.text: Hello
+-- ftd.text: World
+
+-- end: ftd.column
+
+
+-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+align-content: center
+background.solid: $bgcolor
+border-color: red
+border-width.px: 3
+
+-- ftd.text: Hello
+-- ftd.text: World
+
+-- end: ftd.column
+
+-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+align-content: center
+background: $background-fill
+border-left-color: $bgcolor
+border-left-width.px: 3
+border-top-color: red
+border-top-width.px: 4
+border-right-color: blue
+border-right-width.px: 1
+border-bottom-color: orange
+border-bottom-width.px: 2
+
+-- ftd.text: Hello
+
+-- ftd.text: World
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+
+
+
+-- ftd.background.solid background-fill:
+light: pink
+dark: purple
+
+
+-- ftd.color bgcolor:
+light: green
+dark: blue
+
+
+-- void toggle-dark-mode(a):
+boolean $a:
+
+a = !a
+
+
+
+-- void set-dark():
+
+enable_dark_mode()
+
+
+-- void set-light():
+
+enable_light_mode()
+
+
+-- void set-system():
+
+enable_system_mode()

@@ -5,12 +5,20 @@
 -- import: fifthtry.github.io/ftd-examples/examples/record as rd
 -- import: fifthtry.github.io/ftd-examples/examples/10-conditional-properties as cp
 -- import: fifthtry.github.io/ftd-examples/examples/image as image
+-- import: fifthtry.github.io/ftd-examples/examples/21-color as color
 -- import: fastn
 -- import: fifthtry.github.io/ftd-examples/examples/12-conditional-component as cc
 -- import: fifthtry.github.io/ftd-examples/examples/16-or-type as type
+-- import: fifthtry.github.io/ftd-examples/examples/18-styles as styles
 -- import: fifthtry.github.io/ftd-examples/examples/record-data as rdt
+-- import: fifthtry.github.io/ftd-examples/examples/19-complex-styles as cms
+-- import: fifthtry.github.io/ftd-examples/examples/22-test as test
+-- import: fifthtry.github.io/ftd-examples/examples/23-alignment as alignment
+-- import: fifthtry.github.io/ftd-examples/examples/23-doc-site as ds
+-- import: fifthtry.github.io/ftd-examples/examples/25-expander as expander
 -- import: fifthtry.github.io/ftd-examples/examples/11-external-children as ec
-
+-- import: fifthtry.github.io/ftd-examples/examples/25-overflow as ofw
+-- import: fifthtry.github.io/ftd-examples/examples/27-optional as optional
 -- boolean flag: true
 
 -- ftd.column:
@@ -736,6 +744,2518 @@ $on-click$: $rdt.append($a = $rdt.name, b = FifthTry)
 
 -- end: example
 
+-- example: 18-styles
+url: https://github.com/fastn-stack/ftd/blob/main/t/html/18-styles.ftd
+
+-- code:
+lang: ftd
+
+\-- boolean $flag: true
+
+\-- ftd.text: Click me
+$on-click$: $toggle($a = $flag)
+
+\-- ftd.text: Hello
+padding-left.px: 40
+padding-right.percent: 10
+padding-top.px: 50
+padding-bottom.percent: 7.9
+border-width.px: 2
+border-top-left-radius.percent if { flag }: 18
+z-index: -5
+
+
+\-- ftd.text: Hello
+padding-vertical.px: 40
+padding-horizontal.percent if { flag } : 10
+
+
+\-- ftd.row:
+spacing.fixed.px: 20
+spacing.fixed.px if { flag }: 40
+wrap: true
+wrap if { flag }: false
+border-width.px: 4
+border-width.px if { flag }: 2
+border-radius.percent: 18
+
+\-- ftd.text: Hello
+\-- ftd.text: World
+
+\-- end: ftd.row
+
+
+
+\-- ftd.row:
+spacing.fixed.px: 20
+align-content if { flag }: top-left
+align-content: top-center
+background.solid: red
+width.fixed.px: 400
+height.fixed.px: 100
+border-width.px: 1
+
+\-- ftd.text: Hello
+\-- ftd.text: World
+
+\-- end: ftd.row
+
+
+\-- ftd.column:
+spacing.fixed.px: 2
+align-content if { flag }: top-left
+align-content: top-center
+width.fixed.px: 400
+height.fixed.px: 100
+border-width.px: 1
+
+\-- ftd.text: Hello
+\-- ftd.text: World
+
+\-- end: ftd.column
+
+
+\-- ftd.row:
+spacing.fixed.px: 20
+width.fixed.px: 400
+width if { flag }: hug-content
+height.fixed.percent: 20
+height if { flag }: fill-container
+align-content: top-center
+border-width.px: 1
+
+
+\-- ftd.text: Hello
+\-- ftd.text: World
+
+\-- end: ftd.row
+
+
+\-- ftd.text: Hello World
+max-width.fixed.px: 20
+min-height.fixed.px: 60
+background.solid: yellow
+
+
+\-- integer $num: 0
+
+
+\-- ftd.text: Data
+width.fixed.px if { num % 7 == 0 }: 20
+width.fixed.percent if { num % 7 == 1 }: 20
+width.fixed.calc if { num % 7 == 2 }: 20
+width.fixed.vh if { num % 7 == 3 }: 20
+width.fixed.vw if { num % 7 == 4 }: 20
+width.fixed.em if { num % 7 == 5 }: 20
+width.fixed.rem if { num % 7 == 6 }: 20
+background.solid: red
+$on-click$: $increment($a = $num)
+
+
+
+\-- void increment(a):
+integer $a:
+
+a += 1
+
+
+
+
+
+
+\-- void toggle(a):
+boolean $a:
+
+a = !a
+
+-- output:
+
+
+-- ftd.text: Click me
+$on-click$: $styles.toggle($a = $styles.flag)
+
+-- ftd.text: Hello
+padding-left.px: 40
+padding-right.percent: 10
+padding-top.px: 50
+padding-bottom.percent: 7.9
+border-width.px: 2
+border-top-left-radius.percent if { styles.flag }: 18
+z-index: -5
+
+
+-- ftd.text: Hello
+padding-vertical.px: 40
+padding-horizontal.percent if { styles.flag } : 10
+
+
+-- ftd.row:
+spacing.fixed.px: 20
+spacing.fixed.px if { styles.flag }: 40
+wrap: true
+wrap if { styles.flag }: false
+border-width.px: 4
+border-width.px if { styles.flag }: 2
+border-radius.percent: 18
+
+-- ftd.text: Hello
+
+-- ftd.text: World
+
+-- end: ftd.row
+
+
+-- ftd.row:
+spacing.fixed.px: 20
+align-content if { styles.flag }: top-left
+align-content: top-center
+background.solid: red
+width.fixed.px: 400
+height.fixed.px: 100
+border-width.px: 1
+
+-- ftd.text: Hello
+
+-- ftd.text: World
+
+-- end: ftd.row
+
+
+-- ftd.column:
+spacing.fixed.px: 2
+align-content if { styles.flag }: top-left
+align-content: top-center
+width.fixed.px: 400
+height.fixed.px: 100
+border-width.px: 1
+
+-- ftd.text: Hello
+
+-- ftd.text: World
+
+-- end: ftd.column
+
+
+-- ftd.row:
+spacing.fixed.px: 20
+width.fixed.px: 400
+width if { styles.flag }: hug-content
+height.fixed.percent: 20
+height if { styles.flag }: fill-container
+align-content: top-center
+border-width.px: 1
+
+
+-- ftd.text: Hello
+
+-- ftd.text: World
+
+-- end: ftd.row
+
+
+-- ftd.text: Hello World
+max-width.fixed.px: 20
+min-height.fixed.px: 60
+background.solid: yellow
+
+-- ftd.text: Data
+width.fixed.px if { styles.num % 7 == 0 }: 20
+width.fixed.percent if { styles.num % 7 == 1 }: 20
+width.fixed.calc if { styles.num % 7 == 2 }: 20
+width.fixed.vh if { styles.num % 7 == 3 }: 20
+width.fixed.vw if { styles.num % 7 == 4 }: 20
+width.fixed.em if { styles.num % 7 == 5 }: 20
+width.fixed.rem if { styles.num % 7 == 6 }: 20
+background.solid: red
+$on-click$: $styles.increment($a = $styles.num)
+
+-- end: output
+
+-- end: example
+
+-- example: 19-complex-styles
+url: https://github.com/fastn-stack/ftd/blob/main/t/html/19-complex-styles.ftd
+
+-- code:
+lang: ftd
+
+
+\-- boolean $flag: true
+
+\-- ftd.text: Click me
+$on-click$: $toggle($a = $flag)
+
+
+\-- foo:
+px if { flag }: 30
+px: 40
+resize if { flag }: hug-content
+resize.fixed.px: 50
+align if { flag }: top-left
+align: top-center
+
+
+
+\-- component foo:
+integer px:
+ftd.resizing resize:
+ftd.align align:
+
+\-- ftd.column:
+width if { flag }: $foo.resize
+width.fixed.px: $foo.px
+align-content: $foo.align
+
+\-- ftd.text: Hello
+height.fixed.px if { flag }: $foo.px
+height: $foo.resize
+
+\-- ftd.text: World
+
+\-- end: ftd.column
+
+\-- end: foo
+
+
+
+\-- void toggle(a):
+boolean $a:
+
+a = !a
+
+-- output:
+
+
+-- ftd.text: Click me
+$on-click$: $cms.toggle($a = $cms.flag)
+
+-- cms.foo:
+px if { cms.flag }: 30
+px: 40
+resize if { cms.flag }: hug-content
+resize.fixed.px: 50
+align if { cms.flag }: top-left
+align: top-center
+
+
+-- end: output
+
+-- end: example
+
+
+-- example: 21-color
+url: https://github.com/fastn-stack/ftd/blob/main/t/html/21-color.ftd
+
+-- code:
+lang: ftd
+
+
+\-- ftd.row:
+spacing.fixed.px: 20
+
+\-- ftd.row:
+spacing.fixed.px: 5
+
+\-- ftd.text: ftd.dark-mode:
+
+\-- ftd.boolean: $ftd.dark-mode
+color: $bgcolor
+
+\-- end: ftd.row
+
+
+
+\-- ftd.row:
+spacing.fixed.px: 5
+
+\-- ftd.text: ftd.system-dark-mode:
+
+\-- ftd.boolean: $ftd.system-dark-mode
+color: $bgcolor
+
+\-- end: ftd.row
+
+
+\-- ftd.row:
+spacing.fixed.px: 5
+
+\-- ftd.text: ftd.follow-system-dark-mode:
+
+\-- ftd.boolean: $ftd.follow-system-dark-mode
+color: $bgcolor
+
+\-- end: ftd.row
+
+
+
+\-- end: ftd.row
+
+\-- ftd.column:
+spacing.fixed.px: 40
+
+\-- ftd.row:
+spacing.fixed.px: 20
+
+\-- ftd.text: Dark Mode
+$on-click$: $set-dark()
+
+\-- ftd.text: Light Mode
+$on-click$: $set-light()
+
+\-- ftd.text: System Mode
+$on-click$: $set-system()
+
+\-- end: ftd.row
+
+\-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+align-content: center
+background.solid: red
+border-width.px: 3
+border-color: $bgcolor
+
+\-- ftd.text: Hello
+\-- ftd.text: World
+
+\-- end: ftd.column
+
+
+\-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+align-content: center
+background.solid: $bgcolor
+border-color: red
+border-width.px: 3
+
+\-- ftd.text: Hello
+\-- ftd.text: World
+
+\-- end: ftd.column
+
+\-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+align-content: center
+background: $background-fill
+border-left-color: $bgcolor
+border-left-width.px: 3
+border-top-color: red
+border-top-width.px: 4
+border-right-color: blue
+border-right-width.px: 1
+border-bottom-color: orange
+border-bottom-width.px: 2
+
+\-- ftd.text: Hello
+\-- ftd.text: World
+
+\-- end: ftd.column
+
+\-- end: ftd.column
+
+
+
+
+\-- ftd.background.solid background-fill:
+light: pink
+dark: purple
+
+
+\-- ftd.color bgcolor:
+light: green
+dark: blue
+
+
+\-- void toggle-dark-mode(a):
+boolean $a:
+
+a = !a
+
+
+
+\-- void set-dark():
+
+enable_dark_mode()
+
+
+\-- void set-light():
+
+enable_light_mode()
+
+
+\-- void set-system():
+
+enable_system_mode()
+
+-- output:
+
+
+-- ftd.row:
+spacing.fixed.px: 20
+
+-- ftd.row:
+spacing.fixed.px: 5
+
+-- ftd.text: ftd.dark-mode:
+
+-- ftd.boolean: $ftd.dark-mode
+color: $color.bgcolor
+
+-- end: ftd.row
+
+
+
+-- ftd.row:
+spacing.fixed.px: 5
+
+-- ftd.text: ftd.system-dark-mode:
+
+-- ftd.boolean: $ftd.system-dark-mode
+color: $color.bgcolor
+
+-- end: ftd.row
+
+
+-- ftd.row:
+spacing.fixed.px: 5
+
+-- ftd.text: ftd.follow-system-dark-mode:
+
+-- ftd.boolean: $ftd.follow-system-dark-mode
+color: $color.bgcolor
+
+-- end: ftd.row
+
+
+
+-- end: ftd.row
+
+-- ftd.column:
+spacing.fixed.px: 40
+
+-- ftd.row:
+spacing.fixed.px: 20
+
+-- ftd.text: Dark Mode
+$on-click$: $color.set-dark()
+
+-- ftd.text: Light Mode
+$on-click$: $color.set-light()
+
+-- ftd.text: System Mode
+$on-click$: $color.set-system()
+
+-- end: ftd.row
+
+-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+align-content: center
+background.solid: red
+border-width.px: 3
+border-color: $color.bgcolor
+
+-- ftd.text: Hello
+
+-- ftd.text: World
+
+-- end: ftd.column
+
+
+-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+align-content: center
+background.solid: $color.bgcolor
+border-color: red
+border-width.px: 3
+
+-- ftd.text: Hello
+
+-- ftd.text: World
+
+-- end: ftd.column
+
+-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+align-content: center
+background: $color.background-fill
+border-left-color: $color.bgcolor
+border-left-width.px: 3
+border-top-color: red
+border-top-width.px: 4
+border-right-color: blue
+border-right-width.px: 1
+border-bottom-color: orange
+border-bottom-width.px: 2
+
+-- ftd.text: Hello
+
+-- ftd.text: World
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+
+-- end: output
+
+-- end: example
+
+
+
+-- example: 22-test
+url: https://github.com/fastn-stack/ftd/blob/main/t/html/22-test.ftd
+
+-- code:
+lang: ftd
+
+
+\-- ftd.text: Hello World
+
+\-- ftd.row:
+padding.px: 40
+
+\-- ftd.text: Hello World
+padding.px: 2
+
+\-- ftd.text: again
+padding.px: 2
+
+\-- end: ftd.row
+
+
+\-- integer num: 20
+
+\-- ftd.row:
+padding.px: 40
+
+\-- ftd.text: Hello World
+padding.px if {num > 20}: 20
+padding.px: 2
+
+\-- ftd.text: again
+padding.px if {num == 20}: 20
+padding.px: 2
+
+\-- end: ftd.row
+
+-- output:
+
+
+-- ftd.text: Hello World
+
+-- ftd.row:
+padding.px: 40
+
+-- ftd.text: Hello World
+padding.px: 2
+
+-- ftd.text: again
+padding.px: 2
+
+-- end: ftd.row
+
+
+-- ftd.row:
+padding.px: 40
+
+-- ftd.text: Hello World
+padding.px if {test.num > 20}: 20
+padding.px: 2
+
+-- ftd.text: again
+padding.px if { test.num == 20}: 20
+padding.px: 2
+
+-- end: ftd.row
+
+-- end: output
+
+-- end: example
+
+
+
+-- example: 23-alignment
+url: https://github.com/fastn-stack/ftd/blob/main/t/html/23-alignment.ftd
+
+-- code:
+lang: ftd
+
+
+\-- integer $num: 0
+
+\-- ftd.column:
+spacing.fixed.px: 20
+
+\-- ftd.text: Click Here!!
+color: red
+$on-click$: $increment($a=$num)
+
+
+\-- ftd.integer: $num
+
+
+\-- ftd.row:
+spacing.fixed.px: 20
+wrap: true
+
+
+
+\-- ftd.column:
+spacing.fixed.px: 20
+align-content if { num % 9 == 0 }: top-left
+align-content if { num % 9 == 1 }: top-center
+align-content if { num % 9 == 2 }: top-right
+align-content if { num % 9 == 3 }: left
+align-content if { num % 9 == 4 }: center
+align-content if { num % 9 == 5 }: right
+align-content if { num % 9 == 6 }: bottom-left
+align-content if { num % 9 == 7 }: bottom-center
+align-content if { num % 9 == 8 }: bottom-right
+background.solid: red
+width.fixed.px: 200
+height.fixed.px: 200
+border-width.px: 1
+
+\-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: yellow
+border-width.px: 1
+
+\-- end: ftd.column
+
+
+\-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: orange
+border-width.px: 1
+
+\-- end: ftd.column
+
+
+\-- end: ftd.column
+
+
+
+
+
+
+
+\-- ftd.row:
+spacing.fixed.px: 20
+align-content if { num % 9 == 0 }: top-left
+align-content if { num % 9 == 1 }: top-center
+align-content if { num % 9 == 2 }: top-right
+align-content if { num % 9 == 3 }: left
+align-content if { num % 9 == 4 }: center
+align-content if { num % 9 == 5 }: right
+align-content if { num % 9 == 6 }: bottom-left
+align-content if { num % 9 == 7 }: bottom-center
+align-content if { num % 9 == 8 }: bottom-right
+background.solid: red
+width.fixed.px: 200
+height.fixed.px: 200
+border-width.px: 1
+
+\-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: yellow
+border-width.px: 1
+
+\-- end: ftd.column
+
+
+\-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: orange
+border-width.px: 1
+
+\-- end: ftd.column
+
+
+\-- end: ftd.row
+
+
+
+
+
+
+
+
+\-- ftd.row:
+spacing.fixed.px: 20
+align-content if { num % 9 == 0 }: top-left
+align-content if { num % 9 == 1 }: top-center
+align-content if { num % 9 == 2 }: top-right
+align-content if { num % 9 == 3 }: left
+align-content if { num % 9 == 4 }: center
+align-content if { num % 9 == 5 }: right
+align-content if { num % 9 == 6 }: bottom-left
+align-content if { num % 9 == 7 }: bottom-center
+align-content if { num % 9 == 8 }: bottom-right
+/spacing: space-between
+background.solid: green
+width.fixed.px: 200
+height.fixed.px: 200
+border-width.px: 1
+
+\-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: yellow
+border-width.px: 1
+
+\-- end: ftd.column
+
+
+\-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: orange
+border-width.px: 1
+
+\-- end: ftd.column
+
+
+\-- end: ftd.row
+
+
+
+
+
+\-- ftd.column:
+spacing.fixed.px: 20
+align-content if { num % 9 == 0 }: top-left
+align-content if { num % 9 == 1 }: top-center
+align-content if { num % 9 == 2 }: top-right
+align-content if { num % 9 == 3 }: left
+align-content if { num % 9 == 4 }: center
+align-content if { num % 9 == 5 }: right
+align-content if { num % 9 == 6 }: bottom-left
+align-content if { num % 9 == 7 }: bottom-center
+align-content if { num % 9 == 8 }: bottom-right
+/spacing: space-evenly
+background.solid: green
+width.fixed.px: 200
+height.fixed.px: 200
+border-width.px: 1
+
+\-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: yellow
+border-width.px: 1
+
+\-- end: ftd.column
+
+
+\-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: orange
+border-width.px: 1
+
+\-- end: ftd.column
+
+
+\-- end: ftd.column
+
+
+
+
+
+\-- ftd.column:
+spacing.fixed.px: 20
+background.solid: blue
+width.fixed.px: 200
+height.fixed.px: 200
+border-width.px: 1
+
+\-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: yellow
+border-width.px: 1
+align-self if { num % 3 == 0 }: start
+align-self if { num % 3 == 1 }: center
+align-self if { num % 3 == 2 }: end
+
+\-- end: ftd.column
+
+
+\-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: orange
+border-width.px: 1
+
+\-- end: ftd.column
+
+
+\-- end: ftd.column
+
+
+
+\-- ftd.row:
+spacing.fixed.px: 20
+background.solid: blue
+width.fixed.px: 200
+height.fixed.px: 200
+border-width.px: 1
+
+\-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: yellow
+border-width.px: 1
+align-self if { num % 3 == 0 }: start
+align-self if { num % 3 == 1 }: center
+align-self if { num % 3 == 2 }: end
+
+\-- end: ftd.column
+
+
+\-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: orange
+border-width.px: 1
+
+\-- end: ftd.column
+
+
+\-- end: ftd.row
+
+
+
+\-- ftd.row:
+spacing.fixed.px: 20
+background.solid: pink
+width.fixed.px: 200
+height.fixed.px: 200
+border-width.px: 1
+
+\-- ftd.text:
+background.solid: yellow
+width: fill-container
+height: fill-container
+text-align if { num % 4 == 0 }: start
+text-align if { num % 4 == 1 }: center
+text-align if { num % 4 == 2 }: end
+text-align if { num % 4 == 3 }: justify
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at
+erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam,
+consequat gravida libero rhoncus ut.
+
+
+\-- end: ftd.row
+
+
+
+
+\-- end: ftd.row
+\-- end: ftd.column
+
+
+
+\-- void increment(a):
+integer $a:
+
+a += 1;
+
+-- output:
+
+-- ftd.column:
+spacing.fixed.px: 20
+
+-- ftd.text: Click Here!!
+color: red
+$on-click$: $alignment.increment($a=$alignment.num)
+
+
+-- ftd.integer: $alignment.num
+
+-- ftd.row:
+spacing.fixed.px: 20
+wrap: true
+
+
+-- ftd.column:
+spacing.fixed.px: 20
+align-content if { alignment.num % 9 == 0 }: top-left
+align-content if { alignment.num % 9 == 1 }: top-center
+align-content if { alignment.num % 9 == 2 }: top-right
+align-content if { alignment.num % 9 == 3 }: left
+align-content if { alignment.num % 9 == 4 }: center
+align-content if { alignment.num % 9 == 5 }: right
+align-content if { alignment.num % 9 == 6 }: bottom-left
+align-content if { alignment.num % 9 == 7 }: bottom-center
+align-content if { alignment.num % 9 == 8 }: bottom-right
+background.solid: red
+width.fixed.px: 200
+height.fixed.px: 200
+border-width.px: 1
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: yellow
+border-width.px: 1
+
+-- end: ftd.column
+
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: orange
+border-width.px: 1
+
+-- end: ftd.column
+
+
+-- end: ftd.column
+
+
+
+
+
+
+
+-- ftd.row:
+spacing.fixed.px: 20
+align-content if { alignment.num % 9 == 0 }: top-left
+align-content if { alignment.num % 9 == 1 }: top-center
+align-content if { alignment.num % 9 == 2 }: top-right
+align-content if { alignment.num % 9 == 3 }: left
+align-content if { alignment.num % 9 == 4 }: center
+align-content if { alignment.num % 9 == 5 }: right
+align-content if { alignment.num % 9 == 6 }: bottom-left
+align-content if { alignment.num % 9 == 7 }: bottom-center
+align-content if { alignment.num % 9 == 8 }: bottom-right
+background.solid: red
+width.fixed.px: 200
+height.fixed.px: 200
+border-width.px: 1
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: yellow
+border-width.px: 1
+
+-- end: ftd.column
+
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: orange
+border-width.px: 1
+
+-- end: ftd.column
+
+
+-- end: ftd.row
+
+
+
+
+
+
+
+
+-- ftd.row:
+spacing.fixed.px: 20
+align-content if { alignment.num % 9 == 0 }: top-left
+align-content if { alignment.num % 9 == 1 }: top-center
+align-content if { alignment.num % 9 == 2 }: top-right
+align-content if { alignment.num % 9 == 3 }: left
+align-content if { alignment.num % 9 == 4 }: center
+align-content if { alignment.num % 9 == 5 }: right
+align-content if { alignment.num % 9 == 6 }: bottom-left
+align-content if { alignment.num % 9 == 7 }: bottom-center
+align-content if { alignment.num % 9 == 8 }: bottom-right
+/spacing: space-between
+background.solid: green
+width.fixed.px: 200
+height.fixed.px: 200
+border-width.px: 1
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: yellow
+border-width.px: 1
+
+-- end: ftd.column
+
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: orange
+border-width.px: 1
+
+-- end: ftd.column
+
+
+-- end: ftd.row
+
+
+
+
+
+-- ftd.column:
+spacing.fixed.px: 20
+align-content if { alignment.num % 9 == 0 }: top-left
+align-content if { alignment.num % 9 == 1 }: top-center
+align-content if { alignment.num % 9 == 2 }: top-right
+align-content if { alignment.num % 9 == 3 }: left
+align-content if { alignment.num % 9 == 4 }: center
+align-content if { alignment.num % 9 == 5 }: right
+align-content if { alignment.num % 9 == 6 }: bottom-left
+align-content if { alignment.num % 9 == 7 }: bottom-center
+align-content if { alignment.num % 9 == 8 }: bottom-right
+/spacing: space-evenly
+background.solid: green
+width.fixed.px: 200
+height.fixed.px: 200
+border-width.px: 1
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: yellow
+border-width.px: 1
+
+-- end: ftd.column
+
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: orange
+border-width.px: 1
+
+-- end: ftd.column
+
+
+-- end: ftd.column
+
+
+
+
+
+-- ftd.column:
+spacing.fixed.px: 20
+background.solid: blue
+width.fixed.px: 200
+height.fixed.px: 200
+border-width.px: 1
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: yellow
+border-width.px: 1
+align-self if { alignment.num % 3 == 0 }: start
+align-self if { alignment.num % 3 == 1 }: center
+align-self if { alignment.num % 3 == 2 }: end
+
+-- end: ftd.column
+
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: orange
+border-width.px: 1
+
+-- end: ftd.column
+
+
+-- end: ftd.column
+
+
+
+-- ftd.row:
+spacing.fixed.px: 20
+background.solid: blue
+width.fixed.px: 200
+height.fixed.px: 200
+border-width.px: 1
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: yellow
+border-width.px: 1
+align-self if { alignment.num % 3 == 0 }: start
+align-self if { alignment.num % 3 == 1 }: center
+align-self if { alignment.num % 3 == 2 }: end
+
+-- end: ftd.column
+
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: orange
+border-width.px: 1
+
+-- end: ftd.column
+
+
+-- end: ftd.row
+
+
+
+-- ftd.row:
+spacing.fixed.px: 20
+background.solid: pink
+width.fixed.px: 200
+height.fixed.px: 200
+border-width.px: 1
+
+-- ftd.text:
+background.solid: yellow
+width: fill-container
+height: fill-container
+text-align if { alignment.num % 4 == 0 }: start
+text-align if { alignment.num % 4 == 1 }: center
+text-align if { alignment.num % 4 == 2 }: end
+text-align if { alignment.num % 4 == 3 }: justify
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at
+erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam,
+consequat gravida libero rhoncus ut.
+
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: output
+
+-- end: example
+
+
+
+-- example: 24-margin
+url: https://github.com/fastn-stack/ftd/blob/main/t/html/24-margin.ftd
+
+-- code:
+lang: ftd
+
+
+\-- ftd.column:
+width: fill-container
+height: fill-container
+
+\-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+background.solid: yellow
+border-width.px: 1
+margin-horizontal.px: 60
+
+\-- end: ftd.column
+
+
+\-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+background.solid: yellow
+border-width.px: 1
+margin-top.px: 40
+
+\-- end: ftd.column
+
+\-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+background.solid: green
+border-width.px: 1
+margin.px: 100
+
+\-- end: ftd.column
+
+\-- end: ftd.column
+
+-- output:
+
+-- ftd.column:
+width: fill-container
+height: fill-container
+
+-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+background.solid: yellow
+border-width.px: 1
+margin-horizontal.px: 60
+
+-- end: ftd.column
+
+
+-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+background.solid: yellow
+border-width.px: 1
+margin-top.px: 40
+
+-- end: ftd.column
+
+-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+background.solid: green
+border-width.px: 1
+margin.px: 100
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: output
+
+-- end: example
+
+
+
+-- example: 23-doc-site
+url: https://github.com/fastn-stack/ftd/blob/main/t/html/23-doc-site.ftd
+
+-- code:
+lang: ftd
+
+
+
+\-- page: PAGE TITLE
+section-item: $item
+subsection-item: $sub-item
+toc: $toc
+navtitle: Section-one
+nav-subtitle: Subsection-one 
+current-title: Toc Title 1
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\-- image: Image 1
+src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
+
+\-- image: Image 1
+src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
+
+\-- image: Image 1
+src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
+
+\-- image: Image 1
+src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
+
+\-- image: Image 1
+src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
+
+
+\-- image: Image 1
+src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
+
+\-- end: page
+
+
+
+
+
+
+
+
+
+
+\-- component page:
+optional caption title:
+toc-item list section-item:
+toc-item list subsection-item:
+toc-items list toc:
+optional body body:
+string navtitle:
+string nav-subtitle:
+string current-title:
+children container:
+
+\-- ftd.column:
+background.solid: $base
+width.fixed.percent: 100
+
+
+
+\-- header:
+section-item: $page.section-item
+subsection-item:$page.subsection-item
+toc: $page.toc
+navtitle: $page.navtitle
+nav-subtitle: $page.nav-subtitle
+current-title: $page.current-title
+
+
+\-- ftd.row:
+padding.px: 48
+spacing.fixed.px: 48
+width.fixed.percent: 100
+
+\-- ftd.column:
+background.solid: $step-1
+padding.px: 24
+min-height.fixed.percent: 100
+width.fixed.percent: 20
+
+\-- print-toc:
+item: $page.toc
+
+\-- end: ftd.column
+
+\-- ftd.column:
+spacing.fixed.px: 32
+width.fixed.percent: 80
+
+\-- ftd.text: $page.title
+color: $text-strong
+
+\-- ftd.text: $page.body
+color: $text-strong
+
+\-- ftd.column:
+children: $page.container
+spacing.fixed.px: 32
+width.fixed.percent: 100
+
+\-- end: ftd.column
+
+\-- end: ftd.column
+
+\-- end: ftd.row
+
+\-- end: ftd.column
+
+\-- end: page
+
+
+
+
+
+
+
+
+
+
+\-- component print-toc-item:
+toc-item list item:
+
+\-- ftd.row:
+padding-left.px: 30
+
+\-- print-toc-item-one:
+item: $obj.name
+url: $obj.url
+$loop$: $print-toc-item.item as $obj
+
+\-- end: ftd.row
+
+\-- end: print-toc-item
+
+
+
+
+
+
+
+
+
+
+
+\-- component print-toc-item-one:
+caption item:
+string url:
+
+\-- ftd.row:
+padding-left.px: 30
+align-content: center
+
+\-- ftd.text: 
+text:$print-toc-item-one.item
+link:$print-toc-item-one.url
+color: $text-strong
+
+\-- end: ftd.row
+
+\-- end: print-toc-item-one
+
+
+
+
+
+
+
+
+
+
+\-- component print-toc:
+toc-items list item:
+
+\-- ftd.column:
+
+\-- print-toc-one:
+item: $obj.name
+children: $obj.children
+$loop$: $print-toc.item as $obj
+
+\-- end: ftd.column
+
+\-- end: print-toc
+
+
+
+
+
+
+
+
+
+
+\-- component print-toc-one:
+string item:
+toc-items list children:
+
+\-- ftd.column:
+
+\-- ftd.column:
+
+\-- ftd.text: 
+text: $print-toc-one.item
+padding-bottom.px: 8
+color: $text-strong
+
+\-- end: ftd.column
+
+\-- ftd.column:
+padding-left.px: 12
+
+\-- print-toc-one:
+item: $obj.name
+children: $obj.children
+$loop$: $print-toc-one.children as $obj
+
+\-- end: ftd.column
+
+\-- end: ftd.column
+
+\-- end: print-toc-one
+
+
+
+
+
+
+
+
+
+
+\-- component image:
+optional caption title:
+ftd.image-src src:
+ftd.align aaa: center
+
+\-- ftd.column: 
+width.fixed.percent: 100
+align-content: $image.aaa
+spacing.fixed.px: 12
+
+\-- ftd.column:
+width.fixed.percent: 100
+align-content: center
+
+\-- ftd.image:
+src: $image.src
+width.fixed.px: 400
+height.fixed.px: 100
+
+\-- end: ftd.column
+
+\-- ftd.text:
+text: $image.title
+color: $text-strong
+
+\-- end: ftd.column
+
+\-- end: image
+
+
+
+
+
+
+
+
+
+
+
+\-- component header:
+toc-item list section-item:
+toc-item list subsection-item:
+toc-items list toc:
+string navtitle:
+string nav-subtitle:
+string current-title:
+
+\-- ftd.column:
+width.fixed.percent: 100
+
+\-- ftd.row:
+width.fixed.percent: 100
+padding.px: 32
+
+\-- ftd.row:
+width.fixed.percent: 26
+
+\-- ftd.image:
+src: $src
+
+\-- end: ftd.row
+
+\-- ftd.row:
+width.fixed.percent: 74
+align-content: right
+
+\-- print-toc-item:
+item: $header.section-item
+
+\-- end: ftd.row
+
+\-- end: ftd.row
+
+\-- ftd.row:
+background.solid: $step-1
+width.fixed.percent: 100
+padding-vertical.px: 24
+padding-horizontal.px: 32
+
+\-- ftd.column:
+width.fixed.percent: 26
+spacing.fixed.px: 12
+
+\-- ftd.text: $header.navtitle
+color: $text-strong
+
+\-- ftd.row:
+spacing.fixed.px: 8
+
+\-- ftd.text: $header.nav-subtitle
+color: $text-strong
+\-- ftd.row:
+
+\-- ftd.text: \-
+color: $text-strong
+
+\-- ftd.text: \>
+color: $text-strong
+padding-top.percent: 10.7
+
+\-- end: ftd.row
+
+\-- ftd.text: $header.current-title
+color: $text-strong
+
+\-- end: ftd.row
+
+\-- end: ftd.column
+
+\-- ftd.column:
+align-content: right
+width.fixed.percent: 100
+align-self: center
+
+\-- ftd.row:
+width.fixed.percent: 100
+align-content: right
+
+
+\-- ftd.column:
+align-content: center
+
+
+\-- ftd.column:
+align-content: center
+
+
+\-- print-toc-item:
+item: $header.subsection-item
+
+\-- end: ftd.column
+
+\-- end: ftd.row
+
+\-- end: ftd.column
+
+\-- end: ftd.row
+
+\-- end: ftd.column
+
+\-- end: header
+
+
+
+
+
+
+
+
+
+
+\-- ftd.color base:
+light: #18181b
+dark: #18181b
+
+\-- ftd.color step-1:
+light: #141414
+dark: #141414
+
+\-- ftd.color text-strong:
+light: #ffffff
+dark: #ffffff
+
+
+
+
+
+\-- record toc-item:
+caption name:
+string url:
+
+\-- toc-item list item:
+
+\-- toc-item: Section-one
+url: /
+
+\-- toc-item: Section-two
+url: /
+
+\-- toc-item: Section-three
+url: /
+
+\-- toc-item: Section-four
+url: /
+
+\-- end: item
+
+
+
+
+
+
+\-- toc-item list sub-item:
+
+\-- toc-item: Subsection-one
+url: /
+
+\-- toc-item: Subsection-two
+url: /
+
+\-- toc-item: Subsection-three
+url: /
+
+\-- toc-item: subsection-four
+url: /
+
+\-- end: sub-item
+
+
+
+
+
+\-- record toc-items:
+string name:
+toc-items list children:
+
+\-- toc-items list toc:
+
+\-- toc-items:
+name: TOC title 1
+
+\-- toc-items.children:
+
+\-- toc-items:
+name: TOC children 1.1
+
+\-- toc-items.children:
+
+\-- toc-items:
+name: TOC children 1.1.1
+
+\-- end: toc-items.children
+
+\-- end: toc-items.children
+
+\-- toc-items:
+name: TOC title 2
+
+\-- toc-items:
+name: TOC title 3
+
+\-- toc-items:
+name: TOC title 4
+
+\-- end: toc
+
+\-- ftd.image-src src:
+light: https://www.fifthtry.com/-/fifthtry.com/assets/images/logo-fifthtry-dark.svg
+dark: https://www.fifthtry.com/-/fifthtry.com/assets/images/logo-fifthtry-dark.svg
+
+
+-- output:
+
+-- ds.page: PAGE TITLE
+section-item: $ds.item
+subsection-item: $ds.sub-item
+toc: $ds.toc
+navtitle: Section-one
+nav-subtitle: Subsection-one 
+current-title: Toc Title 1
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+-- ds.image: Image 1
+src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
+
+-- ds.image: Image 1
+src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
+
+-- ds.image: Image 1
+src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
+
+-- ds.image: Image 1
+src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
+
+-- ds.image: Image 1
+src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
+
+
+-- ds.image: Image 1
+src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
+
+-- end: ds.page
+
+-- end: output
+
+-- end: example
+
+
+
+-- example: 25-expander
+url: https://github.com/fastn-stack/ftd/blob/main/t/html/25-expander.ftd
+
+-- code:
+lang: ftd
+
+
+\-- ftd.column:
+padding.px: 20
+border-width.px: 1
+spacing.fixed.px: 50
+background.solid: #eee
+width: fill-container
+height: fill-container
+align-content: top-center
+
+
+\-- box: What is FTD?
+
+FTD is an open source programming language for writing prose.
+
+\-- box:
+title: We are adding text of header using title
+
+Here is a FTD document that is importing a library, lib, and has a heading of
+level 1, "Hello World". FTD language is designed for human beings, not just
+programmers, we have taken precautions like not requiring quoting for strings,
+not relying on indentation nor on braces that most programming
+languages require.
+
+It is not verbose like HTML, and not simplistic like Markdown. We can define
+variables in FTD. FTD is strongly typed. We can do event handling. Since we are
+targeting "human beings" we have created a lot of "actions" that we believe one
+will be invoking on a day to day basis, like toggle, which can be used to create
+simple event handling.
+
+
+\-- box:
+
+\-- end: ftd.column
+
+
+\-- component box:
+caption title: default header
+body body: default body
+boolean $open: false
+
+\-- ftd.column:
+border-width.px: 4
+width.fixed.percent: 60
+
+\-- ftd.row:
+padding.px: 10
+border-width.px: 1
+width: fill-container
+spacing: space-between
+$on-click$: $toggle($value = $box.open)
+
+\-- ftd.text: $box.title
+\-- ftd.text: O
+if: {!box.open}
+
+\-- ftd.text: X
+if: {$box.open}
+
+\-- end: ftd.row
+
+\-- ftd.text:
+if: { $box.open }
+padding.px: 10
+height: hug-content
+
+$box.body
+
+\-- end: ftd.column
+
+\-- end: box
+
+\-- void toggle(value):
+boolean $value:
+
+value = !value;
+
+-- output:
+
+
+-- ftd.column:
+padding.px: 20
+border-width.px: 1
+spacing.fixed.px: 50
+background.solid: #eee
+width: fill-container
+height: fill-container
+align-content: top-center
+
+
+-- expander.box: What is FTD?
+
+FTD is an open source programming language for writing prose.
+
+-- expander.box:
+title: We are adding text of header using title
+
+Here is a FTD document that is importing a library, lib, and has a heading of
+level 1, "Hello World". FTD language is designed for human beings, not just
+programmers, we have taken precautions like not requiring quoting for strings,
+not relying on indentation nor on braces that most programming
+languages require.
+
+It is not verbose like HTML, and not simplistic like Markdown. We can define
+variables in FTD. FTD is strongly typed. We can do event handling. Since we are
+targeting "human beings" we have created a lot of "actions" that we believe one
+will be invoking on a day to day basis, like toggle, which can be used to create
+simple event handling.
+
+
+-- expander.box:
+
+-- end: ftd.column
+
+-- end: output
+
+-- end: example
+
+
+
+-- example: 25-overflow
+url: https://github.com/fastn-stack/ftd/blob/main/t/html/25-overflow.ftd
+
+-- code:
+lang: ftd
+
+
+\-- boolean $flag: true
+
+\-- void toggle(a):
+boolean $a:
+
+a = !a
+
+\-- ftd.row:
+align-content: center
+
+\-- ftd.text: overflow
+
+\-- end: ftd.row
+
+
+\-- ftd.row:
+margin-bottom.px: 100
+padding.px: 40
+spacing.fixed.px: 40
+width: fill-container
+
+
+\-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow if { flag }: scroll
+$on-click$: $toggle($a=$flag)
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+\-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow: visible
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+\-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow: hidden
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+
+\-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow: auto
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+\-- end: ftd.row
+
+\-- boolean $flag: true
+
+
+
+
+
+
+
+
+\-- ftd.row:
+align-content: center
+
+\-- ftd.text: overflow-x
+
+\-- end: ftd.row
+
+
+\-- ftd.row:
+margin-top.px: 40
+padding.px: 40
+spacing.fixed.px: 40
+width: fill-container
+
+
+\-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-x: scroll
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+\-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-x: visible
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+\-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-x: hidden
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+
+\-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-x: auto
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+\-- end: ftd.row
+
+
+
+
+
+\-- ftd.row:
+align-content: center
+
+\-- ftd.text: overflow-y
+
+\-- end: ftd.row
+
+
+\-- ftd.row:
+margin-top.px: 40
+padding.px: 40
+spacing.fixed.px: 40
+width: fill-container
+
+
+\-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-y: scroll
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+\-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-y: visible
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+\-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-y: hidden
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+
+\-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-y: auto
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+
+\-- ftd.column:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+resize: both
+
+\-- end: ftd.column
+
+\-- end: ftd.row
+
+-- output:
+
+
+
+-- ftd.row:
+align-content: center
+
+-- ftd.text: overflow
+
+-- end: ftd.row
+
+
+-- ftd.row:
+margin-bottom.px: 100
+padding.px: 40
+spacing.fixed.px: 40
+width: fill-container
+
+-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow if { ofw.flag }: scroll
+$on-click$: $ofw.toggle($a=$ofw.flag)
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow: visible
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow: hidden
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+
+-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow: auto
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+-- end: ftd.row
+
+
+
+
+-- ftd.row:
+align-content: center
+
+-- ftd.text: overflow-x
+
+-- end: ftd.row
+
+
+-- ftd.row:
+margin-top.px: 40
+padding.px: 40
+spacing.fixed.px: 40
+width: fill-container
+
+
+-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-x: scroll
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-x: visible
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-x: hidden
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+
+-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-x: auto
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+-- end: ftd.row
+
+
+
+
+
+-- ftd.row:
+align-content: center
+
+-- ftd.text: overflow-y
+
+-- end: ftd.row
+
+
+-- ftd.row:
+margin-top.px: 40
+padding.px: 40
+spacing.fixed.px: 40
+width: fill-container
+
+
+-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-y: scroll
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-y: visible
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-y: hidden
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+
+-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-y: auto
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+
+-- ftd.column:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+resize: both
+
+-- end: ftd.column
+
+-- end: ftd.row
+
+-- end: output
+
+-- end: example
+
+
+
+-- example: 26-border
+url: https://github.com/fastn-stack/ftd/blob/main/t/html/26-border.ftd
+
+-- code:
+lang: ftd
+
+
+\-- ftd.column:
+margin.px: 50
+width.fixed.px: 200
+height.fixed.px: 200
+background.solid: yellow
+border-bottom-width.px: 11
+border-top-width.px: 5
+border-left-width.px: 7
+border-right-width.px: 9
+border-bottom-color: red
+border-top-color: blue
+border-left-color: green
+border-right-color: purple
+
+\-- end: ftd.column
+
+
+\-- ftd.column:
+margin.px: 50
+width.fixed.px: 200
+height.fixed.px: 200
+background.solid: yellow
+border-width.px: 10
+border-bottom-color: red
+border-top-color: blue
+border-left-color: green
+border-right-color: purple
+
+\-- end: ftd.column
+-- output:
+
+
+-- ftd.column:
+margin.px: 50
+width.fixed.px: 200
+height.fixed.px: 200
+background.solid: yellow
+border-bottom-width.px: 11
+border-top-width.px: 5
+border-left-width.px: 7
+border-right-width.px: 9
+border-bottom-color: red
+border-top-color: blue
+border-left-color: green
+border-right-color: purple
+
+-- end: ftd.column
+
+
+-- ftd.column:
+margin.px: 50
+width.fixed.px: 200
+height.fixed.px: 200
+background.solid: yellow
+border-width.px: 10
+border-bottom-color: red
+border-top-color: blue
+border-left-color: green
+border-right-color: purple
+
+-- end: ftd.column
+
+-- end: output
+
+-- end: example
+
+
+-- example: 27-optional
+url: https://github.com/fastn-stack/ftd/blob/main/t/html/27-optional.ftd
+
+-- code:
+lang: ftd
+
+
+
+\-- optional string $name: NULL
+
+
+\-- ftd.text: Hello
+if: { ftd.is_empty(name) }
+$on-click$: $append($a = $name, b = FifthTry)
+
+\-- ftd.text: Hello Again
+if: { name == NULL }
+
+
+\-- ftd.text: $name
+if: { !ftd.is_empty(name) }
+$on-click$: $append($a = $name, b = FifthTry)
+
+\-- ftd.text: $name
+if: { name != NULL }
+
+
+
+
+\-- void append(a,b):
+optional string $a:
+string b:
+
+a = a + " " + b
+
+-- output:
+
+-- ftd.text: Hello
+if: { ftd.is_empty(optional.name) }
+$on-click$: $optional.append($a = $optional.name, b = FifthTry)
+
+-- ftd.text: Hello Again
+if: { optional.name == NULL }
+
+
+-- ftd.text: $optional.name
+if: { !ftd.is_empty(optional.name) }
+$on-click$: $optional.append($a = $optional.name, b = FifthTry)
+
+-- ftd.text: $optional.name
+if: { optional.name != NULL }
+
+
+
+-- end: output
+
+-- end: example
 -- end: ftd.column
 
 
