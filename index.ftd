@@ -23,7 +23,7 @@
 -- import: fifthtry.github.io/ftd-examples/examples/28-complex as complex
 -- import: fifthtry.github.io/ftd-examples/examples/29-slides as slides
 -- import: fifthtry.github.io/ftd-examples/examples/34-device as device
-
+-- import: fifthtry.github.io/ftd-examples/examples/35-condition-on-color as condition-color
 
 
 
@@ -3591,6 +3591,53 @@ padding.percent: 10
 -- end: output
 
 -- end: example
+
+
+
+
+-- example: test
+url:
+
+-- code:
+lang: ftd
+
+\-- label: THE
+$danger: true
+
+
+\-- component label:
+caption value:
+boolean $danger: false
+
+\-- ftd.text: $label.value
+color: $green
+color if { label.danger }: $red
+$on-click$: $toggle($a = $label.danger)
+
+\-- end: label
+
+\-- ftd.color red:
+light: pink
+dark: red
+
+\-- ftd.color green:
+light: green
+dark: blue
+
+\-- void toggle(a):
+boolean $a:
+
+a = !a
+
+-- output:
+
+-- condition-color.label: THE
+$condition-color.danger: true
+
+-- end: output
+
+-- end: example
+
 -- end: ftd.column
 
 
