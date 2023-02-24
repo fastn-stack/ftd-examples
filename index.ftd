@@ -3802,6 +3802,54 @@ $on-click$: $font.toggle($a = $font.flag)
 -- end: output
 
 -- end: example
+
+
+
+-- example: 40-anchor
+url: https://github.com/fastn-stack/ftd/blob/main/t/html/40-anchor.ftd
+
+-- code:
+lang: ftd
+
+\-- ftd.column:
+width.fixed.px: 400
+height.fixed.px: 400
+background.solid: pink
+
+\-- ftd.text: Hello Parent
+anchor: parent
+left.rem: 8.3
+top.rem: 8
+
+\-- end: ftd.column
+
+
+\-- ftd.text: Hello Window
+anchor: window
+
+-- output:
+
+
+-- ftd.column:
+width.fixed.px: 400
+height.fixed.px: 400
+background.solid: pink
+
+-- ftd.text: Hello Parent
+anchor: parent
+left.rem: 8.3
+top.rem: 8
+
+-- end: ftd.column
+
+
+-- ftd.text: Hello Window
+anchor: window
+
+-- end: output
+
+-- end: example
+
 -- end: ftd.column
 
 
