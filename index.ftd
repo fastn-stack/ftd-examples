@@ -3592,11 +3592,8 @@ padding.percent: 10
 
 -- end: example
 
-
-
-
--- example: test
-url:
+-- example: 35-condition-on-color
+url: https://github.com/fastn-stack/ftd/blob/main/t/html/35-condition-on-color.ftd
 
 -- code:
 lang: ftd
