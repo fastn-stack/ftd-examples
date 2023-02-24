@@ -21,6 +21,7 @@
 -- import: fifthtry.github.io/ftd-examples/examples/27-optional as optional
 -- import: fifthtry.github.io/ftd-examples/examples/27-optional as optional
 -- import: fifthtry.github.io/ftd-examples/examples/28-complex as complex
+-- import: fifthtry.github.io/ftd-examples/examples/29-slides as slides
 
 
 
@@ -3394,29 +3395,10 @@ color: $text
 
 
 
-
-
-
-
-
 \-- page:
 sections: $toc
 
 some body here
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -3471,15 +3453,6 @@ $loop$: $header-links.item.children as $obj
 
 \-- end: header-links
 
-
-
-
-
-
-
-
-
-
 \-- component header:
 toc-item sections:
 string site-name: SiteName
@@ -3514,6 +3487,69 @@ item: $header.sections
 sections: $complex.toc
 
 some body here
+
+-- end: output
+
+-- end: example
+
+-- example: 29-slides
+url:https://github.com/fastn-stack/ftd/blob/main/t/html/29-slides.ftd
+
+-- code:
+lang: ftd
+
+\-- void set-false(a):
+boolean $a:
+
+a = false;
+
+\-- ftd.color base: #18181b
+
+\-- ftd.color step-1: #141414
+
+\-- ftd.color text-strong: #ffffff
+
+
+\-- presentation:
+
+
+
+
+
+\-- component presentation:
+boolean $show: false
+ftd.color bg-color: $base
+ftd.color overlay-bg-color: $step-1
+optional ftd.image-src bg-image:
+
+\-- ftd.column:
+background.solid: $presentation.bg-color
+width: fill-container
+
+\-- mobile-overlay:
+if: { presentation.show }
+overlay-bg-color: $presentation.overlay-bg-color
+$on-click$: $set-false($a = $presentation.show)
+
+\-- end: ftd.column
+
+\-- end: presentation
+
+\-- component mobile-overlay:
+ftd.color overlay-bg-color:
+
+\-- ftd.column:
+height.fixed.calc: 100% - 0px
+width: fill-container
+background.solid: $mobile-overlay.overlay-bg-color
+
+\-- end: ftd.column
+
+\-- end: mobile-overlay
+
+-- output:
+
+-- slides.presentation:
 
 -- end: output
 
