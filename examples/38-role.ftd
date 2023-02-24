@@ -1,0 +1,33 @@
+-- ftd.type dtype:
+size.px: 40
+weight: 900
+font-family: cursive
+line-height.px: 65
+letter-spacing.px: 5
+
+-- ftd.type mtype:
+size.px: 20
+weight: 100
+font-family: fantasy
+line-height.px: 35
+letter-spacing.px: 3
+
+-- boolean $flag: true
+
+-- ftd.responsive-type rtype:
+desktop: $dtype
+mobile: $mtype
+
+-- ftd.responsive-type rrtype:
+desktop: $mtype
+mobile: $dtype
+
+-- ftd.text: Hello World
+role if { flag }: $rtype
+role: $rrtype
+$on-click$: $toggle($a = $flag)
+
+-- void toggle(a):
+boolean $a:
+
+a = !a

@@ -25,7 +25,7 @@
 -- import: fifthtry.github.io/ftd-examples/examples/34-device as device
 -- import: fifthtry.github.io/ftd-examples/examples/35-condition-on-color as condition-color
 -- import: fifthtry.github.io/ftd-examples/examples/37-cursor as cursor
-
+-- import: fifthtry.github.io/ftd-examples/examples/38-role as font
 
 
 
@@ -3746,11 +3746,62 @@ cursor if { cursor.num % 35 == 34 }: zoom-out
 
 -- end: ftd.column
 
-
 -- end: output
 
 -- end: example
 
+
+
+-- example: 38-role
+url: https://github.com/fastn-stack/ftd/blob/main/t/html/38-role.ftd
+
+-- code:
+lang: ftd
+
+\-- ftd.type dtype:
+size.px: 40
+weight: 900
+font-family: cursive
+line-height.px: 65
+letter-spacing.px: 5
+
+\-- ftd.type mtype:
+size.px: 20
+weight: 100
+font-family: fantasy
+line-height.px: 35
+letter-spacing.px: 3
+
+\-- boolean $flag: true
+
+\-- ftd.responsive-type rtype:
+desktop: $dtype
+mobile: $mtype
+
+\-- ftd.responsive-type rrtype:
+desktop: $mtype
+mobile: $dtype
+
+\-- ftd.text: Hello World
+role if { flag }: $rtype
+role: $rrtype
+$on-click$: $toggle($a = $flag)
+
+\-- void toggle(a):
+boolean $a:
+
+a = !a
+
+-- output:
+
+-- ftd.text: Hello World
+role if { font.flag }: $font.rtype
+role: $font.rrtype
+$on-click$: $font.toggle($a = $font.flag)
+
+-- end: output
+
+-- end: example
 -- end: ftd.column
 
 
