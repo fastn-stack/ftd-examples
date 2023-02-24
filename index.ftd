@@ -3629,7 +3629,7 @@ a = !a
 -- output:
 
 -- condition-color.label: THE
-$condition-color.danger: true
+$condition-color.label.danger: true
 
 -- end: output
 
