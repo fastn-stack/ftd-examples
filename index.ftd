@@ -53,6 +53,12 @@ name: github.com/fastn-stack/ftd/tree/main/t/html
 
 All FTD Examples .
 
+
+
+
+
+
+
 -- example:  1-Component
 url: https://github.com/fastn-stack/ftd/blob/main/t/html/1-component.ftd
 
@@ -3925,6 +3931,7 @@ padding-horizontal.px: 24
 padding-vertical.px: 24
 border-bottom-width.px if { example.open }: 1
 border-color: $inherited.colors.border-strong
+$on-click$: $ftd.toggle($a = $example.open)
 
 -- ftd.row:
 align-self: start
@@ -3949,7 +3956,6 @@ align-self: end
 
 -- ftd.text: Click to expand
 if: { !example.open }
-$on-click$: $ftd.toggle($a = $example.open)
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
 white-space: nowrap
@@ -4027,7 +4033,7 @@ max-width.fixed.px: 709
 
 
 -- component output:
-caption title: Output on browser
+caption title: Output
 children data:
 
 -- ftd.column:
