@@ -3962,7 +3962,6 @@ white-space: nowrap
 
 -- ftd.text: close
 if: { example.open }
-$on-click$: $ftd.toggle($a = $example.open)
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
 
