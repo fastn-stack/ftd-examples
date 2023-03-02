@@ -97,7 +97,7 @@ padding.px: 2
 
 -- end: example
 
--- example: Primitive Types: `decimal`
+-- example: Primitive Types: `Decimal`
 permalink: #decimal
 id: decimal
 
@@ -136,7 +136,7 @@ padding.px: 2
 
 
 
--- example: Primitive Types: `string`
+-- example: Primitive Types: `String`
 permalink: #string
 id: string
 
@@ -1696,9 +1696,9 @@ item: $bln.toc
 
 
 
--- example: `conditional-properties`
-permalink: #conditional-properties
-id: conditional-properties
+-- example: `Conditional properties`
+permalink: #Conditional properties
+id: Conditional properties
 
 -- code: 
 lang: ftd
@@ -1777,9 +1777,9 @@ $fv: 1
 
 
 
--- example: `external-children`
-permalink: #external-children
-id: external-children
+-- example: `External children`
+permalink: #External children
+id: External children
 
 -- code:
 lang: diff
@@ -1992,9 +1992,9 @@ caption decimal value:
 
 -- end: example
 
--- example: `record`
-permalink: #record
-id: record
+-- example: `Record`
+permalink: #Record
+id: Record
 
 -- code:
 lang: ftd
@@ -2167,9 +2167,9 @@ a = !a
 
 
 
--- example: `complex-styles`
-permalink: #complex-styles
-id: complex-styles
+-- example: `Complex styles`
+permalink: #Complex styles
+id: Complex styles
 
 -- code:
 lang: ftd
@@ -2379,9 +2379,9 @@ enable_system_mode()
 
 
 
--- example: `margin`
-permalink: #margin
-id: margin
+-- example: `Margin`
+permalink: #Margin
+id: Margin
 
 -- code:
 lang: ftd
@@ -2462,9 +2462,9 @@ margin.px: 100
 
 
 
--- example: `border`
-permalink: #border
-id: border
+-- example: `Border`
+permalink: #Border
+id: Border
 
 -- code:
 lang: ftd
@@ -2537,7 +2537,7 @@ border-right-color: purple
 
 
 
--- example: `optional`
+-- example: `Optional`
 permalink: #optional
 id: optional
 
@@ -2615,9 +2615,9 @@ padding.percent: 10
 
 
 
--- example: `condition-on-color`
-permalink: #condition-on-color
-id: condition-on-color
+-- example: `Condition on color`
+permalink: #Condition on color
+id: Condition on color
 
 -- code:
 lang: ftd
@@ -2661,9 +2661,9 @@ a = !a
 
 
 
--- example: `role`
-permalink: #role
-id: role
+-- example: `Role`
+permalink: #Role
+id: Role
 
 -- code:
 lang: ftd
@@ -3177,6 +3177,7 @@ height.fixed.px: 64
 
 -- ftd.row:
 width: fill-container
+align-content: center
 
 -- ftd.text: $package.title
 role: $inherited.types.heading-large
