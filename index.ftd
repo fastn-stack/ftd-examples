@@ -2,30 +2,8 @@
 -- import: fifthtry.github.io/package-doc/doc as pd
 -- import: fifthtry.github.io/package-doc/code-block as cb
 -- import: fifthtry.github.io/package-doc/typography as tf
--- import: fifthtry.github.io/ftd-examples/examples/record as rd
--- import: fifthtry.github.io/ftd-examples/examples/10-conditional-properties as cp
--- import: fifthtry.github.io/ftd-examples/examples/image as image
--- import: fifthtry.github.io/ftd-examples/examples/21-color as color
 -- import: fastn
--- import: fifthtry.github.io/ftd-examples/examples/12-conditional-component as cc
--- import: fifthtry.github.io/ftd-examples/examples/16-or-type as type
--- import: fifthtry.github.io/ftd-examples/examples/18-styles as styles
--- import: fifthtry.github.io/ftd-examples/examples/record-data as rdt
--- import: fifthtry.github.io/ftd-examples/examples/19-complex-styles as cms
--- import: fifthtry.github.io/ftd-examples/examples/22-test as test
--- import: fifthtry.github.io/ftd-examples/examples/23-alignment as alignment
--- import: fifthtry.github.io/ftd-examples/examples/23-doc-site as ds
--- import: fifthtry.github.io/ftd-examples/examples/25-expander as expander
--- import: fifthtry.github.io/ftd-examples/examples/11-external-children as ec
--- import: fifthtry.github.io/ftd-examples/examples/25-overflow as ofw
--- import: fifthtry.github.io/ftd-examples/examples/27-optional as optional
--- import: fifthtry.github.io/ftd-examples/examples/27-optional as optional
--- import: fifthtry.github.io/ftd-examples/examples/28-complex as complex
--- import: fifthtry.github.io/ftd-examples/examples/29-slides as slides
--- import: fifthtry.github.io/ftd-examples/examples/34-device as device
--- import: fifthtry.github.io/ftd-examples/examples/35-condition-on-color as condition-color
--- import: fifthtry.github.io/ftd-examples/examples/37-cursor as cursor
--- import: fifthtry.github.io/ftd-examples/examples/38-role as font
+-- import: fifthtry.github.io/ftd-examples/examples/boolean as bln
 
 
 
@@ -34,120 +12,42 @@
 
 
 
-
-
-
-
-
-
--- boolean flag: true
-
--- ftd.column:
-width: fill-container
-padding-horizontal.px: 50
-padding-horizontal.px if { ftd.device == "mobile" }: 20
-background.solid: $inherited.colors.background.base
-
--- pd.package: FTD Examples
+-- package: FTD Examples
 name: github.com/fastn-stack/ftd/tree/main/t/html
 
-All FTD Examples .
 
+-- example:  Primitive Types: `Boolean`
+permalink: #Boolean
+id: Boolean
 
-
-
-
-
-
--- example:  1-Component
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/1-component.ftd
 
 -- code: 
 lang: ftd
+download: boolean.ftd
 
-\-- ftd.row:
+\-- boolean $is-monday: false
+
+\-- ftd.column:
 padding.px: 40
 
-\-- ftd.text: Hello World
+\-- ftd.boolean: $is-monday 
+$on-click$: $ftd.toggle($a=$is-monday)
 padding.px: 2
 
-\-- ftd.text: again
-padding.px: 2
-
-\-- end: ftd.row
-
-
-\-- ftd.row:
-padding.px: 40
-
-\-- ftd.text: Hello
-padding.px: 2
-
-\-- ftd.text: again
-padding.px: 2
-
-\-- end: ftd.row
-
-
-\-- ftd.text: Hello from text
-padding.px: 40
+\-- end: ftd.column
 
 -- output: 
 
--- ftd.row:
-padding.px: 40
-
--- ftd.text: Hello World
-padding.px: 2
-
--- ftd.text: again
-padding.px: 2
-
--- end: ftd.row
-
-
--- ftd.row:
-padding.px: 40
-
--- ftd.text: Hello
-padding.px: 2
-
--- ftd.text: again
-padding.px: 2
-
--- end: ftd.row
-
-
--- ftd.text: Hello from text
-padding.px: 40
-
--- end: output
-
--- end: example
-
--- example: 2-Component
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/2-component.ftd
-
--- code: 
-lang: ftd
-
-\-- ftd.column:
-padding.px: 40
-
-\-- ftd.text: Hello World
-
-\-- ftd.text: again
-
-\-- end: ftd.column
-
--- output:
-
 -- ftd.column:
 padding.px: 40
+spacing.fixed.px: 32
 
--- ftd.text: Hello World
+-- ftd.text: click here to see `change boolean value` in action.
+$on-click$: $ftd.toggle($a=$bln.is-monday, v= true)
 
--- ftd.text: again
+-- ftd.boolean: $bln.is-monday 
+padding.px: 2
+color: white
 
 -- end: ftd.column
 
@@ -155,1178 +55,378 @@ padding.px: 40
 
 -- end: example
 
--- example: 3-component
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/3-component.ftd
+
+
+
+
+-- example: Primitive Types: `Integer`
+permalink: #Integer
+id: Integer
 
 -- code: 
 lang: ftd
 
-
-\-- boolean flag: true
-
-\-- ftd.row:
-padding.px: 40
-
-\-- ftd.text: Hello World
-padding.px if {flag}: 20
-padding.px: 2
-
-\-- ftd.text: again
-padding.px if {!flag}: 20
-padding.px: 2
-
-\-- end: ftd.row
-
--- output:
-
--- ftd.row:
-padding.px: 40
-
--- ftd.text: Hello World
-padding.px if {flag}: 20
-padding.px: 2
-
--- ftd.text: again
-padding.px if {!flag}: 20
-padding.px: 2
-
--- end: ftd.row
-
--- end: output
-
--- end: example
-
--- example: 4-Component
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/4-component.ftd
-
--- code: 
-lang: ftd
-
-\-- component print:
-string name:
-
-\-- ftd.column:
-
-\-- ftd.text: $print.name
-
-\-- end: ftd.column
-
-\-- end: print
-
-\-- print:
-name: Hello
-
-\-- print:
-name: Hello Again
-
--- output:
-
--- ftd.text: Hello
-
--- ftd.text: Hello Again
-
--- end: output
-
--- end: example
-
-
--- example: 5-Component recursion
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/5-component-recursion.ftd
-
--- code: 
-lang: ftd
-
-\-- record toc-item:
-string name:
-toc-item list children:
-
-\-- toc-item toc:
-name: TOC title 1
-
-\-- toc.children:
-
-\-- toc-item:
-name: TOC title 2
-
-\-- toc-item:
-name: TOC title 3
-
-\-- toc-item.children:
-
-\-- toc-item:
-name: TOC title 4
-
-\-- end: toc-item.children
-
-\-- end: toc.children
-
-\-- component print-toc-item:
-toc-item item:
-
-\-- ftd.column:
-padding.px: 30
-
-\-- ftd.text: $print-toc-item.item.name
-
-\-- print-toc-item:
-item: $obj
-$loop$: $print-toc-item.item.children as $obj
-
-\-- end: ftd.column
-
-\-- end: print-toc-item
-
-\-- print-toc-item:
-item: $toc
-
--- output:
-
--- rd.print-toc-item:
-item: $rd.toc
-
--- end: output
-
--- end: example
-
-
--- example: 10-conditional-properties
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/10-conditional-properties.ftd
-
--- code: 
-lang: ftd
-
-
-\-- void increment(a):
-integer $a:
-
-a += 1
-
-
-\-- component boo:
-integer bv:
-
-\-- ftd.column:
-
-\-- ftd.text: boo
-
-\-- ftd.integer: $boo.bv
-
-\-- end: ftd.column
-
-\-- end: boo
-
-
-
-\-- component moo:
-integer $fv:
-integer mv:
-
-\-- ftd.column:
-
-\-- boo:
-bv if { moo.fv > 10 }: 10
-bv if { moo.mv > 6 }: 5
-bv: 4
-
-\-- ftd.text: moo
-
-\-- ftd.integer: $moo.fv
-\-- ftd.integer: $moo.mv
-
-\-- end: ftd.column
-
-\-- end: moo
-
-
-
-
-\-- component foo:
-integer $fv:
-
-\-- ftd.column:
-
-\-- moo:
-mv if { foo.fv > 2 }: 6
-mv: 7
-$fv: $foo.fv
-
-\-- ftd.text: click here to see `increment` in action.
-$on-click$: $increment($a = $foo.fv)
-
-\-- ftd.integer: $foo.fv
-
-
-\-- end: ftd.column
-
-\-- end: foo
-
-
-\-- foo:
-$fv: 1
-
--- output:
-
--- cp.foo:
-$fv: 1
--- end: output
-
--- end: example
-
-
--- example: 11-external-children
- 
-
--- code:
-lang: diff
-
-\-- void increment(a):
-integer $a:
-
-a += 1
-
-
-\-- component counter:
-integer $count:
-
-\-- ftd.integer: $counter.count
-$on-click$: $increment($a = $counter.count)
-
-\-- end: counter
-
-
-
-\-- integer $count: 1
-
-
-
-
-\-- component page:
-ftd.ui list extra-headers:
-children body:
-
-\-- ftd.column:
-padding.px: 80
-
-\-- ftd.text: ...................................................................
-
-\-- ftd.row:
-
-\-- ftd.text: LOGO
-padding.px: 2
-
-\-- ftd.text: Home
-padding.px: 2
-
-\-- ftd.row:
-children: $page.extra-headers
-
-\-- end: ftd.row
-
-\-- end: ftd.row
-
-\-- ftd.text: ...................................................................
+\-- integer $number-of-days-in-a-week: 7 
 
 \-- ftd.column:
 padding.px: 40
-children: $page.body
+
+\-- ftd.integer: $number-of-days-in-a-week
+$on-click$: $ftd.set-integer($a = $number-of-days-in-a-week, v = -7)
+padding.px: 2
 
 \-- end: ftd.column
 
-\-- ftd.text: ...................................................................
+-- output:
 
-\-- end: ftd.column
+-- ftd.column:
+padding.px: 40
+spacing.fixed.px: 32
 
-\-- end: page
+-- ftd.text: It can be `positive` or `negative`.
 
+-- ftd.text: click here to see `change integer value` in action.
+$on-click$: $ftd.set-integer($a = $bln.number-of-days-in-a-week, v = -7)
 
-
-
-\-- page:
-
-\-- page.extra-headers:
-
-\-- ftd.text: Header 1
+-- ftd.integer: $bln.number-of-days-in-a-week 
 padding.px: 2
 
-\-- ftd.text: Header 2
-padding.px: 2
-
-\-- ftd.text: Header 3
-padding.px: 2
-
-\-- ftd.text: Header 4
-padding.px: 2
-
-
-\-- end: page.extra-headers
-
-
-\-- ftd.text: Body Text
-
-\-- ftd.row:
-
-\-- ftd.text: Counter 1:
-
-\-- counter:
-$count: $count
-
-\-- end: ftd.row
-
-
-\-- ftd.row:
-
-\-- ftd.text: Counter 2:
-
-\-- counter:
-$count: $count
-
-\-- end: ftd.row
-
-
-\-- end: page
-
-
-\-- page:
-
-\-- ftd.text: Hello
-
-\-- end: page
-
--- output: 
-
--- ec.page:
-
--- ec.page.extra-headers:
-
--- ftd.text: Header 1
-padding.px: 2
-
--- ftd.text: Header 2
-padding.px: 2
-
--- ftd.text: Header 3
-padding.px: 2
-
--- ftd.text: Header 4
-padding.px: 2
-
-
--- end: ec.page.extra-headers
-
-
--- ftd.text: Body Text
-
--- ftd.row:
-
--- ftd.text: Counter 1:
-
--- ec.counter:
-$count: $ec.count
-
--- end: ftd.row
-
-
--- ftd.row:
-
--- ftd.text: Counter 2:
-
--- ec.counter:
-$count: $ec.count
-
--- end: ftd.row
-
--- end: ec.page
-
--- ec.page:
-
--- ftd.text: Hello
-
--- end: ec.page
+-- end: ftd.column
 
 -- end: output
 
 -- end: example
 
--- example: 13-image
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/13-image.ftd
+-- example: Primitive Types: `decimal`
+permalink: #decimal
+id: decimal
 
--- code:
+
+-- code: 
 lang: ftd
 
-\-- boolean $flag: true
+\-- decimal pi: 3.14159
 
-\-- ftd.boolean: $ftd.dark-mode
+\-- ftd.column:
+padding.px: 40
+
+\-- ftd.decimal: $pi
+padding.px: 2
+
+\-- end: ftd.column
+
+-- output:
+
+-- ftd.column:
+padding.px: 40
+spacing.fixed.px: 32
+
+-- ftd.text: It can be `positive` or `negative`.
+
+-- ftd.decimal: $bln.pi
+padding.px: 2
+
+-- end: ftd.column
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example: Primitive Types: `string`
+permalink: #string
+id: string
+
+-- code: 
+lang: ftd
+
+\-- string $message: hello world!
+
+\-- ftd.column:
+padding.px: 40
+
+\-- ftd.text: $message
+$on-click$: $ftd.set-string($a = $message, v = Welcome to FifthTry)
+padding.px: 2
+
+\-- ftd.text: multi-line string
+
+\-- string $paragraph:
+
+this is a multiline string.
+
+can have any number of lines.
+
+or long paragraph, if you have a long paragraph to write. it can
+contain unicode characters in any भाषा, or emojis, 💁👌🎍😍.
+
+\-- end: ftd.column
+
+-- output:
+
+-- ftd.column:
+padding.px: 40
+spacing.fixed.px: 32
+
+-- ftd.text: click here to see `change string value` in action.
+$on-click$: $ftd.set-string($a = $bln.message, v = Welcome to FifthTry)
+
+-- ftd.text: $bln.message
+padding.px: 2
+
+-- ftd.text: This is `Multi-line` String
+
+-- ftd.text: $bln.paragraph
+padding.px: 2
+
+-- end: ftd.column
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example: Derived Types: `ftd.color`
+permalink: #ftd.color
+id: ftd.color
+
+-- code: 
+lang: ftd
+
+\-- ftd.color dark-light:
+light: white
+dark: black
+
+\-- ftd.color red: red
+
+\-- ftd.column:
+padding.px: 40
+
+\-- ftd.text: some title
+color: $dark-light
+padding.px: 2
+
+\-- ftd.text: some title
+color: $red
+padding.px: 2
+
+\-- end: ftd.column
+
+
+-- output:
+
+-- ftd.column:
+padding.px: 40
+
+-- ftd.text: We want to change color when our system mode is change so we define two color , one for light and other for dark.
+color: $inherited.colors.text-strong
+role: $inherited.types.copy-regular
+padding.px: 2
+
+-- ftd.text: some title
+color: $bln.dark-light
+role: $inherited.types.copy-regular
+padding.px: 2
+
+-- ftd.text: We want to same color when our system mode is change so we define one color ,value is same in both mode.
+color: $inherited.colors.text-strong
+role: $inherited.types.copy-regular
+padding.px: 2
+
+-- ftd.text: some title
+color: $bln.red
+role: $inherited.types.copy-regular
+padding.px: 2
+
+-- end: ftd.column
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example: Derived Types: `ftd.image-src`
+permalink: #ftd.image-src
+id: ftd.image-src
+
+-- code: 
+lang: ftd
+
+\-- ftd.image-src my-images:
+light: https://fastn.io/-/fastn.io/images/fastn.svg
+dark: https://fastn.io/-/fastn.io/images/fastn-dark.svg
+
+\-- ftd.image image: https://fastn.io/-/fastn.io/images/fastn.svg
+
+\-- ftd.column:
+padding.px: 40
 
 \-- ftd.image:
-$on-click$: $toggle-dark-mode($a = $ftd.dark-mode)
-width.fixed.px: 100
-src: $src
-
-\-- ftd.image:
-src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
-width.fixed.px: 100
-
-\-- ftd.image:
-src: $new-src
-width.fixed.px: 100
+src:my-images
+width: auto
 height: auto
 
-
 \-- ftd.image:
-src: $src
-src if { flag }: $tom-and-jerry
-width.fixed.px: 100
-$on-click$: $ftd.toggle($a = $flag)
-
-
-
-\-- void toggle-dark-mode(a):
-boolean $a:
-
-a = !a
-
-
-\-- ftd.image-src src:
-light: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
-dark: https://upload.wikimedia.org/wikipedia/en/d/d4/Mickey_Mouse.png
-
-
-\-- string new-src: https://upload.wikimedia.org/wikipedia/en/d/d4/Mickey_Mouse.png
-
-
-\-- ftd.image-src tom-and-jerry:
-light: https://wallpaperaccess.com/full/215445.jpg
-dark: https://wallpapers.com/images/file/tom-and-jerry-in-the-dog-house-myfg3ooaklw9fk9q.jpg
-
--- output:
-
--- ftd.image:
-$on-click$: $image.toggle-dark-mode($a = $ftd.dark-mode)
-width.fixed.px: 100
-src: $image.src
-
--- ftd.image:
-src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
-width.fixed.px: 100
-
--- ftd.image:
-src: $image.new-src
-width.fixed.px: 100
+src: image
+width: auto
 height: auto
 
+\-- end: ftd.column
+
+-- output:
+
+-- ftd.column:
+padding.px: 40
+spacing.fixed.px:24
+
+-- ftd.text: We want to change image when our system mode is change so we define two image , one for light and other for dark.
+color: $inherited.colors.text-strong
+role: $inherited.types.copy-regular
+padding.px: 2
 
 -- ftd.image:
-src: $image.src
-src if { image.flag }: $image.tom-and-jerry
-width.fixed.px: 100
-$on-click$: $ftd.toggle($a = $image.flag)
+src: $bln.my-images
+width: auto
+height: auto
 
+-- ftd.text: We want to same image when our system mode is change so we define one image ,value is same in both mode.
+color: $inherited.colors.text-strong
+role: $inherited.types.copy-regular
+padding.px: 2
 
--- end: output
+-- ftd.image:
+src: $bln.images
+width: auto
+height: auto
 
--- end: example
-
--- example: 16-or-type
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/16-or-type.ftd
-
--- code:
-lang: ftd
-
-\-- ftd.text: Hello from FTD
-padding.px: 20
-
-
-\-- integer $value: 20
-
-\-- ftd.text: Hello from FTD
-padding.px: $value
-$on-click$: $increment($a = $value)
-
-
-
-\-- ftd.length.px len: 20
-
-\-- ftd.text: Hello from FTD
-padding: $len
-
-
-
-\-- boolean $flag: true
-
-\-- ftd.text:
-text: Hello from FTD
-padding: $len
-padding.percent if { flag }: 20
-$on-click$: $toggle($a = $flag)
-
-
-
-
-\-- void increment(a):
-integer $a:
-a += 1
-
-
-\-- void toggle(a):
-boolean $a:
-
-a = !a
-
-
-
-\-- px:
-caption integer value:
-
-\-- percent:
-caption decimal value:
-
-\-- end: length
-
--- output:
-
--- ftd.text: Hello from FTD
-padding.px: 20
-
--- ftd.text: click here to see `increment in length` in action.
-$on-click$: $type.increment($a = $type.value)
-
--- ftd.text: Hello from FTD
-padding.px: $type.value
-$on-click$: $type.increment($a = $type.value)
-
--- ftd.text: Hello from FTD
-padding: $type.len
-
--- ftd.text: click here to see `increment` in action.
-$on-click$: $type.toggle($a = $type.flag)
-
--- ftd.text:
-text: Hello from FTD
-padding: $type.len
-padding.percent if { type.flag }: 20
-
+-- end: ftd.column
 
 -- end: output
 
 -- end: example
 
--- example: 17-record
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/17-record.ftd
 
--- code:
+
+
+
+-- example: Derived Types: `ftd.resizing`
+permalink: #ftd.resizing
+id: ftd.resizing
+
+-- code: 
 lang: ftd
 
-\-- record full-name:
-caption first-name:
-optional string middle-name:
-optional string last-name:
+\-- ftd.resizing widthfill: fill-container
 
+\-- ftd.resizing widthcontent: hug-content
 
-\-- record person:
-full-name name:
-integer age:
-
-
-\-- string $name: Arpita
-
-\-- person $arpita:
-name: *$name
-age: 20
-
-
-\-- ftd.text: $arpita.name.first-name
-
-\-- ftd.text: $name
-
-
-\-- ftd.text: Change arpita.name.first-name
-$on-click$: $append($a = $arpita.name.first-name, b = FifthTry)
-
-\-- ftd.text: Change name
-$on-click$: $append($a = $name, b = FifthTry)
-
-
-
-
-\-- void append(a,b):
-string $a:
-string b:
-
-a = a + " " + b
-
--- output:
-
--- ftd.text: $rdt.arpita.name.first-name
-
--- ftd.text: $rdt.name
-
-
--- ftd.text: Change arpita.name.first-name
-$on-click$: $rdt.append($a = $rdt.arpita.name.first-name, b = FifthTry)
-
--- ftd.text: Change name
-$on-click$: $rdt.append($a = $rdt.name, b = FifthTry)
-
--- end: output
-
--- end: example
-
--- example: 18-styles
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/18-styles.ftd
-
--- code:
-lang: ftd
-
-\-- boolean $flag: true
-
-\-- ftd.text: Click me
-$on-click$: $toggle($a = $flag)
-
-\-- ftd.text: Hello
-padding-left.px: 40
-padding-right.percent: 10
-padding-top.px: 50
-padding-bottom.percent: 7.9
-border-width.px: 2
-border-top-left-radius.percent if { flag }: 18
-z-index: -5
-
-
-\-- ftd.text: Hello
-padding-vertical.px: 40
-padding-horizontal.percent if { flag } : 10
-
-
-\-- ftd.row:
-spacing.fixed.px: 20
-spacing.fixed.px if { flag }: 40
-wrap: true
-wrap if { flag }: false
-border-width.px: 4
-border-width.px if { flag }: 2
-border-radius.percent: 18
-
-\-- ftd.text: Hello
-\-- ftd.text: World
-
-\-- end: ftd.row
-
-
-
-\-- ftd.row:
-spacing.fixed.px: 20
-align-content if { flag }: top-left
-align-content: top-center
-background.solid: red
-width.fixed.px: 400
-height.fixed.px: 100
-border-width.px: 1
-
-\-- ftd.text: Hello
-\-- ftd.text: World
-
-\-- end: ftd.row
+\-- ftd.resizing widthauto: auto
 
 
 \-- ftd.column:
-spacing.fixed.px: 2
-align-content if { flag }: top-left
-align-content: top-center
-width.fixed.px: 400
-height.fixed.px: 100
-border-width.px: 1
+padding.px: 40
+width: fill-container
+spacing.fixed.px: 24
 
-\-- ftd.text: Hello
-\-- ftd.text: World
+\-- ftd.text: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+width: $bln.widthfill
+height: auto
+
+\-- ftd.text: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+width: $bln.widthcontent
+height: auto
+
+\-- ftd.text: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+width.fixed.px: 200: 
+height: auto
+
+\-- ftd.text: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+width: $bln.widthauto
+height: auto
 
 \-- end: ftd.column
 
+-- output:
 
-\-- ftd.row:
-spacing.fixed.px: 20
-width.fixed.px: 400
-width if { flag }: hug-content
-height.fixed.percent: 20
-height if { flag }: fill-container
-align-content: top-center
-border-width.px: 1
+-- ftd.column:
+padding.px: 40
+width: fill-container
+spacing.fixed.px: 24
+
+-- ftd.text: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+width: $bln.widthfill
+height: auto
+
+-- ftd.text: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+width: $bln.widthcontent
+height: auto
+
+-- ftd.text: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+width.fixed.px: 200
+height: auto
+
+-- ftd.text: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+width: $bln.widthauto
+height: auto
+
+-- end: ftd.column
+
+-- end: output
+
+-- end: example
 
 
-\-- ftd.text: Hello
-\-- ftd.text: World
 
-\-- end: ftd.row
 
+
+-- example: Derived Types: `ftd.responsive-type`
+permalink: #ftd.responsive-type
+id: ftd.responsive-type
+
+-- code: 
+lang: ftd
+
+\-- ftd.type desktop-type:
+size.px: 40
+weight: 900
+font-family: cursive
+line-height.px: 65
+letter-spacing.px: 5
+
+\-- ftd.type mobile-type:
+size.px: 20
+weight: 100
+font-family: fantasy
+line-height.px: 35
+letter-spacing.px: 3
+
+\-- ftd.responsive-type responsive-typography:
+desktop: $desktop-type
+mobile: $mobile-type
 
 \-- ftd.text: Hello World
-max-width.fixed.px: 20
-min-height.fixed.px: 60
-background.solid: yellow
-
-
-\-- integer $num: 0
-
-
-\-- ftd.text: Data
-width.fixed.px if { num % 7 == 0 }: 20
-width.fixed.percent if { num % 7 == 1 }: 20
-width.fixed.calc if { num % 7 == 2 }: 20
-width.fixed.vh if { num % 7 == 3 }: 20
-width.fixed.vw if { num % 7 == 4 }: 20
-width.fixed.em if { num % 7 == 5 }: 20
-width.fixed.rem if { num % 7 == 6 }: 20
-background.solid: red
-$on-click$: $increment($a = $num)
-
-
-
-\-- void increment(a):
-integer $a:
-
-a += 1
-
-
-
-
-
-
-\-- void toggle(a):
-boolean $a:
-
-a = !a
+role: $responsive-typography
 
 -- output:
 
-
--- ftd.text: Click me
-$on-click$: $styles.toggle($a = $styles.flag)
-
--- ftd.text: Hello
-padding-left.px: 40
-padding-right.percent: 10
-padding-top.px: 50
-padding-bottom.percent: 7.9
-border-width.px: 2
-border-top-left-radius.percent if { styles.flag }: 18
-z-index: -5
-
-
--- ftd.text: Hello
-padding-vertical.px: 40
-padding-horizontal.percent if { styles.flag } : 10
-
-
--- ftd.row:
-spacing.fixed.px: 20
-spacing.fixed.px if { styles.flag }: 40
-wrap: true
-wrap if { styles.flag }: false
-border-width.px: 4
-border-width.px if { styles.flag }: 2
-border-radius.percent: 18
-
--- ftd.text: Hello
-
--- ftd.text: World
-
--- end: ftd.row
-
-
--- ftd.row:
-spacing.fixed.px: 20
-align-content if { styles.flag }: top-left
-align-content: top-center
-background.solid: red
-width.fixed.px: 400
-height.fixed.px: 100
-border-width.px: 1
-
--- ftd.text: Hello
-
--- ftd.text: World
-
--- end: ftd.row
-
-
 -- ftd.column:
-spacing.fixed.px: 2
-align-content if { styles.flag }: top-left
-align-content: top-center
-width.fixed.px: 400
-height.fixed.px: 100
-border-width.px: 1
-
--- ftd.text: Hello
-
--- ftd.text: World
-
--- end: ftd.column
-
-
--- ftd.row:
-spacing.fixed.px: 20
-width.fixed.px: 400
-width if { styles.flag }: hug-content
-height.fixed.percent: 20
-height if { styles.flag }: fill-container
-align-content: top-center
-border-width.px: 1
-
-
--- ftd.text: Hello
-
--- ftd.text: World
-
--- end: ftd.row
-
+padding.px: 40
+width: fill-container
+spacing.fixed.px: 24
 
 -- ftd.text: Hello World
-max-width.fixed.px: 20
-min-height.fixed.px: 60
-background.solid: yellow
-
--- ftd.text: Data
-width.fixed.px if { styles.num % 7 == 0 }: 20
-width.fixed.percent if { styles.num % 7 == 1 }: 20
-width.fixed.calc if { styles.num % 7 == 2 }: 20
-width.fixed.vh if { styles.num % 7 == 3 }: 20
-width.fixed.vw if { styles.num % 7 == 4 }: 20
-width.fixed.em if { styles.num % 7 == 5 }: 20
-width.fixed.rem if { styles.num % 7 == 6 }: 20
-background.solid: red
-$on-click$: $styles.increment($a = $styles.num)
-
--- end: output
-
--- end: example
-
--- example: 19-complex-styles
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/19-complex-styles.ftd
-
--- code:
-lang: ftd
-
-
-\-- boolean $flag: true
-
-\-- ftd.text: Click me
-$on-click$: $toggle($a = $flag)
-
-
-\-- foo:
-px if { flag }: 30
-px: 40
-resize if { flag }: hug-content
-resize.fixed.px: 50
-align if { flag }: top-left
-align: top-center
-
-
-
-\-- component foo:
-integer px:
-ftd.resizing resize:
-ftd.align align:
-
-\-- ftd.column:
-width if { flag }: $foo.resize
-width.fixed.px: $foo.px
-align-content: $foo.align
-
-\-- ftd.text: Hello
-height.fixed.px if { flag }: $foo.px
-height: $foo.resize
-
-\-- ftd.text: World
-
-\-- end: ftd.column
-
-\-- end: foo
-
-
-
-\-- void toggle(a):
-boolean $a:
-
-a = !a
-
--- output:
-
-
--- ftd.text: Click me
-$on-click$: $cms.toggle($a = $cms.flag)
-
--- cms.foo:
-px if { cms.flag }: 30
-px: 40
-resize if { cms.flag }: hug-content
-resize.fixed.px: 50
-align if { cms.flag }: top-left
-align: top-center
-
-
--- end: output
-
--- end: example
-
-
--- example: 21-color
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/21-color.ftd
-
--- code:
-lang: ftd
-
-
-\-- ftd.row:
-spacing.fixed.px: 20
-
-\-- ftd.row:
-spacing.fixed.px: 5
-
-\-- ftd.text: ftd.dark-mode:
-
-\-- ftd.boolean: $ftd.dark-mode
-color: $bgcolor
-
-\-- end: ftd.row
-
-
-
-\-- ftd.row:
-spacing.fixed.px: 5
-
-\-- ftd.text: ftd.system-dark-mode:
-
-\-- ftd.boolean: $ftd.system-dark-mode
-color: $bgcolor
-
-\-- end: ftd.row
-
-
-\-- ftd.row:
-spacing.fixed.px: 5
-
-\-- ftd.text: ftd.follow-system-dark-mode:
-
-\-- ftd.boolean: $ftd.follow-system-dark-mode
-color: $bgcolor
-
-\-- end: ftd.row
-
-
-
-\-- end: ftd.row
-
-\-- ftd.column:
-spacing.fixed.px: 40
-
-\-- ftd.row:
-spacing.fixed.px: 20
-
-\-- ftd.text: Dark Mode
-$on-click$: $set-dark()
-
-\-- ftd.text: Light Mode
-$on-click$: $set-light()
-
-\-- ftd.text: System Mode
-$on-click$: $set-system()
-
-\-- end: ftd.row
-
-\-- ftd.column:
-width.fixed.px: 60
-height.fixed.px: 60
-align-content: center
-background.solid: red
-border-width.px: 3
-border-color: $bgcolor
-
-\-- ftd.text: Hello
-\-- ftd.text: World
-
-\-- end: ftd.column
-
-
-\-- ftd.column:
-width.fixed.px: 60
-height.fixed.px: 60
-align-content: center
-background.solid: $bgcolor
-border-color: red
-border-width.px: 3
-
-\-- ftd.text: Hello
-\-- ftd.text: World
-
-\-- end: ftd.column
-
-\-- ftd.column:
-width.fixed.px: 60
-height.fixed.px: 60
-align-content: center
-background: $background-fill
-border-left-color: $bgcolor
-border-left-width.px: 3
-border-top-color: red
-border-top-width.px: 4
-border-right-color: blue
-border-right-width.px: 1
-border-bottom-color: orange
-border-bottom-width.px: 2
-
-\-- ftd.text: Hello
-\-- ftd.text: World
-
-\-- end: ftd.column
-
-\-- end: ftd.column
-
-
-
-
-\-- ftd.background.solid background-fill:
-light: pink
-dark: purple
-
-
-\-- ftd.color bgcolor:
-light: green
-dark: blue
-
-
-\-- void toggle-dark-mode(a):
-boolean $a:
-
-a = !a
-
-
-
-\-- void set-dark():
-
-enable_dark_mode()
-
-
-\-- void set-light():
-
-enable_light_mode()
-
-
-\-- void set-system():
-
-enable_system_mode()
-
--- output:
-
-
--- ftd.row:
-spacing.fixed.px: 20
-
--- ftd.row:
-spacing.fixed.px: 5
-
--- ftd.text: ftd.dark-mode:
-
--- ftd.boolean: $ftd.dark-mode
-color: $color.bgcolor
-
--- end: ftd.row
-
-
-
--- ftd.row:
-spacing.fixed.px: 5
-
--- ftd.text: ftd.system-dark-mode:
-
--- ftd.boolean: $ftd.system-dark-mode
-color: $color.bgcolor
-
--- end: ftd.row
-
-
--- ftd.row:
-spacing.fixed.px: 5
-
--- ftd.text: ftd.follow-system-dark-mode:
-
--- ftd.boolean: $ftd.follow-system-dark-mode
-color: $color.bgcolor
-
--- end: ftd.row
-
-
-
--- end: ftd.row
-
--- ftd.column:
-spacing.fixed.px: 40
-
--- ftd.row:
-spacing.fixed.px: 20
-
--- ftd.text: Dark Mode
-$on-click$: $color.set-dark()
-
--- ftd.text: Light Mode
-$on-click$: $color.set-light()
-
--- ftd.text: System Mode
-$on-click$: $color.set-system()
-
--- end: ftd.row
-
--- ftd.column:
-width.fixed.px: 60
-height.fixed.px: 60
-align-content: center
-background.solid: red
-border-width.px: 3
-border-color: $color.bgcolor
-
--- ftd.text: Hello
-
--- ftd.text: World
+role: $bln.responsive-typography
 
 -- end: ftd.column
-
-
--- ftd.column:
-width.fixed.px: 60
-height.fixed.px: 60
-align-content: center
-background.solid: $color.bgcolor
-border-color: red
-border-width.px: 3
-
--- ftd.text: Hello
-
--- ftd.text: World
-
--- end: ftd.column
-
--- ftd.column:
-width.fixed.px: 60
-height.fixed.px: 60
-align-content: center
-background: $color.background-fill
-border-left-color: $color.bgcolor
-border-left-width.px: 3
-border-top-color: red
-border-top-width.px: 4
-border-right-color: blue
-border-right-width.px: 1
-border-bottom-color: orange
-border-bottom-width.px: 2
-
--- ftd.text: Hello
-
--- ftd.text: World
-
--- end: ftd.column
-
--- end: ftd.column
-
 
 -- end: output
 
@@ -1334,84 +434,14 @@ border-bottom-width.px: 2
 
 
 
--- example: 22-test
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/22-test.ftd
 
--- code:
+
+-- example: Derived Types: `ftd.align-self`
+permalink: #ftd.align-self
+id: ftd.align-self
+
+-- code: 
 lang: ftd
-
-
-\-- ftd.text: Hello World
-
-\-- ftd.row:
-padding.px: 40
-
-\-- ftd.text: Hello World
-padding.px: 2
-
-\-- ftd.text: again
-padding.px: 2
-
-\-- end: ftd.row
-
-
-\-- integer num: 20
-
-\-- ftd.row:
-padding.px: 40
-
-\-- ftd.text: Hello World
-padding.px if {num > 20}: 20
-padding.px: 2
-
-\-- ftd.text: again
-padding.px if {num == 20}: 20
-padding.px: 2
-
-\-- end: ftd.row
-
--- output:
-
-
--- ftd.text: Hello World
-
--- ftd.row:
-padding.px: 40
-
--- ftd.text: Hello World
-padding.px: 2
-
--- ftd.text: again
-padding.px: 2
-
--- end: ftd.row
-
-
--- ftd.row:
-padding.px: 40
-
--- ftd.text: Hello World
-padding.px if {test.num > 20}: 20
-padding.px: 2
-
--- ftd.text: again
-padding.px if { test.num == 20}: 20
-padding.px: 2
-
--- end: ftd.row
-
--- end: output
-
--- end: example
-
-
-
--- example: 23-alignment
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/23-alignment.ftd
-
--- code:
-lang: ftd
-
 
 \-- integer $num: 0
 
@@ -1422,183 +452,8 @@ spacing.fixed.px: 20
 color: red
 $on-click$: $increment($a=$num)
 
-
 \-- ftd.integer: $num
 
-
-\-- ftd.row:
-spacing.fixed.px: 20
-wrap: true
-
-
-
-\-- ftd.column:
-spacing.fixed.px: 20
-align-content if { num % 9 == 0 }: top-left
-align-content if { num % 9 == 1 }: top-center
-align-content if { num % 9 == 2 }: top-right
-align-content if { num % 9 == 3 }: left
-align-content if { num % 9 == 4 }: center
-align-content if { num % 9 == 5 }: right
-align-content if { num % 9 == 6 }: bottom-left
-align-content if { num % 9 == 7 }: bottom-center
-align-content if { num % 9 == 8 }: bottom-right
-background.solid: red
-width.fixed.px: 200
-height.fixed.px: 200
-border-width.px: 1
-
-\-- ftd.column:
-width.fixed.px: 20
-height.fixed.px: 20
-background.solid: yellow
-border-width.px: 1
-
-\-- end: ftd.column
-
-
-\-- ftd.column:
-width.fixed.px: 20
-height.fixed.px: 20
-background.solid: orange
-border-width.px: 1
-
-\-- end: ftd.column
-
-
-\-- end: ftd.column
-
-
-
-
-
-
-
-\-- ftd.row:
-spacing.fixed.px: 20
-align-content if { num % 9 == 0 }: top-left
-align-content if { num % 9 == 1 }: top-center
-align-content if { num % 9 == 2 }: top-right
-align-content if { num % 9 == 3 }: left
-align-content if { num % 9 == 4 }: center
-align-content if { num % 9 == 5 }: right
-align-content if { num % 9 == 6 }: bottom-left
-align-content if { num % 9 == 7 }: bottom-center
-align-content if { num % 9 == 8 }: bottom-right
-background.solid: red
-width.fixed.px: 200
-height.fixed.px: 200
-border-width.px: 1
-
-\-- ftd.column:
-width.fixed.px: 20
-height.fixed.px: 20
-background.solid: yellow
-border-width.px: 1
-
-\-- end: ftd.column
-
-
-\-- ftd.column:
-width.fixed.px: 20
-height.fixed.px: 20
-background.solid: orange
-border-width.px: 1
-
-\-- end: ftd.column
-
-
-\-- end: ftd.row
-
-
-
-
-
-
-
-
-\-- ftd.row:
-spacing.fixed.px: 20
-align-content if { num % 9 == 0 }: top-left
-align-content if { num % 9 == 1 }: top-center
-align-content if { num % 9 == 2 }: top-right
-align-content if { num % 9 == 3 }: left
-align-content if { num % 9 == 4 }: center
-align-content if { num % 9 == 5 }: right
-align-content if { num % 9 == 6 }: bottom-left
-align-content if { num % 9 == 7 }: bottom-center
-align-content if { num % 9 == 8 }: bottom-right
-/spacing: space-between
-background.solid: green
-width.fixed.px: 200
-height.fixed.px: 200
-border-width.px: 1
-
-\-- ftd.column:
-width.fixed.px: 20
-height.fixed.px: 20
-background.solid: yellow
-border-width.px: 1
-
-\-- end: ftd.column
-
-
-\-- ftd.column:
-width.fixed.px: 20
-height.fixed.px: 20
-background.solid: orange
-border-width.px: 1
-
-\-- end: ftd.column
-
-
-\-- end: ftd.row
-
-
-
-
-
-\-- ftd.column:
-spacing.fixed.px: 20
-align-content if { num % 9 == 0 }: top-left
-align-content if { num % 9 == 1 }: top-center
-align-content if { num % 9 == 2 }: top-right
-align-content if { num % 9 == 3 }: left
-align-content if { num % 9 == 4 }: center
-align-content if { num % 9 == 5 }: right
-align-content if { num % 9 == 6 }: bottom-left
-align-content if { num % 9 == 7 }: bottom-center
-align-content if { num % 9 == 8 }: bottom-right
-/spacing: space-evenly
-background.solid: green
-width.fixed.px: 200
-height.fixed.px: 200
-border-width.px: 1
-
-\-- ftd.column:
-width.fixed.px: 20
-height.fixed.px: 20
-background.solid: yellow
-border-width.px: 1
-
-\-- end: ftd.column
-
-
-\-- ftd.column:
-width.fixed.px: 20
-height.fixed.px: 20
-background.solid: orange
-border-width.px: 1
-
-\-- end: ftd.column
-
-
-\-- end: ftd.column
-
-
-
-
-
 \-- ftd.column:
 spacing.fixed.px: 20
 background.solid: blue
@@ -1617,7 +472,6 @@ align-self if { num % 3 == 2 }: end
 
 \-- end: ftd.column
 
-
 \-- ftd.column:
 width.fixed.px: 20
 height.fixed.px: 20
@@ -1626,79 +480,9 @@ border-width.px: 1
 
 \-- end: ftd.column
 
-
 \-- end: ftd.column
 
-
-
-\-- ftd.row:
-spacing.fixed.px: 20
-background.solid: blue
-width.fixed.px: 200
-height.fixed.px: 200
-border-width.px: 1
-
-\-- ftd.column:
-width.fixed.px: 20
-height.fixed.px: 20
-background.solid: yellow
-border-width.px: 1
-align-self if { num % 3 == 0 }: start
-align-self if { num % 3 == 1 }: center
-align-self if { num % 3 == 2 }: end
-
 \-- end: ftd.column
-
-
-\-- ftd.column:
-width.fixed.px: 20
-height.fixed.px: 20
-background.solid: orange
-border-width.px: 1
-
-\-- end: ftd.column
-
-
-\-- end: ftd.row
-
-
-
-\-- ftd.row:
-spacing.fixed.px: 20
-background.solid: pink
-width.fixed.px: 200
-height.fixed.px: 200
-border-width.px: 1
-
-\-- ftd.text:
-background.solid: yellow
-width: fill-container
-height: fill-container
-text-align if { num % 4 == 0 }: start
-text-align if { num % 4 == 1 }: center
-text-align if { num % 4 == 2 }: end
-text-align if { num % 4 == 3 }: justify
-
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at
-erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam,
-consequat gravida libero rhoncus ut.
-
-
-\-- end: ftd.row
-
-
-
-
-\-- end: ftd.row
-\-- end: ftd.column
-
-
-
-\-- void increment(a):
-integer $a:
-
-a += 1;
 
 -- output:
 
@@ -1707,357 +491,266 @@ spacing.fixed.px: 20
 
 -- ftd.text: Click Here!!
 color: red
-$on-click$: $alignment.increment($a=$alignment.num)
+$on-click$: $bln.increment($a=$bln.num)
+
+-- ftd.integer: $bln.num
+
+-- ftd.column:
+spacing.fixed.px: 20
+background.solid: blue
+width.fixed.px: 200
+height.fixed.px: 200
+border-width.px: 1
+
+-- ftd.column:
+width.fixed.px: 20
+height.fixed.px: 20
+background.solid: yellow
+border-width.px: 1
+align-self if { bln.num % 3 == 0 }: start
+align-self if { bln.num % 3 == 1 }: center
+align-self if { bln.num % 3 == 2 }: end
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: output
+
+-- end: example
 
 
--- ftd.integer: $alignment.num
 
--- ftd.row:
+
+
+-- example: Derived Types: `ftd.align-content`
+permalink: #ftd.align-content
+id: ftd.align-content
+
+-- code:
+lang: ftd
+
+\-- integer $num: 0
+
+\-- ftd.column:
+spacing.fixed.px: 20
+
+\-- ftd.text: Click Here!!
+color: red
+$on-click$: $increment($a=$num)
+
+\-- ftd.integer: $num
+
+\-- ftd.row:
 spacing.fixed.px: 20
 wrap: true
 
-
--- ftd.column:
+\-- ftd.column:
 spacing.fixed.px: 20
-align-content if { alignment.num % 9 == 0 }: top-left
-align-content if { alignment.num % 9 == 1 }: top-center
-align-content if { alignment.num % 9 == 2 }: top-right
-align-content if { alignment.num % 9 == 3 }: left
-align-content if { alignment.num % 9 == 4 }: center
-align-content if { alignment.num % 9 == 5 }: right
-align-content if { alignment.num % 9 == 6 }: bottom-left
-align-content if { alignment.num % 9 == 7 }: bottom-center
-align-content if { alignment.num % 9 == 8 }: bottom-right
+align-content if { num % 9 == 0 }: top-left
+align-content if { num % 9 == 1 }: top-center
+align-content if { num % 9 == 2 }: top-right
+align-content if { num % 9 == 3 }: left
+align-content if { num % 9 == 4 }: center
+align-content if { num % 9 == 5 }: right
+align-content if { num % 9 == 6 }: bottom-left
+align-content if { num % 9 == 7 }: bottom-center
+align-content if { num % 9 == 8 }: bottom-right
 background.solid: red
 width.fixed.px: 200
 height.fixed.px: 200
 border-width.px: 1
 
--- ftd.column:
+\-- ftd.column:
 width.fixed.px: 20
 height.fixed.px: 20
 background.solid: yellow
 border-width.px: 1
 
--- end: ftd.column
+\-- end: ftd.column
 
-
--- ftd.column:
+\-- ftd.column:
 width.fixed.px: 20
 height.fixed.px: 20
 background.solid: orange
 border-width.px: 1
 
--- end: ftd.column
+\-- end: ftd.column
 
+\-- end: ftd.column
 
--- end: ftd.column
-
-
-
-
-
-
-
--- ftd.row:
+\-- ftd.row:
 spacing.fixed.px: 20
-align-content if { alignment.num % 9 == 0 }: top-left
-align-content if { alignment.num % 9 == 1 }: top-center
-align-content if { alignment.num % 9 == 2 }: top-right
-align-content if { alignment.num % 9 == 3 }: left
-align-content if { alignment.num % 9 == 4 }: center
-align-content if { alignment.num % 9 == 5 }: right
-align-content if { alignment.num % 9 == 6 }: bottom-left
-align-content if { alignment.num % 9 == 7 }: bottom-center
-align-content if { alignment.num % 9 == 8 }: bottom-right
+align-content if { num % 9 == 0 }: top-left
+align-content if { num % 9 == 1 }: top-center
+align-content if { num % 9 == 2 }: top-right
+align-content if { num % 9 == 3 }: left
+align-content if { num % 9 == 4 }: center
+align-content if { num % 9 == 5 }: right
+align-content if { num % 9 == 6 }: bottom-left
+align-content if { num % 9 == 7 }: bottom-center
+align-content if { num % 9 == 8 }: bottom-right
 background.solid: red
 width.fixed.px: 200
 height.fixed.px: 200
 border-width.px: 1
 
--- ftd.column:
+\-- ftd.column:
 width.fixed.px: 20
 height.fixed.px: 20
 background.solid: yellow
 border-width.px: 1
 
--- end: ftd.column
+\-- end: ftd.column
 
-
--- ftd.column:
+\-- ftd.column:
 width.fixed.px: 20
 height.fixed.px: 20
 background.solid: orange
 border-width.px: 1
 
--- end: ftd.column
+\-- end: ftd.column
 
+\-- end: ftd.row
 
--- end: ftd.row
-
-
-
-
-
-
-
-
--- ftd.row:
+\-- ftd.row:
 spacing.fixed.px: 20
-align-content if { alignment.num % 9 == 0 }: top-left
-align-content if { alignment.num % 9 == 1 }: top-center
-align-content if { alignment.num % 9 == 2 }: top-right
-align-content if { alignment.num % 9 == 3 }: left
-align-content if { alignment.num % 9 == 4 }: center
-align-content if { alignment.num % 9 == 5 }: right
-align-content if { alignment.num % 9 == 6 }: bottom-left
-align-content if { alignment.num % 9 == 7 }: bottom-center
-align-content if { alignment.num % 9 == 8 }: bottom-right
+align-content if { num % 9 == 0 }: top-left
+align-content if { num % 9 == 1 }: top-center
+align-content if { num % 9 == 2 }: top-right
+align-content if { num % 9 == 3 }: left
+align-content if { num % 9 == 4 }: center
+align-content if { num % 9 == 5 }: right
+align-content if { num % 9 == 6 }: bottom-left
+align-content if { num % 9 == 7 }: bottom-center
+align-content if { num % 9 == 8 }: bottom-right
 /spacing: space-between
 background.solid: green
 width.fixed.px: 200
 height.fixed.px: 200
 border-width.px: 1
 
--- ftd.column:
+\-- ftd.column:
 width.fixed.px: 20
 height.fixed.px: 20
 background.solid: yellow
 border-width.px: 1
 
--- end: ftd.column
+\-- end: ftd.column
 
-
--- ftd.column:
+\-- ftd.column:
 width.fixed.px: 20
 height.fixed.px: 20
 background.solid: orange
 border-width.px: 1
 
--- end: ftd.column
+\-- end: ftd.column
 
+\-- end: ftd.row
 
--- end: ftd.row
-
-
-
-
-
--- ftd.column:
+\-- ftd.column:
 spacing.fixed.px: 20
-align-content if { alignment.num % 9 == 0 }: top-left
-align-content if { alignment.num % 9 == 1 }: top-center
-align-content if { alignment.num % 9 == 2 }: top-right
-align-content if { alignment.num % 9 == 3 }: left
-align-content if { alignment.num % 9 == 4 }: center
-align-content if { alignment.num % 9 == 5 }: right
-align-content if { alignment.num % 9 == 6 }: bottom-left
-align-content if { alignment.num % 9 == 7 }: bottom-center
-align-content if { alignment.num % 9 == 8 }: bottom-right
+align-content if { num % 9 == 0 }: top-left
+align-content if { num % 9 == 1 }: top-center
+align-content if { num % 9 == 2 }: top-right
+align-content if { num % 9 == 3 }: left
+align-content if { num % 9 == 4 }: center
+align-content if { num % 9 == 5 }: right
+align-content if { num % 9 == 6 }: bottom-left
+align-content if { num % 9 == 7 }: bottom-center
+align-content if { num % 9 == 8 }: bottom-right
 /spacing: space-evenly
 background.solid: green
 width.fixed.px: 200
 height.fixed.px: 200
 border-width.px: 1
 
--- ftd.column:
+\-- ftd.column:
 width.fixed.px: 20
 height.fixed.px: 20
 background.solid: yellow
 border-width.px: 1
 
--- end: ftd.column
+\-- end: ftd.column
 
-
--- ftd.column:
+\-- ftd.column:
 width.fixed.px: 20
 height.fixed.px: 20
 background.solid: orange
 border-width.px: 1
 
--- end: ftd.column
+\-- end: ftd.column
+
+\-- end: ftd.column
+
+\-- end: ftd.row
+
+\-- end: ftd.column
+
+\-- void increment(a):
+integer $a:
+
+a += 1;
+
+-- output:
+
+-- bln.aligncontent:
+
+-- end: output
+
+-- end: example
 
 
--- end: ftd.column
 
 
 
+-- example: Derived Types: `ftd.text-align`
+permalink: #ftd.text-align
+id: ftd.text-align
 
+-- code: 
+lang: ftd
 
--- ftd.column:
+\-- integer $num: 0
+
+\-- ftd.column:
+spacing.fixed.px: 20
+
+\-- ftd.text: Click Here!!
+color: red
+$on-click$: $increment($a=$num)
+
+\-- ftd.integer: $num
+
+\-- ftd.row:
 spacing.fixed.px: 20
 background.solid: blue
-width.fixed.px: 200
+width.fixed.px: 300
 height.fixed.px: 200
 border-width.px: 1
 
--- ftd.column:
-width.fixed.px: 20
-height.fixed.px: 20
-background.solid: yellow
-border-width.px: 1
-align-self if { alignment.num % 3 == 0 }: start
-align-self if { alignment.num % 3 == 1 }: center
-align-self if { alignment.num % 3 == 2 }: end
-
--- end: ftd.column
-
-
--- ftd.column:
-width.fixed.px: 20
-height.fixed.px: 20
-background.solid: orange
-border-width.px: 1
-
--- end: ftd.column
-
-
--- end: ftd.column
-
-
-
--- ftd.row:
-spacing.fixed.px: 20
-background.solid: blue
-width.fixed.px: 200
-height.fixed.px: 200
-border-width.px: 1
-
--- ftd.column:
-width.fixed.px: 20
-height.fixed.px: 20
-background.solid: yellow
-border-width.px: 1
-align-self if { alignment.num % 3 == 0 }: start
-align-self if { alignment.num % 3 == 1 }: center
-align-self if { alignment.num % 3 == 2 }: end
-
--- end: ftd.column
-
-
--- ftd.column:
-width.fixed.px: 20
-height.fixed.px: 20
-background.solid: orange
-border-width.px: 1
-
--- end: ftd.column
-
-
--- end: ftd.row
-
-
-
--- ftd.row:
-spacing.fixed.px: 20
-background.solid: pink
-width.fixed.px: 200
-height.fixed.px: 200
-border-width.px: 1
-
--- ftd.text:
-background.solid: yellow
+\-- ftd.text:
 width: fill-container
 height: fill-container
-text-align if { alignment.num % 4 == 0 }: start
-text-align if { alignment.num % 4 == 1 }: center
-text-align if { alignment.num % 4 == 2 }: end
-text-align if { alignment.num % 4 == 3 }: justify
-
+text-align if { num % 4 == 0 }: start
+text-align if { num % 4 == 1 }: center
+text-align if { num % 4 == 2 }: end
+text-align if { num % 4 == 3 }: justify
+color: white
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at
 erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam,
 consequat gravida libero rhoncus ut.
 
-
--- end: ftd.row
-
--- end: ftd.row
-
--- end: ftd.column
-
--- end: output
-
--- end: example
-
-
-
--- example: 24-margin
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/24-margin.ftd
-
--- code:
-lang: ftd
-
-
-\-- ftd.column:
-width: fill-container
-height: fill-container
-
-\-- ftd.column:
-width.fixed.px: 60
-height.fixed.px: 60
-background.solid: yellow
-border-width.px: 1
-margin-horizontal.px: 60
-
-\-- end: ftd.column
-
-
-\-- ftd.column:
-width.fixed.px: 60
-height.fixed.px: 60
-background.solid: yellow
-border-width.px: 1
-margin-top.px: 40
-
-\-- end: ftd.column
-
-\-- ftd.column:
-width.fixed.px: 60
-height.fixed.px: 60
-background.solid: green
-border-width.px: 1
-margin.px: 100
-
-\-- end: ftd.column
+\-- end: ftd.row
 
 \-- end: ftd.column
 
 -- output:
 
--- ftd.column:
-width: fill-container
-height: fill-container
-
--- ftd.column:
-width.fixed.px: 60
-height.fixed.px: 60
-background.solid: yellow
-border-width.px: 1
-margin-horizontal.px: 60
-
--- end: ftd.column
-
-
--- ftd.column:
-width.fixed.px: 60
-height.fixed.px: 60
-background.solid: yellow
-border-width.px: 1
-margin-top.px: 40
-
--- end: ftd.column
-
--- ftd.column:
-width.fixed.px: 60
-height.fixed.px: 60
-background.solid: green
-border-width.px: 1
-margin.px: 100
-
--- end: ftd.column
-
--- end: ftd.column
+-- bln.textalign:
 
 -- end: output
 
@@ -2065,1578 +758,113 @@ margin.px: 100
 
 
 
--- example: 23-doc-site
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/23-doc-site.ftd
 
--- code:
-lang: ftd
 
-
-
-\-- page: PAGE TITLE
-section-item: $item
-subsection-item: $sub-item
-toc: $toc
-navtitle: Section-one
-nav-subtitle: Subsection-one 
-current-title: Toc Title 1
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-\-- image: Image 1
-src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
-
-\-- image: Image 1
-src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
-
-\-- image: Image 1
-src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
-
-\-- image: Image 1
-src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
-
-\-- image: Image 1
-src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
-
-
-\-- image: Image 1
-src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
-
-\-- end: page
-
-
-
-
-
-
-
-
-
-
-\-- component page:
-optional caption title:
-toc-item list section-item:
-toc-item list subsection-item:
-toc-items list toc:
-optional body body:
-string navtitle:
-string nav-subtitle:
-string current-title:
-children container:
-
-\-- ftd.column:
-background.solid: $base
-width.fixed.percent: 100
-
-
-
-\-- header:
-section-item: $page.section-item
-subsection-item:$page.subsection-item
-toc: $page.toc
-navtitle: $page.navtitle
-nav-subtitle: $page.nav-subtitle
-current-title: $page.current-title
-
-
-\-- ftd.row:
-padding.px: 48
-spacing.fixed.px: 48
-width.fixed.percent: 100
-
-\-- ftd.column:
-background.solid: $step-1
-padding.px: 24
-min-height.fixed.percent: 100
-width.fixed.percent: 20
-
-\-- print-toc:
-item: $page.toc
-
-\-- end: ftd.column
-
-\-- ftd.column:
-spacing.fixed.px: 32
-width.fixed.percent: 80
-
-\-- ftd.text: $page.title
-color: $text-strong
-
-\-- ftd.text: $page.body
-color: $text-strong
-
-\-- ftd.column:
-children: $page.container
-spacing.fixed.px: 32
-width.fixed.percent: 100
-
-\-- end: ftd.column
-
-\-- end: ftd.column
-
-\-- end: ftd.row
-
-\-- end: ftd.column
-
-\-- end: page
-
-
-
-
-
-
-
-
-
-
-\-- component print-toc-item:
-toc-item list item:
-
-\-- ftd.row:
-padding-left.px: 30
-
-\-- print-toc-item-one:
-item: $obj.name
-url: $obj.url
-$loop$: $print-toc-item.item as $obj
-
-\-- end: ftd.row
-
-\-- end: print-toc-item
-
-
-
-
-
-
-
-
-
-
-
-\-- component print-toc-item-one:
-caption item:
-string url:
-
-\-- ftd.row:
-padding-left.px: 30
-align-content: center
-
-\-- ftd.text: 
-text:$print-toc-item-one.item
-link:$print-toc-item-one.url
-color: $text-strong
-
-\-- end: ftd.row
-
-\-- end: print-toc-item-one
-
-
-
-
-
-
-
-
-
-
-\-- component print-toc:
-toc-items list item:
-
-\-- ftd.column:
-
-\-- print-toc-one:
-item: $obj.name
-children: $obj.children
-$loop$: $print-toc.item as $obj
-
-\-- end: ftd.column
-
-\-- end: print-toc
-
-
-
-
-
-
-
-
-
-
-\-- component print-toc-one:
-string item:
-toc-items list children:
-
-\-- ftd.column:
-
-\-- ftd.column:
-
-\-- ftd.text: 
-text: $print-toc-one.item
-padding-bottom.px: 8
-color: $text-strong
-
-\-- end: ftd.column
-
-\-- ftd.column:
-padding-left.px: 12
-
-\-- print-toc-one:
-item: $obj.name
-children: $obj.children
-$loop$: $print-toc-one.children as $obj
-
-\-- end: ftd.column
-
-\-- end: ftd.column
-
-\-- end: print-toc-one
-
-
-
-
-
-
-
-
-
-
-\-- component image:
-optional caption title:
-ftd.image-src src:
-ftd.align aaa: center
-
-\-- ftd.column: 
-width.fixed.percent: 100
-align-content: $image.aaa
-spacing.fixed.px: 12
-
-\-- ftd.column:
-width.fixed.percent: 100
-align-content: center
-
-\-- ftd.image:
-src: $image.src
-width.fixed.px: 400
-height.fixed.px: 100
-
-\-- end: ftd.column
-
-\-- ftd.text:
-text: $image.title
-color: $text-strong
-
-\-- end: ftd.column
-
-\-- end: image
-
-
-
-
-
-
-
-
-
-
-
-\-- component header:
-toc-item list section-item:
-toc-item list subsection-item:
-toc-items list toc:
-string navtitle:
-string nav-subtitle:
-string current-title:
-
-\-- ftd.column:
-width.fixed.percent: 100
-
-\-- ftd.row:
-width.fixed.percent: 100
-padding.px: 32
-
-\-- ftd.row:
-width.fixed.percent: 26
-
-\-- ftd.image:
-src: $src
-
-\-- end: ftd.row
-
-\-- ftd.row:
-width.fixed.percent: 74
-align-content: right
-
-\-- print-toc-item:
-item: $header.section-item
-
-\-- end: ftd.row
-
-\-- end: ftd.row
-
-\-- ftd.row:
-background.solid: $step-1
-width.fixed.percent: 100
-padding-vertical.px: 24
-padding-horizontal.px: 32
-
-\-- ftd.column:
-width.fixed.percent: 26
-spacing.fixed.px: 12
-
-\-- ftd.text: $header.navtitle
-color: $text-strong
-
-\-- ftd.row:
-spacing.fixed.px: 8
-
-\-- ftd.text: $header.nav-subtitle
-color: $text-strong
-\-- ftd.row:
-
-\-- ftd.text: \-
-color: $text-strong
-
-\-- ftd.text: \>
-color: $text-strong
-padding-top.percent: 10.7
-
-\-- end: ftd.row
-
-\-- ftd.text: $header.current-title
-color: $text-strong
-
-\-- end: ftd.row
-
-\-- end: ftd.column
-
-\-- ftd.column:
-align-content: right
-width.fixed.percent: 100
-align-self: center
-
-\-- ftd.row:
-width.fixed.percent: 100
-align-content: right
-
-
-\-- ftd.column:
-align-content: center
-
-
-\-- ftd.column:
-align-content: center
-
-
-\-- print-toc-item:
-item: $header.subsection-item
-
-\-- end: ftd.column
-
-\-- end: ftd.row
-
-\-- end: ftd.column
-
-\-- end: ftd.row
-
-\-- end: ftd.column
-
-\-- end: header
-
-
-
-
-
-
-
-
-
-
-\-- ftd.color base:
-light: #18181b
-dark: #18181b
-
-\-- ftd.color step-1:
-light: #141414
-dark: #141414
-
-\-- ftd.color text-strong:
-light: #ffffff
-dark: #ffffff
-
-
-
-
-
-\-- record toc-item:
-caption name:
-string url:
-
-\-- toc-item list item:
-
-\-- toc-item: Section-one
-url: /
-
-\-- toc-item: Section-two
-url: /
-
-\-- toc-item: Section-three
-url: /
-
-\-- toc-item: Section-four
-url: /
-
-\-- end: item
-
-
-
-
-
-
-\-- toc-item list sub-item:
-
-\-- toc-item: Subsection-one
-url: /
-
-\-- toc-item: Subsection-two
-url: /
-
-\-- toc-item: Subsection-three
-url: /
-
-\-- toc-item: subsection-four
-url: /
-
-\-- end: sub-item
-
-
-
-
-
-\-- record toc-items:
-string name:
-toc-items list children:
-
-\-- toc-items list toc:
-
-\-- toc-items:
-name: TOC title 1
-
-\-- toc-items.children:
-
-\-- toc-items:
-name: TOC children 1.1
-
-\-- toc-items.children:
-
-\-- toc-items:
-name: TOC children 1.1.1
-
-\-- end: toc-items.children
-
-\-- end: toc-items.children
-
-\-- toc-items:
-name: TOC title 2
-
-\-- toc-items:
-name: TOC title 3
-
-\-- toc-items:
-name: TOC title 4
-
-\-- end: toc
-
-\-- ftd.image-src src:
-light: https://www.fifthtry.com/-/fifthtry.com/assets/images/logo-fifthtry-dark.svg
-dark: https://www.fifthtry.com/-/fifthtry.com/assets/images/logo-fifthtry-dark.svg
-
-
--- output:
-
--- ds.page: PAGE TITLE
-section-item: $ds.item
-subsection-item: $ds.sub-item
-toc: $ds.toc
-navtitle: Section-one
-nav-subtitle: Subsection-one 
-current-title: Toc Title 1
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
--- ds.image: Image 1
-src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
-
--- ds.image: Image 1
-src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
-
--- ds.image: Image 1
-src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
-
--- ds.image: Image 1
-src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
-
--- ds.image: Image 1
-src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
-
-
--- ds.image: Image 1
-src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
-
--- end: ds.page
-
--- end: output
-
--- end: example
-
-
-
--- example: 25-expander
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/25-expander.ftd
-
--- code:
-lang: ftd
-
-
-\-- ftd.column:
-padding.px: 20
-border-width.px: 1
-spacing.fixed.px: 50
-background.solid: #eee
-width: fill-container
-height: fill-container
-align-content: top-center
-
-
-\-- box: What is FTD?
-
-FTD is an open source programming language for writing prose.
-
-\-- box:
-title: We are adding text of header using title
-
-Here is a FTD document that is importing a library, lib, and has a heading of
-level 1, "Hello World". FTD language is designed for human beings, not just
-programmers, we have taken precautions like not requiring quoting for strings,
-not relying on indentation nor on braces that most programming
-languages require.
-
-It is not verbose like HTML, and not simplistic like Markdown. We can define
-variables in FTD. FTD is strongly typed. We can do event handling. Since we are
-targeting "human beings" we have created a lot of "actions" that we believe one
-will be invoking on a day to day basis, like toggle, which can be used to create
-simple event handling.
-
-
-\-- box:
-
-\-- end: ftd.column
-
-
-\-- component box:
-caption title: default header
-body body: default body
-boolean $open: false
-
-\-- ftd.column:
-border-width.px: 4
-width.fixed.percent: 60
-
-\-- ftd.row:
-padding.px: 10
-border-width.px: 1
-width: fill-container
-spacing: space-between
-$on-click$: $toggle($value = $box.open)
-
-\-- ftd.text: $box.title
-\-- ftd.text: O
-if: {!box.open}
-
-\-- ftd.text: X
-if: {$box.open}
-
-\-- end: ftd.row
-
-\-- ftd.text:
-if: { $box.open }
-padding.px: 10
-height: hug-content
-
-$box.body
-
-\-- end: ftd.column
-
-\-- end: box
-
-\-- void toggle(value):
-boolean $value:
-
-value = !value;
-
--- output:
-
-
--- ftd.column:
-padding.px: 20
-border-width.px: 1
-spacing.fixed.px: 50
-background.solid: #eee
-width: fill-container
-height: fill-container
-align-content: top-center
-
-
--- expander.box: What is FTD?
-
-FTD is an open source programming language for writing prose.
-
--- expander.box:
-title: We are adding text of header using title
-
-Here is a FTD document that is importing a library, lib, and has a heading of
-level 1, "Hello World". FTD language is designed for human beings, not just
-programmers, we have taken precautions like not requiring quoting for strings,
-not relying on indentation nor on braces that most programming
-languages require.
-
-It is not verbose like HTML, and not simplistic like Markdown. We can define
-variables in FTD. FTD is strongly typed. We can do event handling. Since we are
-targeting "human beings" we have created a lot of "actions" that we believe one
-will be invoking on a day to day basis, like toggle, which can be used to create
-simple event handling.
-
-
--- expander.box:
-
--- end: ftd.column
-
--- end: output
-
--- end: example
-
-
-
--- example: 25-overflow
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/25-overflow.ftd
-
--- code:
-lang: ftd
-
-
-\-- boolean $flag: true
-
-\-- void toggle(a):
-boolean $a:
-
-a = !a
-
-\-- ftd.row:
-align-content: center
-
-\-- ftd.text: overflow
-
-\-- end: ftd.row
-
-
-\-- ftd.row:
-margin-bottom.px: 100
-padding.px: 40
-spacing.fixed.px: 40
-width: fill-container
-
-
-\-- ftd.text:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-overflow if { flag }: scroll
-$on-click$: $toggle($a=$flag)
-
-The overflow property is specified as one or two keywords chosen from the list
-of values below. If two keywords are specified, the first applies to overflow-x
-and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
-to the same value.
-
-\-- ftd.text:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-overflow: visible
-
-The overflow property is specified as one or two keywords chosen from the list
-of values below. If two keywords are specified, the first applies to overflow-x
-and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
-to the same value.
-
-\-- ftd.text:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-overflow: hidden
-
-The overflow property is specified as one or two keywords chosen from the list
-of values below. If two keywords are specified, the first applies to overflow-x
-and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
-to the same value.
-
-
-\-- ftd.text:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-overflow: auto
-
-The overflow property is specified as one or two keywords chosen from the list
-of values below. If two keywords are specified, the first applies to overflow-x
-and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
-to the same value.
-
-\-- end: ftd.row
-
-\-- boolean $flag: true
-
-
-
-
-
-
-
-
-\-- ftd.row:
-align-content: center
-
-\-- ftd.text: overflow-x
-
-\-- end: ftd.row
-
-
-\-- ftd.row:
-margin-top.px: 40
-padding.px: 40
-spacing.fixed.px: 40
-width: fill-container
-
-
-\-- ftd.text:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-overflow-x: scroll
-
-The overflow property is specified as one or two keywords chosen from the list
-of values below. If two keywords are specified, the first applies to overflow-x
-and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
-to the same value.
-
-\-- ftd.text:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-overflow-x: visible
-
-The overflow property is specified as one or two keywords chosen from the list
-of values below. If two keywords are specified, the first applies to overflow-x
-and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
-to the same value.
-
-\-- ftd.text:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-overflow-x: hidden
-
-The overflow property is specified as one or two keywords chosen from the list
-of values below. If two keywords are specified, the first applies to overflow-x
-and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
-to the same value.
-
-
-\-- ftd.text:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-overflow-x: auto
-
-The overflow property is specified as one or two keywords chosen from the list
-of values below. If two keywords are specified, the first applies to overflow-x
-and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
-to the same value.
-
-\-- end: ftd.row
-
-
-
-
-
-\-- ftd.row:
-align-content: center
-
-\-- ftd.text: overflow-y
-
-\-- end: ftd.row
-
-
-\-- ftd.row:
-margin-top.px: 40
-padding.px: 40
-spacing.fixed.px: 40
-width: fill-container
-
-
-\-- ftd.text:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-overflow-y: scroll
-
-The overflow property is specified as one or two keywords chosen from the list
-of values below. If two keywords are specified, the first applies to overflow-x
-and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
-to the same value.
-
-\-- ftd.text:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-overflow-y: visible
-
-The overflow property is specified as one or two keywords chosen from the list
-of values below. If two keywords are specified, the first applies to overflow-x
-and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
-to the same value.
-
-\-- ftd.text:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-overflow-y: hidden
-
-The overflow property is specified as one or two keywords chosen from the list
-of values below. If two keywords are specified, the first applies to overflow-x
-and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
-to the same value.
-
-
-\-- ftd.text:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-overflow-y: auto
-
-The overflow property is specified as one or two keywords chosen from the list
-of values below. If two keywords are specified, the first applies to overflow-x
-and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
-to the same value.
-
-
-\-- ftd.column:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-resize: both
-
-\-- end: ftd.column
-
-\-- end: ftd.row
-
--- output:
-
-
-
--- ftd.row:
-align-content: center
-
--- ftd.text: overflow
-
--- end: ftd.row
-
-
--- ftd.row:
-margin-bottom.px: 100
-padding.px: 40
-spacing.fixed.px: 40
-width: fill-container
-
--- ftd.text:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-overflow if { ofw.flag }: scroll
-$on-click$: $ofw.toggle($a=$ofw.flag)
-
-The overflow property is specified as one or two keywords chosen from the list
-of values below. If two keywords are specified, the first applies to overflow-x
-and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
-to the same value.
-
--- ftd.text:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-overflow: visible
-
-The overflow property is specified as one or two keywords chosen from the list
-of values below. If two keywords are specified, the first applies to overflow-x
-and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
-to the same value.
-
--- ftd.text:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-overflow: hidden
-
-The overflow property is specified as one or two keywords chosen from the list
-of values below. If two keywords are specified, the first applies to overflow-x
-and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
-to the same value.
-
-
--- ftd.text:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-overflow: auto
-
-The overflow property is specified as one or two keywords chosen from the list
-of values below. If two keywords are specified, the first applies to overflow-x
-and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
-to the same value.
-
--- end: ftd.row
-
-
-
-
--- ftd.row:
-align-content: center
-
--- ftd.text: overflow-x
-
--- end: ftd.row
-
-
--- ftd.row:
-margin-top.px: 40
-padding.px: 40
-spacing.fixed.px: 40
-width: fill-container
-
-
--- ftd.text:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-overflow-x: scroll
-
-The overflow property is specified as one or two keywords chosen from the list
-of values below. If two keywords are specified, the first applies to overflow-x
-and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
-to the same value.
-
--- ftd.text:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-overflow-x: visible
-
-The overflow property is specified as one or two keywords chosen from the list
-of values below. If two keywords are specified, the first applies to overflow-x
-and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
-to the same value.
-
--- ftd.text:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-overflow-x: hidden
-
-The overflow property is specified as one or two keywords chosen from the list
-of values below. If two keywords are specified, the first applies to overflow-x
-and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
-to the same value.
-
-
--- ftd.text:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-overflow-x: auto
-
-The overflow property is specified as one or two keywords chosen from the list
-of values below. If two keywords are specified, the first applies to overflow-x
-and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
-to the same value.
-
--- end: ftd.row
-
-
-
-
-
--- ftd.row:
-align-content: center
-
--- ftd.text: overflow-y
-
--- end: ftd.row
-
-
--- ftd.row:
-margin-top.px: 40
-padding.px: 40
-spacing.fixed.px: 40
-width: fill-container
-
-
--- ftd.text:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-overflow-y: scroll
-
-The overflow property is specified as one or two keywords chosen from the list
-of values below. If two keywords are specified, the first applies to overflow-x
-and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
-to the same value.
-
--- ftd.text:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-overflow-y: visible
-
-The overflow property is specified as one or two keywords chosen from the list
-of values below. If two keywords are specified, the first applies to overflow-x
-and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
-to the same value.
-
--- ftd.text:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-overflow-y: hidden
-
-The overflow property is specified as one or two keywords chosen from the list
-of values below. If two keywords are specified, the first applies to overflow-x
-and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
-to the same value.
-
-
--- ftd.text:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-overflow-y: auto
-
-The overflow property is specified as one or two keywords chosen from the list
-of values below. If two keywords are specified, the first applies to overflow-x
-and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
-to the same value.
-
-
--- ftd.column:
-width.fixed.px: 100
-height.fixed.px: 100
-background.solid: yellow
-resize: both
-
--- end: ftd.column
-
--- end: ftd.row
-
--- end: output
-
--- end: example
-
-
-
--- example: 26-border
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/26-border.ftd
-
--- code:
-lang: ftd
-
-
-\-- ftd.column:
-margin.px: 50
-width.fixed.px: 200
-height.fixed.px: 200
-background.solid: yellow
-border-bottom-width.px: 11
-border-top-width.px: 5
-border-left-width.px: 7
-border-right-width.px: 9
-border-bottom-color: red
-border-top-color: blue
-border-left-color: green
-border-right-color: purple
-
-\-- end: ftd.column
-
-
-\-- ftd.column:
-margin.px: 50
-width.fixed.px: 200
-height.fixed.px: 200
-background.solid: yellow
-border-width.px: 10
-border-bottom-color: red
-border-top-color: blue
-border-left-color: green
-border-right-color: purple
-
-\-- end: ftd.column
--- output:
-
-
--- ftd.column:
-margin.px: 50
-width.fixed.px: 200
-height.fixed.px: 200
-background.solid: yellow
-border-bottom-width.px: 11
-border-top-width.px: 5
-border-left-width.px: 7
-border-right-width.px: 9
-border-bottom-color: red
-border-top-color: blue
-border-left-color: green
-border-right-color: purple
-
--- end: ftd.column
-
-
--- ftd.column:
-margin.px: 50
-width.fixed.px: 200
-height.fixed.px: 200
-background.solid: yellow
-border-width.px: 10
-border-bottom-color: red
-border-top-color: blue
-border-left-color: green
-border-right-color: purple
-
--- end: ftd.column
-
--- end: output
-
--- end: example
-
-
--- example: 27-optional
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/27-optional.ftd
-
--- code:
-lang: ftd
-
-
-
-\-- optional string $name: NULL
-
-
-\-- ftd.text: Hello
-if: { ftd.is_empty(name) }
-$on-click$: $append($a = $name, b = FifthTry)
-
-\-- ftd.text: Hello Again
-if: { name == NULL }
-
-
-\-- ftd.text: $name
-if: { !ftd.is_empty(name) }
-$on-click$: $append($a = $name, b = FifthTry)
-
-\-- ftd.text: $name
-if: { name != NULL }
-
-
-
-
-\-- void append(a,b):
-optional string $a:
-string b:
-
-a = a + " " + b
-
--- output:
-
--- ftd.text: Click here to `append`
-if: { ftd.is_empty(optional.name) }
-$on-click$: $optional.append($a = $optional.name, b = FifthTry)
-
--- ftd.text: Hello Again
-if: { optional.name == NULL }
-
-
--- ftd.text: $optional.name
-if: { !ftd.is_empty(optional.name) }
-$on-click$: $optional.append($a = $optional.name, b = FifthTry)
-
--- ftd.text: $optional.name
-if: { optional.name != NULL }
-
-
-
--- end: output
-
--- end: example
-
-
-
--- example: 28-complex
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/28-complex.ftd
+-- example: Derived Types: `ftd.spacing`
+permalink: #ftd.spacing
+id: ftd.spacing
 
 -- code: 
 lang: ftd
 
-\-- ftd.background.solid base:
-light: #18181b
-dark: #18181b
-
-\-- ftd.background.solid step-1:
-light: #141414
-dark: #141414
-
-\-- ftd.background.solid step-2:
-light: #585656
-dark: #585656
-
-\-- ftd.background.solid overlay:
-light: rgba(0, 0, 0, 0.8)
-dark: rgba(0, 0, 0, 0.8)
-
-\-- ftd.background.solid code:
-light: #2B303B
-dark: #2B303B
-
-\-- ftd.color text:
-light: #a8a29e
-dark: #a8a29e
-
-\-- ftd.color text-strong:
-light: #ffffff
-dark: #ffffff
-
-
-\-- string site: FithTry Doc
-
-
-
-
-\-- component page:
-body mytext:
-toc-item sections:
-
-
 \-- ftd.column:
-width: fill-container
-height.fixed.percent: 100
-background: $step-2
-
-
-\-- ftd.column:
-width: fill-container
-padding.px: 24
-
-\-- header:
-sections: $page.sections
-site-name: Logo
-
-\-- end: ftd.column
-
-
-
-\-- ftd.column:
-width: fill-container
+spacing.fixed.px: 24
 
 \-- ftd.row:
-width: fill-container
-
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.border
+spacing: spacing-around
+width.fixed.px: 460
 
 \-- ftd.row:
-width.fixed.percent: 25
-
-\-- ftd.column:
-height: fill-container
-background: $step-1
-
-\-- ftd.text: table of contents
-color: $text
-
-\-- end: ftd.column
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.custom.one
 
 \-- end: ftd.row
 
-
 \-- ftd.row:
-width.fixed.percent: 50
-
-\-- ftd.text:
-text: $page.mytext
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.custom.two
 
 \-- end: ftd.row
 
-
 \-- ftd.row:
-width.fixed.percent: 25
-
-\-- ftd.text: Sidebar
-color: $text
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.custom.three
 
 \-- end: ftd.row
 
+\-- end: ftd.row
+
+\-- ftd.row:
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.border
+spacing: spacing-evenly
+width.fixed.px: 460
+
+\-- ftd.row:
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.custom.one
+
+\-- end: ftd.row
+
+\-- ftd.row:
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.custom.two
+
+\-- end: ftd.row
+
+\-- ftd.row:
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.custom.three
+
+\-- end: ftd.row
+
+\-- end: ftd.row
+
+\-- ftd.row:
+padding.px: 40
+width.fixed.px: 460
+border-width.px: 1
+border-color: $inherited.colors.border
+spacing: spacing-between
+
+\-- ftd.row:
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.custom.one
+
+\-- end: ftd.row
+
+\-- ftd.row:
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.custom.two
+
+\-- end: ftd.row
+
+\-- ftd.row:
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.custom.three
+
+\-- end: ftd.row
 
 \-- end: ftd.row
 
 \-- end: ftd.column
-
-
-\-- end: ftd.column
-
-\-- end: page
-
-
-
-
-
-\-- page:
-sections: $toc
-
-some body here
-
-
-
-
-
-\-- record toc-item:
-string name:
-string link:
-toc-item list children:
-
-
-\-- toc-item toc:
-name: Header Item 1
-link: /
-
-\-- toc.children:
-
-\-- toc-item:
-name: Header Item 2
-link: /
-
-\-- toc-item:
-name: Header Item 3
-link: /
-
-\-- toc-item.children:
-
-\-- toc-item:
-name: Header Item 4
-link: /
-
-\-- end: toc-item.children
-
-\-- end: toc.children
-
-
-
-\-- component header-links:
-toc-item item:
-
-\-- ftd.row:
-
-\-- ftd.text: $header-links.item.name
-link: $header-links.item.link
-color: $text-strong
-
-\-- header-links:
-item: $obj
-$loop$: $header-links.item.children as $obj
-
-\-- end: ftd.row
-
-\-- end: header-links
-
-\-- component header:
-toc-item sections:
-string site-name: SiteName
-
-\-- ftd.row:
-width: fill-container
-
-\-- ftd.row:
-width: fill-container
-
-\-- ftd.text: $header.site-name
-color: $text-strong
-
-\-- end: ftd.row
-
-\-- ftd.row:
-width: hug-content
-
-\-- header-links:
-item: $header.sections
-
-\-- end: ftd.row
-
-\-- end: ftd.row
-
-\-- end: header
 
 -- output:
 
-
--- complex.page:
-sections: $complex.toc
-
-some body here
-
--- end: output
-
--- end: example
-
--- example: 29-slides
-url:https://github.com/fastn-stack/ftd/blob/main/t/html/29-slides.ftd
-
--- code:
-lang: ftd
-
-\-- void set-false(a):
-boolean $a:
-
-a = false;
-
-\-- ftd.color base: #18181b
-
-\-- ftd.color step-1: #141414
-
-\-- ftd.color text-strong: #ffffff
-
-
-\-- presentation:
-
-
-
-
-
-\-- component presentation:
-boolean $show: false
-ftd.color bg-color: $base
-ftd.color overlay-bg-color: $step-1
-optional ftd.image-src bg-image:
-
-\-- ftd.column:
-background.solid: $presentation.bg-color
-width: fill-container
-
-\-- mobile-overlay:
-if: { presentation.show }
-overlay-bg-color: $presentation.overlay-bg-color
-$on-click$: $set-false($a = $presentation.show)
-
-\-- end: ftd.column
-
-\-- end: presentation
-
-\-- component mobile-overlay:
-ftd.color overlay-bg-color:
-
-\-- ftd.column:
-height.fixed.calc: 100% - 0px
-width: fill-container
-background.solid: $mobile-overlay.overlay-bg-color
-
-\-- end: ftd.column
-
-\-- end: mobile-overlay
-
--- output:
-
--- slides.presentation:
-
--- end: output
-
--- end: example
-
-
--- example: 34-device
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/34-device.ftd
-
--- code:
-lang: ftd
-
-
-\-- ftd.text: Hello World
-color if { ftd.device == "desktop" }: $red
-color: $green
-padding.px if { ftd.device == "mobile" }: 40
-padding.percent: 10
-
-
-\-- ftd.color red:
-light: pink
-dark: red
-
-
-\-- ftd.color green:
-light: green
-dark: blue
-
--- output:
-
-
--- ftd.text: Hello World
-color if { ftd.device == "desktop" }: $device.red
-color: $device.green
-padding.px if { ftd.device == "mobile" }: 40
-padding.percent: 10
-
--- end: output
-
--- end: example
-
--- example: 35-condition-on-color
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/35-condition-on-color.ftd
-
--- code:
-lang: ftd
-
-\-- label: THE
-$danger: true
-
-
-\-- component label:
-caption value:
-boolean $danger: false
-
-\-- ftd.text: $label.value
-color: $green
-color if { label.danger }: $red
-$on-click$: $toggle($a = $label.danger)
-
-\-- end: label
-
-\-- ftd.color red:
-light: pink
-dark: red
-
-\-- ftd.color green:
-light: green
-dark: blue
-
-\-- void toggle(a):
-boolean $a:
-
-a = !a
-
--- output:
-
--- condition-color.label: THE
-
+-- bln.spacingcomponent:
 
 -- end: output
 
@@ -3644,8 +872,11 @@ a = !a
 
 
 
--- example: 37-cursor
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/37-cursor.ftd
+
+
+-- example: Derived Types:  `ftd.cursor`
+permalink: #ftd.cursor
+id: ftd.cursor
 
 -- code:
 lang: ftd
@@ -3697,8 +928,6 @@ cursor if { num % 35 == 34 }: zoom-out
 
 \-- end: ftd.column
 
-
-
 \-- void increment(a):
 integer $a:
 
@@ -3706,49 +935,615 @@ a += 1
 
 -- output:
 
+-- bln.cursorcomponent:
 
--- ftd.text: Click here and move cursor in red area
-$on-click$: $cursor.increment($a = $cursor.num)
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example: Derived Types: `ftd.anchor`
+permalink: #ftd.anchor
+id: ftd.anchor
+
+-- code:
+lang: ftd
+
+\-- ftd.column:
+width.fixed.px: 400
+height.fixed.px: 400
+background.solid: pink
+
+\-- ftd.text: Hello Parent
+anchor: parent
+left.rem: 8.3
+top.rem: 8
+
+\-- end: ftd.column
+
+
+\-- ftd.text: Hello Window
+anchor: window
+
+-- output:
+
+-- bln.anchorcomponent:
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example: Derived Types: `ftd.responsive-length`
+permalink: #ftd.responsive-length
+id: ftd.responsive-length
+
+-- code: 
+lang: ftd
+
+\-- ftd.responsive-length padding:
+desktop.px: 20
+mobile.px: 10
+
+\-- ftd.column:
+padding.px: 40
+width: fill-container
+spacing.fixed.px: 24
+
+\-- ftd.text: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+padding.px: $padding
+
+\-- end: ftd.column
+
+-- output:
+
+-- bln.reponsivelength:
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example: Derived Types: `overflow`
+permalink: #overflow
+id: overflow
+
+-- code:
+lang: ftd
+
+
+\-- boolean $flag: true
+
+\-- void toggle(a):
+boolean $a:
+
+a = !a
+
+\-- ftd.row:
+align-content: center
+
+\-- ftd.text: overflow
+
+\-- end: ftd.row
+
+\-- ftd.row:
+margin-bottom.px: 100
+padding.px: 40
+spacing.fixed.px: 40
+width: fill-container
+
+\-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow if { flag }: scroll
+$on-click$: $toggle($a=$flag)
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+\-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow: visible
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+\-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow: hidden
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+\-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow: auto
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+\-- end: ftd.row
+
+\-- boolean $flag: true
+
+\-- ftd.row:
+align-content: center
+
+\-- ftd.text: overflow-x
+
+\-- end: ftd.row
+
+\-- ftd.row:
+margin-top.px: 40
+padding.px: 40
+spacing.fixed.px: 40
+width: fill-container
+
+\-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-x: scroll
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+\-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-x: visible
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+\-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-x: hidden
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+\-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-x: auto
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+\-- end: ftd.row
+
+\-- ftd.row:
+align-content: center
+
+\-- ftd.text: overflow-y
+
+\-- end: ftd.row
+
+\-- ftd.row:
+margin-top.px: 40
+padding.px: 40
+spacing.fixed.px: 40
+width: fill-container
+
+\-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-y: scroll
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+\-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-y: visible
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+\-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-y: hidden
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+\-- ftd.text:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+overflow-y: auto
+
+The overflow property is specified as one or two keywords chosen from the list
+of values below. If two keywords are specified, the first applies to overflow-x
+and the second to overflow-y. Otherwise, both overflow-x and overflow-y are set
+to the same value.
+
+\-- ftd.column:
+width.fixed.px: 100
+height.fixed.px: 100
+background.solid: yellow
+resize: both
+
+\-- end: ftd.column
+
+\-- end: ftd.row
+
+-- output:
+
+-- bln.overflowcomponent:
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example: Derived Types: `ftd.white-space`
+permalink: #ftd.white-space
+id: ftd.white-space
+
+-- code: 
+lang: ftd
+
+\-- ftd.text: Welcome to FTD world!
+padding.px: 2
+width.fixed.px: 50
+whitespace: nowrap
+
+\-- ftd.text: Welcome to FTD world!
+padding.px: 2
+width.fixed.px: 50
+white-space: pre
+
+\-- ftd.text: Welcome to FTD world!
+padding.px: 2
+width.fixed.px: 100
+white-space: pre-line
+
+\-- ftd.text: Welcome to FTD world!
+padding.px: 2
+width.fixed.px: 100
+white-space: pre-wrap
+
+\-- ftd.text: Welcome to FTD world!
+padding.px: 2
+width.fixed.px: 100
+white-space: break-spaces
+
+-- output:
+
+-- bln.whitespace:
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example: Derived Types: `ftd.text-transform`
+permalink: #ftd.text-transform
+id: ftd.text-transform
+
+-- code: 
+lang: ftd
+
+\-- ftd.text: Welcome to FTD world!
+padding.px: 2
+text-transform: capitalize
+
+\-- ftd.text: Welcome to FTD world!
+padding.px: 2
+text-transform: uppercase
+
+\-- ftd.text: Welcome to FTD world!
+padding.px: 2
+text-transform: lowercase
+
+\-- ftd.text: Welcome to FTD world!
+padding.px: 2
+text-transform: inherit
+
+-- output:
+
+-- bln.texttransform:
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example: Derived Types: `ftd.border-style`
+permalink: #ftd.border-style
+id: ftd.border-style
+
+-- code:
+lang: ftd
+
+\-- ftd.column:
+margin.px: 50
+width.fixed.px: 100
+height.fixed.px: 200
+background.solid: yellow
+border-width.px: 3
+border-bottom-color: red
+border-top-color: blue
+border-left-color: green
+border-right-color: purple
+border-style: dotted
+
+\-- end: ftd.column
+
+\-- ftd.column:
+margin.px: 50
+width.fixed.px: 100
+height.fixed.px: 200
+background.solid: yellow
+border-width.px: 3
+border-bottom-color: red
+border-top-color: blue
+border-left-color: green
+border-right-color: purple
+border-style: dashed
+
+\-- end: ftd.column
+
+\-- ftd.column:
+margin.px: 50
+width.fixed.px: 100
+height.fixed.px: 200
+background.solid: yellow
+border-width.px: 3
+border-bottom-color: red
+border-top-color: blue
+border-left-color: green
+border-right-color: purple
+border-style: solid
+
+\-- end: ftd.column
+
+\-- ftd.column:
+margin.px: 50
+width.fixed.px: 100
+height.fixed.px: 200
+background.solid: yellow
+border-width.px: 3
+border-bottom-color: red
+border-top-color: blue
+border-left-color: green
+border-right-color: purple
+border-style: groove
+
+\-- end: ftd.column
+
+\-- ftd.column:
+margin.px: 50
+width.fixed.px: 100
+height.fixed.px: 200
+background.solid: yellow
+border-width.px: 3
+border-bottom-color: red
+border-top-color: blue
+border-left-color: green
+border-right-color: purple
+border-style: ridge
+
+\-- end: ftd.column
+
+\-- ftd.column:
+margin.px: 50
+width.fixed.px: 100
+height.fixed.px: 200
+background.solid: yellow
+border-width.px: 3
+border-bottom-color: red
+border-top-color: blue
+border-left-color: green
+border-right-color: purple
+border-style: inset
+
+\-- end: ftd.column
+
+\-- ftd.column:
+margin.px: 50
+width.fixed.px: 100
+height.fixed.px: 200
+background.solid: yellow
+border-width.px: 3
+border-bottom-color: red
+border-top-color: blue
+border-left-color: green
+border-right-color: purple
+border-style: outset
+
+\-- end: ftd.column
+
+\-- ftd.column:
+margin.px: 50
+width.fixed.px: 100
+height.fixed.px: 200
+background.solid: yellow
+border-width.px: 3
+border-bottom-color: red
+border-top-color: blue
+border-left-color: green
+border-right-color: purple
+border-style: double
+
+\-- end: ftd.column
+
+-- output:
+
+-- bln.border:
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+
+-- example: Kernal component: `ftd.column`
+permalink: #ftd.column
+id: ftd.column
+
+-- code: 
+lang: ftd
+
+\-- ftd.column:
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.border
+
+\-- ftd.column:
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.custom.one
+
+\-- end: ftd.column
+
+\-- ftd.column:
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.custom.one
+
+\-- end: ftd.column
+
+\-- end: ftd.column
+
+-- output:
+
+-- bln.columncomponent:
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example: Kernal component: `ftd.row`
+permalink: #ftd.row
+id: ftd.row
+
+-- code: 
+lang: ftd
+
+\-- ftd.row:
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.border
+
+\-- ftd.row:
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.custom.one
+
+\-- end: ftd.row
+
+\-- ftd.row:
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.custom.two
+
+\-- end: ftd.row
+
+\-- ftd.row:
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.custom.three
+
+\-- end: ftd.row
+
+\-- end: ftd.row
+
+-- output:
+
+-- bln.rowcomponent:
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example: Kernal component: `ftd.text`
+permalink: #ftd.text
+id: ftd.text
+
+-- code: 
+lang: ftd
+
+\-- ftd.text: Welcome to FTD world!
+padding.px: 2
+
+-- output:
 
 -- ftd.column:
-width.fixed.px: 200
-height.fixed.px: 200
-background.solid: red
-cursor if { cursor.num % 35 == 0 }: default
-cursor if { cursor.num % 35 == 1 }: none
-cursor if { cursor.num % 35 == 2 }: context-menu
-cursor if { cursor.num % 35 == 3 }: help
-cursor if { cursor.num % 35 == 4 }: pointer
-cursor if { cursor.num % 35 == 5 }: progress
-cursor if { cursor.num % 35 == 6 }: wait
-cursor if { cursor.num % 35 == 7 }: cell
-cursor if { cursor.num % 35 == 8 }: crosshair
-cursor if { cursor.num % 35 == 9 }: text
-cursor if { cursor.num % 35 == 10 }: vertical-text
-cursor if { cursor.num % 35 == 11 }: alias
-cursor if { cursor.num % 35 == 12 }: copy
-cursor if { cursor.num % 35 == 13 }: move
-cursor if { cursor.num % 35 == 14 }: no-drop
-cursor if { cursor.num % 35 == 15 }: not-allowed
-cursor if { cursor.num % 35 == 16 }: grab
-cursor if { cursor.num % 35 == 17 }: grabbing
-cursor if { cursor.num % 35 == 18 }: e-resize
-cursor if { cursor.num % 35 == 19 }: n-resize
-cursor if { cursor.num % 35 == 20 }: ne-resize
-cursor if { cursor.num % 35 == 21 }: nw-resize
-cursor if { cursor.num % 35 == 22 }: s-resize
-cursor if { cursor.num % 35 == 23 }: se-resize
-cursor if { cursor.num % 35 == 24 }: sw-resize
-cursor if { cursor.num % 35 == 25 }: w-resize
-cursor if { cursor.num % 35 == 26 }: ew-resize
-cursor if { cursor.num % 35 == 27 }: ns-resize
-cursor if { cursor.num % 35 == 28 }: nesw-resize
-cursor if { cursor.num % 35 == 29 }: nwse-resize
-cursor if { cursor.num % 35 == 30 }: col-resize
-cursor if { cursor.num % 35 == 31 }: row-resize
-cursor if { cursor.num % 35 == 32 }: all-scroll
-cursor if { cursor.num % 35 == 33 }: zoom-in
-cursor if { cursor.num % 35 == 34 }: zoom-out
+padding.px: 40
+spacing.fixed.px: 32
+
+-- ftd.text: Welcome to FTD world!
+padding.px: 2
 
 -- end: ftd.column
 
@@ -3758,8 +1553,1117 @@ cursor if { cursor.num % 35 == 34 }: zoom-out
 
 
 
--- example: 38-role
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/38-role.ftd
+
+
+
+-- example:  Kernal component: `ftd.image`
+permalink: #ftd.image
+id: ftd.image
+
+-- code:
+lang: ftd
+
+\-- boolean $flag: true
+
+\-- ftd.boolean: $ftd.dark-mode
+
+\-- ftd.image:
+$on-click$: $toggle-dark-mode($a = $ftd.dark-mode)
+width.fixed.px: 100
+src: $src
+
+\-- ftd.image:
+src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
+width.fixed.px: 100
+
+\-- ftd.image:
+src: $new-src
+width.fixed.px: 100
+height: auto
+
+\-- ftd.image:
+src: $src
+src if { flag }: $tom-and-jerry
+width.fixed.px: 100
+$on-click$: $ftd.toggle($a = $flag)
+
+\-- void toggle-dark-mode(a):
+boolean $a:
+
+a = !a
+
+\-- ftd.image-src src:
+light: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
+dark: https://upload.wikimedia.org/wikipedia/en/d/d4/Mickey_Mouse.png
+
+\-- string new-src: https://upload.wikimedia.org/wikipedia/en/d/d4/Mickey_Mouse.png
+
+
+\-- ftd.image-src tom-and-jerry:
+light: https://wallpaperaccess.com/full/215445.jpg
+dark: https://wallpapers.com/images/file/tom-and-jerry-in-the-dog-house-myfg3ooaklw9fk9q.jpg
+
+-- output:
+
+-- ftd.image:
+$on-click$: $bln.toggle-dark-mode($a = $ftd.dark-mode)
+width.fixed.px: 100
+src: $bln.src
+
+-- ftd.image:
+src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
+width.fixed.px: 100
+
+-- ftd.image:
+src: $bln.new-src
+width.fixed.px: 100
+height: auto
+
+-- ftd.image:
+src: $bln.src
+src if { bln.flag }: $bln.tom-and-jerry
+width.fixed.px: 100
+$on-click$: $ftd.toggle($a = $bln.flag)
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example: `Component recursion`
+permalink: #Component recursion
+id: Component recursion
+
+-- code: 
+lang: ftd
+
+\-- record toc-item:
+string name:
+toc-item list children:
+
+\-- toc-item toc:
+name: TOC title 1
+
+\-- toc.children:
+
+\-- toc-item:
+name: TOC title 2
+
+\-- toc-item:
+name: TOC title 3
+
+\-- toc-item.children:
+
+\-- toc-item:
+name: TOC title 4
+
+\-- end: toc-item.children
+
+\-- end: toc.children
+
+\-- component print-toc-item:
+toc-item item:
+
+\-- ftd.column:
+padding.px: 30
+
+\-- ftd.text: $print-toc-item.item.name
+
+\-- print-toc-item:
+item: $obj
+$loop$: $print-toc-item.item.children as $obj
+
+\-- end: ftd.column
+
+\-- end: print-toc-item
+
+\-- print-toc-item:
+item: $toc
+
+-- output:
+
+-- bln.print-toc-item:
+item: $bln.toc
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example: `conditional-properties`
+permalink: #conditional-properties
+id: conditional-properties
+
+-- code: 
+lang: ftd
+
+\-- void increment(a):
+integer $a:
+
+a += 1
+
+\-- component boo:
+integer bv:
+
+\-- ftd.column:
+
+\-- ftd.text: boo
+
+\-- ftd.integer: $boo.bv
+
+\-- end: ftd.column
+
+\-- end: boo
+
+\-- component moo:
+integer $fv:
+integer mv:
+
+\-- ftd.column:
+
+\-- boo:
+bv if { moo.fv > 10 }: 10
+bv if { moo.mv > 6 }: 5
+bv: 4
+
+\-- ftd.text: moo
+
+\-- ftd.integer: $moo.fv
+
+\-- ftd.integer: $moo.mv
+
+\-- end: ftd.column
+
+\-- end: moo
+
+\-- component foo:
+integer $fv:
+
+\-- ftd.column:
+
+\-- moo:
+mv if { foo.fv > 2 }: 6
+mv: 7
+$fv: $foo.fv
+
+\-- ftd.text: click here to see `increment` in action.
+$on-click$: $increment($a = $foo.fv)
+
+\-- ftd.integer: $foo.fv
+
+\-- end: ftd.column
+
+\-- end: foo
+
+\-- foo:
+$fv: 1
+
+-- output:
+
+-- bln.foo:
+$fv: 1
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example: `external-children`
+permalink: #external-children
+id: external-children
+
+-- code:
+lang: diff
+
+\-- void increment(a):
+integer $a:
+
+a += 1
+
+\-- component counter:
+integer $count:
+
+\-- ftd.integer: $counter.count
+$on-click$: $increment($a = $counter.count)
+
+\-- end: counter
+
+\-- integer $count: 1
+
+\-- component page:
+ftd.ui list extra-headers:
+children body:
+
+\-- ftd.column:
+padding.px: 80
+
+\-- ftd.text: ...................................................................
+
+\-- ftd.row:
+
+\-- ftd.text: LOGO
+padding.px: 2
+
+\-- ftd.text: Home
+padding.px: 2
+
+\-- ftd.row:
+children: $page.extra-headers
+
+\-- end: ftd.row
+
+\-- end: ftd.row
+
+\-- ftd.text: ...................................................................
+
+\-- ftd.column:
+padding.px: 40
+children: $page.body
+
+\-- end: ftd.column
+
+\-- ftd.text: ...................................................................
+
+\-- end: ftd.column
+
+\-- end: page
+
+\-- page:
+
+\-- page.extra-headers:
+
+\-- ftd.text: Header 1
+padding.px: 2
+
+\-- ftd.text: Header 2
+padding.px: 2
+
+\-- ftd.text: Header 3
+padding.px: 2
+
+\-- ftd.text: Header 4
+padding.px: 2
+
+\-- end: page.extra-headers
+
+
+\-- ftd.text: Body Text
+
+\-- ftd.row:
+
+\-- ftd.text: Counter 1:
+
+\-- counter:
+$count: $count
+
+\-- end: ftd.row
+
+\-- ftd.row:
+
+\-- ftd.text: Counter 2:
+
+\-- counter:
+$count: $count
+
+\-- end: ftd.row
+
+\-- end: page
+
+\-- page:
+
+\-- ftd.text: Hello
+
+\-- end: page
+
+-- output: 
+
+-- bln.page:
+
+-- bln.page.extra-headers:
+
+-- ftd.text: Header 1
+padding.px: 2
+
+-- ftd.text: Header 2
+padding.px: 2
+
+-- ftd.text: Header 3
+padding.px: 2
+
+-- ftd.text: Header 4
+padding.px: 2
+
+-- end: bln.page.extra-headers
+
+-- ftd.text: Body Text
+
+-- ftd.row:
+
+-- ftd.text: Counter 1:
+
+-- bln.counter:
+$count: $bln.count
+
+-- end: ftd.row
+
+-- ftd.row:
+
+-- ftd.text: Counter 2:
+
+-- bln.counter:
+$count: $bln.count
+
+-- end: ftd.row
+
+-- end: bln.page
+
+-- bln.page:
+
+-- ftd.text: Hello
+
+-- end: bln.page
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example: `or-type`
+permalink: #or-type
+id: or-type
+
+-- code:
+lang: ftd
+
+\-- ftd.text: Hello from FTD
+padding.px: 20
+
+\-- integer $value: 20
+
+\-- ftd.text: Hello from FTD
+padding.px: $value
+$on-click$: $increment($a = $value)
+
+\-- ftd.length.px len: 20
+
+\-- ftd.text: Hello from FTD
+padding: $len
+
+\-- boolean $flag: true
+
+\-- ftd.text:
+text: Hello from FTD
+padding: $len
+padding.percent if { flag }: 20
+$on-click$: $toggle($a = $flag)
+
+\-- void increment(a):
+integer $a:
+a += 1
+
+\-- void toggle(a):
+boolean $a:
+
+a = !a
+
+\-- px:
+caption integer value:
+
+\-- percent:
+caption decimal value:
+
+\-- end: length
+
+-- output:
+
+-- end: output
+
+-- end: example
+
+-- example: `record`
+permalink: #record
+id: record
+
+-- code:
+lang: ftd
+
+\-- record full-name:
+caption first-name:
+optional string middle-name:
+optional string last-name:
+
+\-- record person:
+full-name name:
+integer age:
+
+\-- string $name: Arpita
+
+\-- person $arpita:
+name: *$name
+age: 20
+
+\-- ftd.text: $arpita.name.first-name
+
+\-- ftd.text: $name
+
+\-- ftd.text: Change arpita.name.first-name
+$on-click$: $append($a = $arpita.name.first-name, b = FifthTry)
+
+\-- ftd.text: Change name
+$on-click$: $append($a = $name, b = FifthTry)
+
+\-- void append(a,b):
+string $a:
+string b:
+
+a = a + " " + b
+
+-- output:
+
+-- bln.recordcomponent:
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example: `Styles`
+permalink: #Styles
+id: Styles
+
+-- code:
+lang: ftd
+
+\-- boolean $flag: true
+
+\-- ftd.text: Click me
+$on-click$: $toggle($a = $flag)
+
+\-- ftd.text: Hello
+padding-left.px: 40
+padding-right.percent: 10
+padding-top.px: 50
+padding-bottom.percent: 7.9
+border-width.px: 2
+border-top-left-radius.percent if { flag }: 18
+z-index: -5
+
+\-- ftd.text: Hello
+padding-vertical.px: 40
+padding-horizontal.percent if { flag } : 10
+
+\-- ftd.row:
+spacing.fixed.px: 20
+spacing.fixed.px if { flag }: 40
+wrap: true
+wrap if { flag }: false
+border-width.px: 4
+border-width.px if { flag }: 2
+border-radius.percent: 18
+
+\-- ftd.text: Hello
+
+\-- ftd.text: World
+
+\-- end: ftd.row
+
+\-- ftd.row:
+spacing.fixed.px: 20
+align-content if { flag }: top-left
+align-content: top-center
+background.solid: red
+width.fixed.px: 400
+height.fixed.px: 100
+border-width.px: 1
+
+\-- ftd.text: Hello
+
+\-- ftd.text: World
+
+\-- end: ftd.row
+
+\-- ftd.column:
+spacing.fixed.px: 2
+align-content if { flag }: top-left
+align-content: top-center
+width.fixed.px: 400
+height.fixed.px: 100
+border-width.px: 1
+
+\-- ftd.text: Hello
+
+\-- ftd.text: World
+
+\-- end: ftd.column
+
+\-- ftd.row:
+spacing.fixed.px: 20
+width.fixed.px: 400
+width if { flag }: hug-content
+height.fixed.percent: 20
+height if { flag }: fill-container
+align-content: top-center
+border-width.px: 1
+
+\-- ftd.text: Hello
+
+\-- ftd.text: World
+
+\-- end: ftd.row
+
+\-- ftd.text: Hello World
+max-width.fixed.px: 20
+min-height.fixed.px: 60
+background.solid: yellow
+
+\-- integer $num: 0
+
+\-- ftd.text: Data
+width.fixed.px if { num % 7 == 0 }: 20
+width.fixed.percent if { num % 7 == 1 }: 20
+width.fixed.calc if { num % 7 == 2 }: 20
+width.fixed.vh if { num % 7 == 3 }: 20
+width.fixed.vw if { num % 7 == 4 }: 20
+width.fixed.em if { num % 7 == 5 }: 20
+width.fixed.rem if { num % 7 == 6 }: 20
+background.solid: red
+$on-click$: $increment($a = $num)
+
+\-- void increment(a):
+integer $a:
+
+a += 1
+
+\-- void toggle(a):
+boolean $a:
+
+a = !a
+
+
+-- output:
+
+-- bln.stylecomponent:
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example: `complex-styles`
+permalink: #complex-styles
+id: complex-styles
+
+-- code:
+lang: ftd
+
+\-- boolean $flag: true
+
+\-- ftd.text: Click me
+$on-click$: $toggle($a = $flag)
+
+\-- foo:
+px if { flag }: 30
+px: 40
+resize if { flag }: hug-content
+resize.fixed.px: 50
+align if { flag }: top-left
+align: top-center
+
+\-- component foo:
+integer px:
+ftd.resizing resize:
+ftd.align align:
+
+\-- ftd.column:
+width if { flag }: $foo.resize
+width.fixed.px: $foo.px
+align-content: $foo.align
+
+\-- ftd.text: Hello
+height.fixed.px if { flag }: $foo.px
+height: $foo.resize
+
+\-- ftd.text: World
+
+\-- end: ftd.column
+
+\-- end: foo
+
+\-- void toggle(a):
+boolean $a:
+
+a = !a
+
+-- output:
+
+-- ftd.text: Click me
+$on-click$: $bln.toggle($a = $bln.flag)
+
+-- bln.resizecomponent:
+px if { bln.flag }: 30
+px: 40
+resize if { bln.flag }: hug-content
+resize.fixed.px: 50
+align if { bln.flag }: top-left
+align: top-center
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example:  `System Mode`
+permalink: #System Mode
+id: System Mode
+
+-- code:
+lang: ftd
+
+\-- ftd.row:
+spacing.fixed.px: 20
+
+\-- ftd.row:
+spacing.fixed.px: 5
+
+\-- ftd.text: ftd.dark-mode:
+
+\-- ftd.boolean: $ftd.dark-mode
+color: $bgcolor
+
+\-- end: ftd.row
+
+\-- ftd.row:
+spacing.fixed.px: 5
+
+\-- ftd.text: ftd.system-dark-mode:
+
+\-- ftd.boolean: $ftd.system-dark-mode
+color: $bgcolor
+
+\-- end: ftd.row
+
+\-- ftd.row:
+spacing.fixed.px: 5
+
+\-- ftd.text: ftd.follow-system-dark-mode:
+
+\-- ftd.boolean: $ftd.follow-system-dark-mode
+color: $bgcolor
+
+\-- end: ftd.row
+
+\-- end: ftd.row
+
+\-- ftd.column:
+spacing.fixed.px: 40
+
+\-- ftd.row:
+spacing.fixed.px: 20
+
+\-- ftd.text: Dark Mode
+$on-click$: $set-dark()
+
+\-- ftd.text: Light Mode
+$on-click$: $set-light()
+
+\-- ftd.text: System Mode
+$on-click$: $set-system()
+
+\-- end: ftd.row
+
+\-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+align-content: center
+background.solid: red
+border-width.px: 3
+border-color: $bgcolor
+
+\-- ftd.text: Hello
+
+\-- ftd.text: World
+
+\-- end: ftd.column
+
+\-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+align-content: center
+background.solid: $bgcolor
+border-color: red
+border-width.px: 3
+
+\-- ftd.text: Hello
+
+\-- ftd.text: World
+
+\-- end: ftd.column
+
+\-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+align-content: center
+background: $background-fill
+border-left-color: $bgcolor
+border-left-width.px: 3
+border-top-color: red
+border-top-width.px: 4
+border-right-color: blue
+border-right-width.px: 1
+border-bottom-color: orange
+border-bottom-width.px: 2
+
+\-- ftd.text: Hello
+
+\-- ftd.text: World
+
+\-- end: ftd.column
+
+\-- end: ftd.column
+
+\-- ftd.background.solid background-fill:
+light: pink
+dark: purple
+
+\-- ftd.color bgcolor:
+light: green
+dark: blue
+
+\-- void toggle-dark-mode(a):
+boolean $a:
+
+a = !a
+
+\-- void set-dark():
+
+enable_dark_mode()
+
+\-- void set-light():
+
+enable_light_mode()
+
+\-- void set-system():
+
+enable_system_mode()
+
+-- output:
+
+-- bln.systemcomponent:
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example: `margin`
+permalink: #margin
+id: margin
+
+-- code:
+lang: ftd
+
+\-- ftd.column:
+width: fill-container
+height: fill-container
+
+\-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+background.solid: yellow
+border-width.px: 1
+margin-horizontal.px: 60
+
+\-- end: ftd.column
+
+\-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+background.solid: yellow
+border-width.px: 1
+margin-top.px: 40
+
+\-- end: ftd.column
+
+\-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+background.solid: green
+border-width.px: 1
+margin.px: 100
+
+\-- end: ftd.column
+
+\-- end: ftd.column
+
+-- output:
+
+-- ftd.column:
+width: fill-container
+height: fill-container
+
+-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+background.solid: yellow
+border-width.px: 1
+margin-horizontal.px: 60
+
+-- end: ftd.column
+
+-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+background.solid: yellow
+border-width.px: 1
+margin-top.px: 40
+
+-- end: ftd.column
+
+-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+background.solid: green
+border-width.px: 1
+margin.px: 100
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example: `border`
+permalink: #border
+id: border
+
+-- code:
+lang: ftd
+
+\-- ftd.column:
+margin.px: 50
+width.fixed.px: 200
+height.fixed.px: 200
+background.solid: yellow
+border-bottom-width.px: 11
+border-top-width.px: 5
+border-left-width.px: 7
+border-right-width.px: 9
+border-bottom-color: red
+border-top-color: blue
+border-left-color: green
+border-right-color: purple
+
+\-- end: ftd.column
+
+\-- ftd.column:
+margin.px: 50
+width.fixed.px: 200
+height.fixed.px: 200
+background.solid: yellow
+border-width.px: 10
+border-bottom-color: red
+border-top-color: blue
+border-left-color: green
+border-right-color: purple
+
+\-- end: ftd.column
+
+-- output:
+
+-- ftd.column:
+margin.px: 50
+width.fixed.px: 200
+height.fixed.px: 200
+background.solid: yellow
+border-bottom-width.px: 11
+border-top-width.px: 5
+border-left-width.px: 7
+border-right-width.px: 9
+border-bottom-color: red
+border-top-color: blue
+border-left-color: green
+border-right-color: purple
+
+-- end: ftd.column
+
+-- ftd.column:
+margin.px: 50
+width.fixed.px: 200
+height.fixed.px: 200
+background.solid: yellow
+border-width.px: 10
+border-bottom-color: red
+border-top-color: blue
+border-left-color: green
+border-right-color: purple
+
+-- end: ftd.column
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example: `optional`
+permalink: #optional
+id: optional
+
+-- code:
+lang: ftd
+
+\-- optional string $name: NULL
+
+\-- ftd.text: Hello
+if: { ftd.is_empty(name) }
+$on-click$: $append($a = $name, b = FifthTry)
+
+\-- ftd.text: Hello Again
+if: { name == NULL }
+
+\-- ftd.text: $name
+if: { !ftd.is_empty(name) }
+$on-click$: $append($a = $name, b = FifthTry)
+
+\-- ftd.text: $name
+if: { name != NULL }
+
+\-- void append(a,b):
+optional string $a:
+string b:
+
+a = a + " " + b
+
+-- output:
+
+-- bln.optionalcomponent:
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example: `Device Type`
+permalink: #Device Type
+id: Device Type
+
+-- code:
+lang: ftd
+
+\-- ftd.text: Hello World
+color if { ftd.device == "desktop" }: $red
+color: $green
+padding.px if { ftd.device == "mobile" }: 40
+padding.percent: 10
+
+\-- ftd.color red:
+light: pink
+dark: red
+
+\-- ftd.color green:
+light: green
+dark: blue
+
+-- output:
+
+-- ftd.text: Hello World
+color if { ftd.device == "desktop" }: red
+color: green
+padding.px if { ftd.device == "mobile" }: 40
+padding.percent: 10
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example: `condition-on-color`
+permalink: #condition-on-color
+id: condition-on-color
+
+-- code:
+lang: ftd
+
+\-- label: THE
+$danger: true
+
+\-- component label:
+caption value:
+boolean $danger: false
+
+\-- ftd.text: $label.value
+color: $green
+color if { label.danger }: $red
+$on-click$: $toggle($a = $label.danger)
+
+\-- end: label
+
+\-- ftd.color red:
+light: pink
+dark: red
+
+\-- ftd.color green:
+light: green
+dark: blue
+
+\-- void toggle(a):
+boolean $a:
+
+a = !a
+
+-- output:
+
+-- bln.label: THE
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example: `role`
+permalink: #role
+id: role
 
 -- code:
 lang: ftd
@@ -3801,9 +2705,9 @@ a = !a
 -- output:
 
 -- ftd.text: Hello World
-role if { font.flag }: $font.rtype
-role: $font.rrtype
-$on-click$: $font.toggle($a = $font.flag)
+role if { bln.flag }: $bln.rtype
+role: $bln.rrtype
+$on-click$: $bln.toggle($a = $bln.flag)
 
 -- end: output
 
@@ -3811,95 +2715,148 @@ $on-click$: $font.toggle($a = $font.flag)
 
 
 
--- example: 40-anchor
-url: https://github.com/fastn-stack/ftd/blob/main/t/html/40-anchor.ftd
 
--- code:
+
+-- example: `Unordered list` with markdown
+permalink: #Unordered list
+id: Unordered list
+
+
+-- code: 
 lang: ftd
 
-\-- ftd.column:
-width.fixed.px: 400
-height.fixed.px: 400
-background.solid: pink
+\-- ftd.text: 
+role: $inherited.types.copy-regular
 
-\-- ftd.text: Hello Parent
-anchor: parent
-left.rem: 8.3
-top.rem: 8
+- Lorem ipsum dolor sit amet, consectetur
+- Lorem ipsum dolor sit amet, consectetur 
+- Lorem ipsum dolor sit amet, consectetur
 
-\-- end: ftd.column
+-- output: 
 
+-- ftd.text:
+role: $inherited.types.copy-regular
 
-\-- ftd.text: Hello Window
-anchor: window
-
--- output:
-
-
--- ftd.column:
-width.fixed.px: 400
-height.fixed.px: 400
-background.solid: pink
-
--- ftd.text: Hello Parent
-anchor: parent
-left.rem: 8.3
-top.rem: 8
-
--- end: ftd.column
-
-
--- ftd.text: Hello Window
-anchor: window
+- Lorem ipsum dolor sit amet, consectetur
+- Lorem ipsum dolor sit amet, consectetur 
+- Lorem ipsum dolor sit amet, consectetur
 
 -- end: output
 
 -- end: example
 
+-- example:  `Ordered list` with markdown
+permalink: #Ordered list
+id: Ordered list
+
+-- code: 
+lang: ftd
+
+\-- ftd.text: 
+role: $inherited.types.copy-regular
+
+1. Lorem ipsum dolor sit amet, consectetur
+2. Lorem ipsum dolor sit amet, consectetur 
+3. Lorem ipsum dolor sit amet, consectetur
+
+
+-- output: 
+
+-- ftd.text:
+role: $inherited.types.copy-regular
+
+1. Lorem ipsum dolor sit amet, consectetur
+2. Lorem ipsum dolor sit amet, consectetur 
+3. Lorem ipsum dolor sit amet, consectetur
+
+-- end: output
+
+-- end: example
+
+
+-- end: package
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- component image-link:
+ftd.image-src default: $assets.files.link-icon-default.svg
+ftd.image-src hover: $assets.files.link-icon-hover.svg
+string link: /
+boolean mouseover: false
+
+-- ftd.column:
+
+-- ftd.column:
+if: {!image-link.mouseover}
+padding-top.px: 4
+
+-- ftd.image:
+src: $image-link.default
+link: $image-link.link
+align-self: center
+
 -- end: ftd.column
 
+-- ftd.column:
+if: {image-link.mouseover}
+padding-top.px: 4
 
+-- ftd.image:
+src: $image-link.hover
+link: $image-link.link
+align-self: center
 
+-- end: ftd.column
 
+-- end: ftd.column
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-- end: image-link
 
 
 
@@ -3914,24 +2871,27 @@ caption title:
 children wrapper:
 boolean $open : false
 string url: /
-
+optional string id:
+string permalink: /
+boolean $imagehover : false
 
 -- ftd.column:
 width: fill-container
-border-width.px: 1
-border-color: $inherited.colors.border-strong
-;;spacing.fixed.px: 24
-border-radius.px: 8
-margin-top.px: 24
-margin-bottom.px: 24
+background.solid: $inherited.colors.background.step-1
+
+-- ftd.row:
 
 -- ftd.row:
 width: fill-container
-padding-horizontal.px: 24
-padding-vertical.px: 24
-border-bottom-width.px if { example.open }: 1
-border-color: $inherited.colors.border-strong
+padding-horizontal.px: 30
+padding-vertical.px: 37
+border-left-width.px: 7
+border-top-left-radius.px if { !example.open }: 10
+border-bottom-left-radius.px if { !example.open }: 10
+border-color if { example.open }: #74C449
+border-color: #A8A29D
 $on-click$: $ftd.toggle($a = $example.open)
+
 
 -- ftd.row:
 align-self: start
@@ -3939,31 +2899,33 @@ width: fill-container
 spacing.fixed.px: 12
 
 -- ftd.text: $example.title
-role: $inherited.types.heading-small
+region: h1
+id: $example.id
+role: $inherited.types.heading-tiny
 color: $inherited.colors.text-strong
 
 
--- ftd.text: ¶
-role: $inherited.types.heading-small
-color: $inherited.colors.text
-link: $example.url
-
+-- image-link:
+$on-mouse-enter$: ftd.set-bool($a = $example.imagehover, v= true)
+$on-mouse-leave$: ftd.set-bool($a = $example.imagehover, v= false)
+mouseover: $example.imagehover
+link: $example.permalink
 
 -- end: ftd.row
 
 -- ftd.row:
 align-self: end
 
--- ftd.text: Click to expand
-if: { !example.open }
-role: $inherited.types.copy-regular
-color: $inherited.colors.text
-white-space: nowrap
 
--- ftd.text: close
-if: { example.open }
-role: $inherited.types.copy-regular
-color: $inherited.colors.text
+-- ftd.image:
+if: { !example.open } 
+src: $assets.files.static.down.svg
+
+
+-- ftd.image:
+if: { example.open } 
+src: $assets.files.static.up.svg
+
 
 -- end: ftd.row
 
@@ -3973,6 +2935,9 @@ color: $inherited.colors.text
 if: {example.open}
 children: $example.wrapper
 width: fill-container
+border-top-width.px: 1
+border-color: $inherited.colors.border-strong
+
 
 -- end: ftd.row
 
@@ -3987,49 +2952,143 @@ width: fill-container
 
 
 -- component code:
-caption title: FTD Code
-string lang:
+optional caption caption: FTD Code
+optional string download:
 body body:
+string lang:
+boolean copy: true
+string $copy-text: null
+boolean $mouse-in: false
+boolean $download-mouse-in: false
+optional integer max-height: 471
+optional integer max-width: 721
 
 -- ftd.column:
 width: fill-container
-;;spacing.fixed.px: 8
-border-right-width.px: 1
-border-color: $inherited.colors.border-strong
 
--- ftd.text: $code.title
-if: { $code.title != NULL }
-role: $inherited.types.button-large
-color: $inherited.colors.text
+
+-- ftd.row:
+if: { $code.caption != NULL || $code.download != NULL || code.copy }
 width: fill-container
+background.solid: $inherited.colors.background.step-1
+padding-horizontal.px: 40
+padding-vertical.px: 20
 border-bottom-width.px: 1
-padding-horizontal.px: 24
-padding-vertical.px: 24
 border-color: $inherited.colors.border-strong
-;;spacing.fixed.px: 24
+max-width.fixed.px if { code.max-width != NULL }: $code.max-width
 
+-- ftd.row:
+align-self: start
+width: fill-container
+
+-- ftd.text: $code.caption
+if: { $code.caption != NULL }
+role: $inherited.types.heading-tiny
+color: $inherited.colors.text-strong
+width: fill-container
+
+-- end: ftd.row
+
+-- ftd.row:
+if: { code.copy }
+spacing.fixed.px: 10
+align-content: right
+align-self: end
+$on-mouse-leave$: $ftd.set-string($a = $code.copy-text, v = null)
+
+-- ftd.image:
+if: { code.copy-text == "null" }
+src: $assets.files.static.copy.svg
+src if { code.mouse-in }: $assets.files.static.copy-hover.svg
+$on-mouse-enter$: $ftd.set-bool($a = $code.mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $code.mouse-in, v = false)
+$on-click$: $ftd.copy-to-clipboard(a = $code.body)
+$on-click$: $ftd.set-string($a = $code.copy-text, v = Copied!)
+width.fixed.px: 18
+
+-- ftd.image:
+if: { code.copy-text != "null" }
+src: $assets.files.static.tick.svg
+width.fixed.px: 18
+
+-- ftd.text: $code.copy-text
+if: { code.copy-text != "null" }
+role: $inherited.types.copy-regular
+color: $inherited.colors.border
+
+-- end: ftd.row
+
+-- ftd.row:
+if: { $code.download != NULL }
+align-content: right
+align-self: end
+padding-left.px: 10
+
+-- ftd.image:
+if: { code.download != NULL }
+src: $assets.files.static.download.svg
+src if { code.download-mouse-in }: $assets.files.static.download-hover.svg
+width.fixed.px: 25
+height.fixed.px: 25
+padding-left.px: 5
+$on-mouse-enter$: $ftd.set-bool($a = $code.download-mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $code.download-mouse-in, v = false)
+$on-click$: $download-text(filename = $code.download, text = $code.body)
+
+-- end: ftd.row
+
+-- end: ftd.row
 
 -- ftd.code:
+if: { ftd.dark-mode }
 text: $code.body
 lang: $code.lang
-width: fill-container
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
-padding-horizontal.px: 24
-padding-vertical.px: 24
+padding-top.px: 20
+padding-bottom.px: 20
+padding-left.px: 40
+padding-right.px: 40
 background.solid: $code-bg-dark
+border-top-left-radius.px if {$code.caption == NULL}: 4
+border-top-right-radius.px if {$code.caption == NULL}: 4
 border-bottom-left-radius.px: 4
 border-bottom-right-radius.px: 4
 ;; border-width.px: 1
 ;; border-color: $code-bg-dark
 overflow-x: auto
-max-height.fixed.px: 400
-max-width.fixed.px: 709
+height.fixed.px: 471
+width: fill-container
+max-height.fixed.px if { code.max-height != NULL }: $code.max-height
+max-width.fixed.px if { code.max-width != NULL }: $code.max-width
+
+-- ftd.code:
+if: { !ftd.dark-mode}
+text: $code.body
+lang: $code.lang
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+padding-top.px: 10
+padding-left.px: 20
+padding-right.px: 20
+background.solid: #eff1f5
+border-top-left-radius.px if {$code.caption == NULL}: 4
+border-top-right-radius.px if {$code.caption == NULL}: 4
+border-bottom-left-radius.px if {$code.caption == NULL}: 4
+border-bottom-right-radius.px if {$code.caption == NULL}: 4
+border-color: $inherited.colors.background.step-1
+border-width.px: 0
+overflow-x: auto
+overflow-y: auto
+theme: base16-ocean.light
+height.fixed.px: 471
+width: fill-container
+max-height.fixed.px if { code.max-height != NULL }: $code.max-height
+max-width.fixed.px if { code.max-width != NULL }: $code.max-width
 
 -- end: ftd.column
 
 -- end: code
-
 
 -- component output:
 caption title: Output
@@ -4041,23 +3100,27 @@ color: $inherited.colors.text
 
 -- ftd.text: $output.title
 if: { $output.title != NULL }
-role: $inherited.types.button-large
-color: $inherited.colors.text
+role: $inherited.types.heading-tiny
+color: $inherited.colors.text-strong
 width: fill-container
 border-bottom-width.px: 1
-padding-horizontal.px: 24
-padding-vertical.px: 24
+padding-horizontal.px: 40
+padding-top.px: 20
+padding-bottom.px: 20
 border-color: $inherited.colors.border-strong
 ;;spacing.fixed.px: 24
 
 
 -- ftd.column:
 children: $output.data
-width: fill-container
 color: $inherited.colors.text
-padding-horizontal.px: 24
-padding-vertical.px: 24
-max-height.fixed.px: 400
+padding-horizontal.px: 40
+padding-vertical.px: 20
+height.fixed.px: 471
+width: fill-container
+max-height.fixed.px: 471
+max-width.fixed.px: 680
+border-left-width.px: 1
 overflow-x: auto
 
 -- end: ftd.column
@@ -4072,3 +3135,88 @@ dark: #2b303b
 
 
 
+
+
+
+-- ftd.color green:
+light: #74C449
+dark: 74C449
+
+
+
+
+
+
+
+-- component package:
+caption title:
+string name:
+string url:  /
+children wrap:
+
+
+-- ftd.column:
+width: fill-container
+color: $inherited.colors.text
+spacing.fixed.px: 66
+background.solid:$inherited.colors.background.base
+
+
+-- ftd.column:
+width: fill-container
+border-bottom-width.px: 1
+border-color: $inherited.colors.border-strong
+padding-vertical.px: 46
+padding-horizontal.px: 60
+spacing.fixed.px: 46
+
+-- ftd.image:
+src: $assets.files.static.ftd.svg
+margin-right.px: 28
+height.fixed.px: 64
+
+-- ftd.row:
+width: fill-container
+
+-- ftd.text: $package.title
+role: $inherited.types.heading-large
+color: $inherited.colors.text-strong
+width: fill-container
+
+-- ftd.row:
+
+-- ftd.text: Package Name :  
+role: $inherited.types.heading-tiny
+color: $inherited.colors.text
+white-space: nowrap
+
+-- ftd.text: $package.name 
+link: $package.url 
+role: $inherited.types.heading-tiny
+color: $inherited.colors.text
+white-space: nowrap
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- ftd.column:
+children: $package.wrap
+width: fill-container
+spacing.fixed.px: 40
+padding-bottom.px: 46
+padding-horizontal.px: 60
+
+-- end: ftd.column
+-- end: ftd.column
+
+-- end: package
+
+
+-- void download-text(filename,text):
+string filename:
+string text:
+
+download_text(filename, text)
