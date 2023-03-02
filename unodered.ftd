@@ -11,11 +11,11 @@ background.solid: $inherited.colors.background.base
 height: fill-container
 
 -- ex.example: Unordered list with markdown
-url: unordered/#unordered-list-example
+url: unodered/#unodered-list-example
 $open: true
 
 -- ftd.row:
-id: unordered-list-example
+id: unodered-list-example
 region: h1
 width: fill-container
 
