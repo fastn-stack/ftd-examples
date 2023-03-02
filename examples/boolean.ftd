@@ -1752,3 +1752,52 @@ dark: red
 -- ftd.color green:
 light: green
 dark: blue
+
+
+
+
+
+
+
+
+
+
+-- component bordercomponent:
+
+-- ftd.row:
+padding.px: 40
+border-width.px: 1
+border-radius.px: 8
+border-color: $inherited.colors.border
+
+-- ftd.row:
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.custom.one
+border-top-left-radius.px: 8
+
+-- end: ftd.row
+
+-- ftd.row:
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.custom.two
+border-top-right-radius.px: 8
+
+-- end: ftd.row
+
+-- ftd.row:
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.custom.three
+border-bottom-left-radius.px: 8
+border-bottom-right-radius.px: 8
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+
+-- end: bordercomponent
+
+

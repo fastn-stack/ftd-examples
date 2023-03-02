@@ -1633,6 +1633,364 @@ $on-click$: $ftd.toggle($a = $bln.flag)
 
 
 
+
+-- example: `Role`
+permalink: #Role
+id: Role
+
+-- code:
+lang: ftd
+
+\-- ftd.type dtype:
+size.px: 40
+weight: 900
+font-family: cursive
+line-height.px: 65
+letter-spacing.px: 5
+
+\-- ftd.type mtype:
+size.px: 20
+weight: 100
+font-family: fantasy
+line-height.px: 35
+letter-spacing.px: 3
+
+\-- boolean $flag: true
+
+\-- ftd.responsive-type rtype:
+desktop: $dtype
+mobile: $mtype
+
+\-- ftd.responsive-type rrtype:
+desktop: $mtype
+mobile: $dtype
+
+\-- ftd.text: Hello World
+role if { flag }: $rtype
+role: $rrtype
+$on-click$: $toggle($a = $flag)
+
+\-- void toggle(a):
+boolean $a:
+
+a = !a
+
+-- output:
+
+-- ftd.text: Hello World
+role if { bln.flag }: $bln.rtype
+role: $bln.rrtype
+$on-click$: $bln.toggle($a = $bln.flag)
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+
+
+
+-- example: `Margin`
+permalink: #Margin
+id: Margin
+
+-- code:
+lang: ftd
+
+\-- ftd.column:
+width: fill-container
+height: fill-container
+
+\-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+background.solid: yellow
+border-width.px: 1
+margin-horizontal.px: 60
+
+\-- end: ftd.column
+
+\-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+background.solid: yellow
+border-width.px: 1
+margin-top.px: 40
+
+\-- end: ftd.column
+
+\-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+background.solid: green
+border-width.px: 1
+margin.px: 100
+
+\-- end: ftd.column
+
+\-- end: ftd.column
+
+-- output:
+
+-- ftd.column:
+width: fill-container
+height: fill-container
+
+-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+background.solid: yellow
+border-width.px: 1
+margin-horizontal.px: 60
+
+-- end: ftd.column
+
+-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+background.solid: yellow
+border-width.px: 1
+margin-top.px: 40
+
+-- end: ftd.column
+
+-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+background.solid: green
+border-width.px: 1
+margin.px: 100
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+-- example: `Padding`
+permalink: #Padding
+id: Padding
+
+-- code:
+lang: ftd
+
+\-- ftd.column:
+width: fill-container
+height: fill-container
+margin-top.px: 40
+
+\-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+background.solid: yellow
+border-width.px: 1
+padding-horizontal.px: 60
+padding-vertical.px: 60
+
+\-- end: ftd.column
+
+\-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+background.solid: yellow
+border-width.px: 1
+padding-top.px: 40
+padding-bottom.px: 40
+
+\-- end: ftd.column
+
+\-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+background.solid: green
+border-width.px: 1
+padding.px: 100
+
+\-- end: ftd.column
+
+\-- end: ftd.column
+
+-- output:
+
+-- ftd.column:
+width: fill-container
+height: fill-container
+spacing.fixed.px: 12
+
+-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+background.solid: yellow
+border-width.px: 1
+padding-horizontal.px: 60
+padding-vertical.px: 60
+
+-- end: ftd.column
+
+-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+background.solid: yellow
+border-width.px: 1
+padding-top.px: 40
+padding-bottom.px: 40
+
+-- end: ftd.column
+
+-- ftd.column:
+width.fixed.px: 60
+height.fixed.px: 60
+background.solid: green
+border-width.px: 1
+padding.px: 100
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: output
+
+-- end: example
+
+
+-- example: `Border`
+permalink: #Border
+id: Border
+
+-- code:
+lang: ftd
+
+\-- ftd.column:
+margin.px: 50
+width.fixed.px: 200
+height.fixed.px: 200
+background.solid: yellow
+border-bottom-width.px: 11
+border-top-width.px: 5
+border-left-width.px: 7
+border-right-width.px: 9
+border-bottom-color: red
+border-top-color: blue
+border-left-color: green
+border-right-color: purple
+
+\-- end: ftd.column
+
+\-- ftd.column:
+margin.px: 50
+width.fixed.px: 200
+height.fixed.px: 200
+background.solid: yellow
+border-width.px: 10
+border-bottom-color: red
+border-top-color: blue
+border-left-color: green
+border-right-color: purple
+
+\-- end: ftd.column
+
+-- output:
+
+-- ftd.column:
+margin.px: 50
+width.fixed.px: 200
+height.fixed.px: 200
+background.solid: yellow
+border-bottom-width.px: 11
+border-top-width.px: 5
+border-left-width.px: 7
+border-right-width.px: 9
+border-bottom-color: red
+border-top-color: blue
+border-left-color: green
+border-right-color: purple
+
+-- end: ftd.column
+
+-- ftd.column:
+margin.px: 50
+width.fixed.px: 200
+height.fixed.px: 200
+background.solid: yellow
+border-width.px: 10
+border-bottom-color: red
+border-top-color: blue
+border-left-color: green
+border-right-color: purple
+
+-- end: ftd.column
+
+-- end: output
+
+-- end: example
+
+
+
+
+
+
+
+
+
+-- example: `Border radius` 
+permalink: #Border radius
+id: Border radius
+
+
+-- code: 
+lang: ftd
+
+
+\-- ftd.row:
+padding.px: 40
+border-width.px: 1
+border-radius.px: 8
+border-color: $inherited.colors.border
+
+\-- ftd.row:
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.custom.one
+border-top-left-radius.px: 8
+
+\-- end: ftd.row
+
+\-- ftd.row:
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.custom.two
+border-top-right-radius.px: 8
+
+\-- end: ftd.row
+
+\-- ftd.row:
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.custom.three
+border-bottom-left-radius.px: 8
+border-bottom-right-radius.px: 8
+
+\-- end: ftd.row
+
+\-- end: ftd.row
+
+-- output: 
+
+-- bln.bordercomponent:
+
+-- end: output
+
+-- end: example
+
 -- example: `Component recursion`
 permalink: #Component recursion
 id: Component recursion
@@ -2378,165 +2736,6 @@ enable_system_mode()
 
 
 
-
--- example: `Margin`
-permalink: #Margin
-id: Margin
-
--- code:
-lang: ftd
-
-\-- ftd.column:
-width: fill-container
-height: fill-container
-
-\-- ftd.column:
-width.fixed.px: 60
-height.fixed.px: 60
-background.solid: yellow
-border-width.px: 1
-margin-horizontal.px: 60
-
-\-- end: ftd.column
-
-\-- ftd.column:
-width.fixed.px: 60
-height.fixed.px: 60
-background.solid: yellow
-border-width.px: 1
-margin-top.px: 40
-
-\-- end: ftd.column
-
-\-- ftd.column:
-width.fixed.px: 60
-height.fixed.px: 60
-background.solid: green
-border-width.px: 1
-margin.px: 100
-
-\-- end: ftd.column
-
-\-- end: ftd.column
-
--- output:
-
--- ftd.column:
-width: fill-container
-height: fill-container
-
--- ftd.column:
-width.fixed.px: 60
-height.fixed.px: 60
-background.solid: yellow
-border-width.px: 1
-margin-horizontal.px: 60
-
--- end: ftd.column
-
--- ftd.column:
-width.fixed.px: 60
-height.fixed.px: 60
-background.solid: yellow
-border-width.px: 1
-margin-top.px: 40
-
--- end: ftd.column
-
--- ftd.column:
-width.fixed.px: 60
-height.fixed.px: 60
-background.solid: green
-border-width.px: 1
-margin.px: 100
-
--- end: ftd.column
-
--- end: ftd.column
-
--- end: output
-
--- end: example
-
-
-
-
-
--- example: `Border`
-permalink: #Border
-id: Border
-
--- code:
-lang: ftd
-
-\-- ftd.column:
-margin.px: 50
-width.fixed.px: 200
-height.fixed.px: 200
-background.solid: yellow
-border-bottom-width.px: 11
-border-top-width.px: 5
-border-left-width.px: 7
-border-right-width.px: 9
-border-bottom-color: red
-border-top-color: blue
-border-left-color: green
-border-right-color: purple
-
-\-- end: ftd.column
-
-\-- ftd.column:
-margin.px: 50
-width.fixed.px: 200
-height.fixed.px: 200
-background.solid: yellow
-border-width.px: 10
-border-bottom-color: red
-border-top-color: blue
-border-left-color: green
-border-right-color: purple
-
-\-- end: ftd.column
-
--- output:
-
--- ftd.column:
-margin.px: 50
-width.fixed.px: 200
-height.fixed.px: 200
-background.solid: yellow
-border-bottom-width.px: 11
-border-top-width.px: 5
-border-left-width.px: 7
-border-right-width.px: 9
-border-bottom-color: red
-border-top-color: blue
-border-left-color: green
-border-right-color: purple
-
--- end: ftd.column
-
--- ftd.column:
-margin.px: 50
-width.fixed.px: 200
-height.fixed.px: 200
-background.solid: yellow
-border-width.px: 10
-border-bottom-color: red
-border-top-color: blue
-border-left-color: green
-border-right-color: purple
-
--- end: ftd.column
-
--- end: output
-
--- end: example
-
-
-
-
-
 -- example: `Optional`
 permalink: #optional
 id: optional
@@ -2660,63 +2859,6 @@ a = !a
 
 
 
-
--- example: `Role`
-permalink: #Role
-id: Role
-
--- code:
-lang: ftd
-
-\-- ftd.type dtype:
-size.px: 40
-weight: 900
-font-family: cursive
-line-height.px: 65
-letter-spacing.px: 5
-
-\-- ftd.type mtype:
-size.px: 20
-weight: 100
-font-family: fantasy
-line-height.px: 35
-letter-spacing.px: 3
-
-\-- boolean $flag: true
-
-\-- ftd.responsive-type rtype:
-desktop: $dtype
-mobile: $mtype
-
-\-- ftd.responsive-type rrtype:
-desktop: $mtype
-mobile: $dtype
-
-\-- ftd.text: Hello World
-role if { flag }: $rtype
-role: $rrtype
-$on-click$: $toggle($a = $flag)
-
-\-- void toggle(a):
-boolean $a:
-
-a = !a
-
--- output:
-
--- ftd.text: Hello World
-role if { bln.flag }: $bln.rtype
-role: $bln.rrtype
-$on-click$: $bln.toggle($a = $bln.flag)
-
--- end: output
-
--- end: example
-
-
-
-
-
 -- example: `Unordered list` with markdown
 permalink: #Unordered list
 id: Unordered list
@@ -2772,6 +2914,8 @@ role: $inherited.types.copy-regular
 -- end: output
 
 -- end: example
+
+
 
 
 -- end: package
