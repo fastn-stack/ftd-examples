@@ -1,0 +1,49 @@
+-- import: fifthtry.github.io/ftd-examples as ex
+
+
+
+
+-- ftd.column:
+width: fill-container
+padding-horizontal.px: 50
+padding-horizontal.px if { ftd.device == "mobile" }: 20
+background.solid: $inherited.colors.background.base
+height: fill-container
+
+-- ex.example: Unordered list with markdown
+url: unordered/#unordered-list-example
+$open: true
+
+-- ftd.row:
+id: unordered-list-example
+region: h1
+width: fill-container
+
+-- ex.code: 
+lang: ftd
+
+\-- ftd.text: 
+role: $inherited.types.copy-regular
+
+- Lorem ipsum dolor sit amet, consectetur
+- Lorem ipsum dolor sit amet, consectetur 
+- Lorem ipsum dolor sit amet, consectetur
+
+-- ex.output: 
+
+-- ftd.text:
+role: $inherited.types.copy-regular
+
+- Lorem ipsum dolor sit amet, consectetur
+- Lorem ipsum dolor sit amet, consectetur 
+- Lorem ipsum dolor sit amet, consectetur
+
+-- end: ex.output
+
+-- end: ftd.row
+
+-- end: ex.example
+
+
+-- end: ftd.column
+
