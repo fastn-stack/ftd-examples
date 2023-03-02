@@ -1751,13 +1751,13 @@ if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fift
 let changes = window.ftd.immutable_value_main["fifthtry.github.io/ftd-examples/examples/19-complex-styles/#flag"].changes;
 for(let i in changes) { changes[i](); }
 }
-if(!!window["node_change_main"] && !!window.node_change_main["1,0:main__height"]){window.node_change_main["1,0:main__height"](data);
-}
 if(!!window["node_change_main"] && !!window.node_change_main["1:main__align-items"]){window.node_change_main["1:main__align-items"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["1:main__width"]){window.node_change_main["1:main__width"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["1:main__justify-content"]){window.node_change_main["1:main__justify-content"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["1,0:main__height"]){window.node_change_main["1,0:main__height"](data);
 }
 };
 
@@ -1776,9 +1776,9 @@ if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fift
 let changes = window.ftd.immutable_value_main["fifthtry.github.io/ftd-examples/examples/19-complex-styles/#foo:align:1"].changes;
 for(let i in changes) { changes[i](); }
 }
-if(!!window["node_change_main"] && !!window.node_change_main["1:main__align-items"]){window.node_change_main["1:main__align-items"](data);
-}
 if(!!window["node_change_main"] && !!window.node_change_main["1:main__justify-content"]){window.node_change_main["1:main__justify-content"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["1:main__align-items"]){window.node_change_main["1:main__align-items"](data);
 }
 };
 
@@ -1834,15 +1834,6 @@ set_data_value(data, "fifthtry.github.io/ftd-examples/examples/19-complex-styles
 else {set_data_value(data, "fifthtry.github.io/ftd-examples/examples/19-complex-styles/#foo:align:1", "ftd#align.top-center");}
 
 }
-window.resolve_value_main["fifthtry.github.io/ftd-examples/examples/19-complex-styles/#foo:resize:1"] = function(data) {
-if(function(){
-return resolve_reference("fifthtry.github.io/ftd-examples/examples/19-complex-styles/#flag", data);
-}()){
-set_data_value(data, "fifthtry.github.io/ftd-examples/examples/19-complex-styles/#foo:resize:1", `fit-content`.format(JSONstringify("ftd#resizing.hug-content")));
-}
-else {set_data_value(data, "fifthtry.github.io/ftd-examples/examples/19-complex-styles/#foo:resize:1", `{0}px`.format(JSONstringify(50)));}
-
-}
 window.resolve_value_main["fifthtry.github.io/ftd-examples/examples/19-complex-styles/#foo:px:1"] = function(data) {
 if(function(){
 return resolve_reference("fifthtry.github.io/ftd-examples/examples/19-complex-styles/#flag", data);
@@ -1850,6 +1841,15 @@ return resolve_reference("fifthtry.github.io/ftd-examples/examples/19-complex-st
 set_data_value(data, "fifthtry.github.io/ftd-examples/examples/19-complex-styles/#foo:px:1", 30);
 }
 else {set_data_value(data, "fifthtry.github.io/ftd-examples/examples/19-complex-styles/#foo:px:1", 40);}
+
+}
+window.resolve_value_main["fifthtry.github.io/ftd-examples/examples/19-complex-styles/#foo:resize:1"] = function(data) {
+if(function(){
+return resolve_reference("fifthtry.github.io/ftd-examples/examples/19-complex-styles/#flag", data);
+}()){
+set_data_value(data, "fifthtry.github.io/ftd-examples/examples/19-complex-styles/#foo:resize:1", `fit-content`.format(JSONstringify("ftd#resizing.hug-content")));
+}
+else {set_data_value(data, "fifthtry.github.io/ftd-examples/examples/19-complex-styles/#foo:resize:1", `{0}px`.format(JSONstringify(50)));}
 
 }
 
