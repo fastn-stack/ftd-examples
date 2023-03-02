@@ -13,7 +13,6 @@
 
 
 -- package: FTD Examples
-name: github.com/fastn-stack/ftd/tree/main/t/html
 
 
 -- example:  Primitive Types: `Boolean`
@@ -3294,8 +3293,8 @@ dark: 74C449
 
 -- component package:
 caption title:
-string name:
-string url:  /
+optional string name:
+optional string url:  /
 children wrap:
 
 
@@ -3306,29 +3305,31 @@ spacing.fixed.px: 66
 background.solid:$inherited.colors.background.base
 
 
--- ftd.column:
+-- ftd.row:
 width: fill-container
 border-bottom-width.px: 1
 border-color: $inherited.colors.border-strong
-padding-vertical.px: 46
+padding-vertical.px: 24
 padding-horizontal.px: 60
-spacing.fixed.px: 46
+spacing.fixed.px: 24
+align-content: center
 
 -- ftd.image:
 src: $assets.files.static.ftd.svg
 margin-right.px: 28
-height.fixed.px: 64
+height.fixed.px: 76
 
 -- ftd.row:
 width: fill-container
 align-content: center
 
 -- ftd.text: $package.title
-role: $inherited.types.heading-large
+role: $inherited.types.heading-medium
 color: $inherited.colors.text-strong
 width: fill-container
 
 -- ftd.row:
+if: { package.name != NULL }
 
 -- ftd.text: Package Name :  
 role: $inherited.types.heading-tiny
@@ -3345,7 +3346,7 @@ white-space: nowrap
 
 -- end: ftd.row
 
--- end: ftd.column
+-- end: ftd.row
 
 -- ftd.column:
 children: $package.wrap
