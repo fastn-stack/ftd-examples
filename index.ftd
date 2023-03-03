@@ -3079,7 +3079,7 @@ if: {example.open}
 children: $example.wrapper
 width: fill-container
 border-top-width.px: 1
-border-color: $inherited.colors.border-strong
+border-color: $inherited.colors.border
 
 
 -- end: ftd.row
@@ -3117,7 +3117,7 @@ background.solid: $inherited.colors.background.step-1
 padding-horizontal.px: 40
 padding-vertical.px: 20
 border-bottom-width.px: 1
-border-color: $inherited.colors.border-strong
+border-color: $inherited.colors.border
 max-width.fixed.px if { code.max-width != NULL }: $code.max-width
 
 -- ftd.row:
@@ -3250,7 +3250,7 @@ border-bottom-width.px: 1
 padding-horizontal.px: 40
 padding-top.px: 20
 padding-bottom.px: 20
-border-color: $inherited.colors.border-strong
+border-color: $inherited.colors.border
 ;;spacing.fixed.px: 24
 
 
@@ -3308,7 +3308,7 @@ background.solid:$inherited.colors.background.base
 -- ftd.row:
 width: fill-container
 border-bottom-width.px: 1
-border-color: $inherited.colors.border-strong
+border-color: $inherited.colors.border
 padding-vertical.px: 24
 padding-horizontal.px: 60
 spacing.fixed.px: 24
