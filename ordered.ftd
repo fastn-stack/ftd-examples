@@ -8,6 +8,7 @@ width: fill-container
 padding-horizontal.px: 50
 padding-horizontal.px if { ftd.device == "mobile" }: 20
 background.solid: $inherited.colors.background.base
+padding-vertical.px: 24
 height: fill-container
 
 -- ex.example:  Ordered list with markdown
