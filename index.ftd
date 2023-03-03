@@ -1937,59 +1937,6 @@ border-right-color: purple
 
 
 
-
-
-
--- example: `Border radius` 
-permalink: #Border radius
-id: Border radius
-
-
--- code: 
-lang: ftd
-
-
-\-- ftd.row:
-padding.px: 40
-border-width.px: 1
-border-radius.px: 8
-border-color: $inherited.colors.border
-
-\-- ftd.row:
-padding.px: 40
-border-width.px: 1
-border-color: $inherited.colors.custom.one
-border-top-left-radius.px: 8
-
-\-- end: ftd.row
-
-\-- ftd.row:
-padding.px: 40
-border-width.px: 1
-border-color: $inherited.colors.custom.two
-border-top-right-radius.px: 8
-
-\-- end: ftd.row
-
-\-- ftd.row:
-padding.px: 40
-border-width.px: 1
-border-color: $inherited.colors.custom.three
-border-bottom-left-radius.px: 8
-border-bottom-right-radius.px: 8
-
-\-- end: ftd.row
-
-\-- end: ftd.row
-
--- output: 
-
--- bln.bordercomponent:
-
--- end: output
-
--- end: example
-
 -- example: `Component recursion`
 permalink: #Component recursion
 id: Component recursion
@@ -2915,48 +2862,57 @@ role: $inherited.types.copy-regular
 -- end: example
 
 
+-- example: `Border radius` 
+permalink: #Border radius
+id: Border radius
 
+
+-- code: 
+lang: ftd
+
+
+\-- ftd.row:
+padding.px: 40
+border-width.px: 1
+border-radius.px: 8
+border-color: $inherited.colors.border
+
+\-- ftd.row:
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.custom.one
+border-top-left-radius.px: 8
+
+\-- end: ftd.row
+
+\-- ftd.row:
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.custom.two
+border-top-right-radius.px: 8
+
+\-- end: ftd.row
+
+\-- ftd.row:
+padding.px: 40
+border-width.px: 1
+border-color: $inherited.colors.custom.three
+border-bottom-left-radius.px: 8
+border-bottom-right-radius.px: 8
+
+\-- end: ftd.row
+
+\-- end: ftd.row
+
+-- output: 
+
+-- bln.bordercomponent:
+
+-- end: output
+
+-- end: example
 
 -- end: package
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -3009,7 +2965,136 @@ align-self: center
 
 
 
+
 -- component example:
+caption title:
+children wrapper:
+boolean $open: false
+string url: /
+optional string id:
+string permalink: /
+boolean $imagehover : false
+
+-- ftd.column:
+width: fill-container
+
+-- example-desktop: $example.title
+if: {ftd.device != "mobile"}
+$open: $example.open
+url: $example.url
+id: $example.id
+wrapper: $example.wrapper
+permalink: $example.permalink
+$imagehover: $example.imagehover
+
+-- example-mobile: $example.title
+if: {ftd.device == "mobile"}
+$open: $example.open
+url: $example.url
+id: $example.id
+wrapper: $example.wrapper
+permalink: $example.permalink
+$imagehover: $example.imagehover
+
+-- end: ftd.column
+
+-- end: example
+
+
+
+
+
+
+
+
+
+
+-- component example-desktop:
+caption title:
+children wrapper:
+boolean $open : false
+string url: /
+optional string id:
+string permalink: /
+boolean $imagehover : false
+
+-- ftd.column:
+width: fill-container
+background.solid: $inherited.colors.background.step-1
+border-bottom-left-radius.px : 10
+border-bottom-right-radius.px : 10
+border-top-right-radius.px : 10
+
+-- ftd.row:
+
+-- ftd.row:
+width: fill-container
+padding-horizontal.px: 30
+padding-vertical.px: 37
+border-left-width.px: 7
+border-top-left-radius.px : 10
+border-bottom-left-radius.px : 10
+border-color if { example-desktop.open }: #74C449
+border-color: #A8A29D
+$on-click$: $ftd.toggle($a = $example-desktop.open)
+
+-- ftd.row:
+align-self: start
+width: fill-container
+spacing.fixed.px: 12
+
+-- ftd.text: $example-desktop.title
+region: h1
+id: $example-desktop.id
+role: $inherited.types.heading-tiny
+color: $inherited.colors.text-strong
+
+-- image-link:
+$on-mouse-enter$: ftd.set-bool($a = $example-desktop.imagehover, v= true)
+$on-mouse-leave$: ftd.set-bool($a = $example-desktop.imagehover, v= false)
+mouseover: $example-desktop.imagehover
+link: $example-desktop.permalink
+
+-- end: ftd.row
+
+-- ftd.row:
+align-self: end
+
+-- ftd.image:
+if: { !example-desktop.open } 
+src: $assets.files.static.down.svg
+
+-- ftd.image:
+if: { example-desktop.open } 
+src: $assets.files.static.up.svg
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- ftd.row:
+if: {example-desktop.open}
+children: $example-desktop.wrapper
+width: fill-container
+border-top-width.px: 1
+border-color: $inherited.colors.border
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: example-desktop
+
+
+
+
+
+
+
+
+
+
+-- component example-mobile:
 caption title:
 children wrapper:
 boolean $open : false
@@ -3026,68 +3111,73 @@ background.solid: $inherited.colors.background.step-1
 
 -- ftd.row:
 width: fill-container
-padding-horizontal.px: 30
-padding-vertical.px: 37
-border-left-width.px: 7
-border-top-left-radius.px if { !example.open }: 10
-border-bottom-left-radius.px if { !example.open }: 10
-border-color if { example.open }: #74C449
+padding-vertical.px: 23
+padding-left.px: 13
+padding-right.px: 15
+border-left-width.px: 2
+border-top-left-radius.px: 10
+border-bottom-left-radius.px: 10
+border-color if { example-mobile.open }: #74C449
 border-color: #A8A29D
-$on-click$: $ftd.toggle($a = $example.open)
-
+$on-click$: $ftd.toggle($a = $example-mobile.open)
 
 -- ftd.row:
 align-self: start
 width: fill-container
 spacing.fixed.px: 12
 
--- ftd.text: $example.title
-region: h1
-id: $example.id
-role: $inherited.types.heading-tiny
-color: $inherited.colors.text-strong
+-- ftd.column:
+align-content: center
+align-self: center
 
+-- ftd.text: $example-mobile.title
+region: h1
+id: $example-mobile.id
+role: $inherited.types.link
+color: $inherited.colors.text-strong
+text-align: center
+
+-- end: ftd.column
 
 -- image-link:
-$on-mouse-enter$: ftd.set-bool($a = $example.imagehover, v= true)
-$on-mouse-leave$: ftd.set-bool($a = $example.imagehover, v= false)
-mouseover: $example.imagehover
-link: $example.permalink
+$on-mouse-enter$: ftd.set-bool($a = $example-mobile.imagehover, v= true)
+$on-mouse-leave$: ftd.set-bool($a = $example-mobile.imagehover, v= false)
+mouseover: $example-mobile.imagehover
+link: $example-mobile.permalink
 
 -- end: ftd.row
 
 -- ftd.row:
 align-self: end
 
-
 -- ftd.image:
-if: { !example.open } 
+if: { !example-mobile.open } 
 src: $assets.files.static.down.svg
 
-
 -- ftd.image:
-if: { example.open } 
+if: { example-mobile.open } 
 src: $assets.files.static.up.svg
 
-
 -- end: ftd.row
 
 -- end: ftd.row
 
--- ftd.row:
-if: {example.open}
-children: $example.wrapper
+-- ftd.column:
+if: {example-mobile.open}
+children: $example-mobile.wrapper
 width: fill-container
 border-top-width.px: 1
 border-color: $inherited.colors.border
 
-
--- end: ftd.row
+-- end: ftd.column
 
 -- end: ftd.column
 
+-- end: example-mobile
 
--- end: example
+
+
+
 
 
 
@@ -3109,18 +3199,20 @@ optional integer max-width: 721
 -- ftd.column:
 width: fill-container
 
-
 -- ftd.row:
 if: { $code.caption != NULL || $code.download != NULL || code.copy }
 width: fill-container
 background.solid: $inherited.colors.background.step-1
 padding-horizontal.px: 40
+padding-horizontal.px if {ftd.device == "mobile"}: 15
 padding-vertical.px: 20
+padding-vertical.px if {ftd.device == "mobile"}: 10
 border-bottom-width.px: 1
 border-color: $inherited.colors.border
 max-width.fixed.px if { code.max-width != NULL }: $code.max-width
 
 -- ftd.row:
+if: {ftd.device != "mobile"}
 align-self: start
 width: fill-container
 
@@ -3133,10 +3225,31 @@ width: fill-container
 -- end: ftd.row
 
 -- ftd.row:
+if: {ftd.device == "mobile"}
+align-self: start
+width: fill-container
+
+-- ftd.text: $code.caption
+if: { $code.caption != NULL }
+role: $inherited.types.copy-small
+color: $inherited.colors.text-strong
+width: fill-container
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- ftd.row:
+anchor: parent
+right.px: 48
+top.px: 86
+right.px if {ftd.device == "mobile"}: 14
+top.px if {ftd.device == "mobile"}: 47
+
+-- ftd.row:
 if: { code.copy }
 spacing.fixed.px: 10
 align-content: right
-align-self: end
 $on-mouse-leave$: $ftd.set-string($a = $code.copy-text, v = null)
 
 -- ftd.image:
@@ -3148,11 +3261,13 @@ $on-mouse-leave$: $ftd.set-bool($a = $code.mouse-in, v = false)
 $on-click$: $ftd.copy-to-clipboard(a = $code.body)
 $on-click$: $ftd.set-string($a = $code.copy-text, v = Copied!)
 width.fixed.px: 18
+height.fixed.px: 20
 
 -- ftd.image:
 if: { code.copy-text != "null" }
 src: $assets.files.static.tick.svg
 width.fixed.px: 18
+height.fixed.px: 20
 
 -- ftd.text: $code.copy-text
 if: { code.copy-text != "null" }
@@ -3164,16 +3279,14 @@ color: $inherited.colors.border
 -- ftd.row:
 if: { $code.download != NULL }
 align-content: right
-align-self: end
-padding-left.px: 10
+padding-left.px: 16
 
 -- ftd.image:
 if: { code.download != NULL }
 src: $assets.files.static.download.svg
 src if { code.download-mouse-in }: $assets.files.static.download-hover.svg
-width.fixed.px: 25
-height.fixed.px: 25
-padding-left.px: 5
+width.fixed.px: 20
+height.fixed.px: 20
 $on-mouse-enter$: $ftd.set-bool($a = $code.download-mouse-in, v = true)
 $on-mouse-leave$: $ftd.set-bool($a = $code.download-mouse-in, v = false)
 $on-click$: $download-text(filename = $code.download, text = $code.body)
@@ -3188,17 +3301,14 @@ text: $code.body
 lang: $code.lang
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
-padding-top.px: 20
-padding-bottom.px: 20
-padding-left.px: 40
-padding-right.px: 40
+padding-horizontal.px: 50
+padding-vertical.px: 20
 background.solid: $code-bg-dark
-border-top-left-radius.px if {$code.caption == NULL}: 4
-border-top-right-radius.px if {$code.caption == NULL}: 4
-border-bottom-left-radius.px: 4
-border-bottom-right-radius.px: 4
-;; border-width.px: 1
-;; border-color: $code-bg-dark
+border-left-width.px if {ftd.device != "mobile"}: 1
+border-bottom-width.px if {ftd.device != "mobile"}: 1
+border-right-width.px if {ftd.device != "mobile"}: 1
+border-color: $inherited.colors.border
+border-bottom-left-radius.px : 10
 overflow-x: auto
 height.fixed.px: 471
 width: fill-container
@@ -3211,17 +3321,16 @@ text: $code.body
 lang: $code.lang
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
-padding-top.px: 10
-padding-left.px: 20
-padding-right.px: 20
+padding-horizontal.px: 50
+padding-vertical.px: 20
 background.solid: #eff1f5
-border-top-left-radius.px if {$code.caption == NULL}: 4
-border-top-right-radius.px if {$code.caption == NULL}: 4
-border-bottom-left-radius.px if {$code.caption == NULL}: 4
-border-bottom-right-radius.px if {$code.caption == NULL}: 4
-border-color: $inherited.colors.background.step-1
-border-width.px: 0
+border-left-width.px: 0
+border-left-width.px if {ftd.device != "mobile"}: 1
+border-bottom-width.px if {ftd.device != "mobile"}: 1
+border-right-width.px if {ftd.device != "mobile"}: 1
+border-color if {ftd.device != "mobile"}: $inherited.colors.border
 overflow-x: auto
+border-bottom-left-radius.px : 10
 overflow-y: auto
 theme: base16-ocean.light
 height.fixed.px: 471
@@ -3233,6 +3342,13 @@ max-width.fixed.px if { code.max-width != NULL }: $code.max-width
 
 -- end: code
 
+
+
+
+
+
+
+
 -- component output:
 caption title: Output
 children data:
@@ -3240,6 +3356,10 @@ children data:
 -- ftd.column:
 width: fill-container
 color: $inherited.colors.text
+
+-- ftd.column:
+if: {ftd.device != "mobile"}
+width: fill-container
 
 -- ftd.text: $output.title
 if: { $output.title != NULL }
@@ -3253,37 +3373,77 @@ padding-bottom.px: 20
 border-color: $inherited.colors.border
 ;;spacing.fixed.px: 24
 
+-- end: ftd.column
 
 -- ftd.column:
+if: {ftd.device == "mobile"}
+width: fill-container
+
+-- ftd.text: $output.title
+if: { $output.title != NULL }
+role: $inherited.types.link
+color: $inherited.colors.text-strong
+width: fill-container
+border-bottom-width.px: 1
+padding-horizontal.px: 40
+padding-vertical.px: 20
+padding-horizontal.px if {ftd.device == "mobile}: 15
+padding-vertical.px if {ftd.device == "mobile}: 10
+border-color: $inherited.colors.border
+
+-- end: ftd.column
+
+-- ftd.column:
+if: {ftd.device != "mobile"}
 children: $output.data
 color: $inherited.colors.text
-padding-horizontal.px: 40
+padding-horizontal.px: 50
 padding-vertical.px: 20
 height.fixed.px: 471
 width: fill-container
 max-height.fixed.px: 471
-max-width.fixed.px: 680
-border-left-width.px: 1
+max-width.fixed.px: 699
 overflow-x: auto
+border-bottom-width.px: 1
+border-right-width.px: 1
+border-color: $inherited.colors.border
+border-bottom-right-radius.px : 10
 
+-- end: ftd.column
+
+-- ftd.column:
+if: {ftd.device == "mobile"}
+children: $output.data
+color: $inherited.colors.text
+padding-horizontal.px: 50
+padding-vertical.px: 20
+height.fixed.px: 471
+width: fill-container
+max-height.fixed.px: 471
+max-width.fixed.px: 699
+overflow-x: auto
+border-bottom-right-radius.px : 10
 -- end: ftd.column
 
 -- end: ftd.column
 
 -- end: output
 
+
+
+
+
+
 -- ftd.color code-bg-dark:
 light: #18181b
 dark: #2b303b
 
-
-
-
-
-
 -- ftd.color green:
 light: #74C449
 dark: 74C449
+
+
+
 
 
 
@@ -3297,13 +3457,11 @@ optional string name:
 optional string url:  /
 children wrap:
 
-
 -- ftd.column:
 width: fill-container
 color: $inherited.colors.text
 spacing.fixed.px: 66
 background.solid:$inherited.colors.background.base
-
 
 -- ftd.row:
 width: fill-container
@@ -3311,6 +3469,7 @@ border-bottom-width.px: 1
 border-color: $inherited.colors.border
 padding-vertical.px: 24
 padding-horizontal.px: 60
+padding-horizontal.px if {ftd.device == "mobile"}: 24
 spacing.fixed.px: 24
 align-content: center
 
@@ -3354,11 +3513,16 @@ width: fill-container
 spacing.fixed.px: 40
 padding-bottom.px: 46
 padding-horizontal.px: 60
+padding-horizontal.px if {ftd.device == "mobile"}: 24
 
 -- end: ftd.column
+
 -- end: ftd.column
 
 -- end: package
+
+
+
 
 
 -- void download-text(filename,text):
