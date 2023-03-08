@@ -1,0 +1,127 @@
+-- import: fifthtry.github.io/ftd-examples as ex
+
+
+
+
+
+
+-- ftd.column:
+width: fill-container
+padding-horizontal.px: 50
+padding-horizontal.px if { ftd.device == "mobile" }: 20
+background.solid: $inherited.colors.background.base
+height: fill-container
+
+-- ex.example: Rendering a component with argument
+url: render-conditionally/#render-component-conditionally
+$open: true
+
+-- ftd.row:
+id: render-component-conditionally
+region: h1
+width: fill-container
+
+-- ex.code: 
+lang: ftd
+
+\-- boolean render-default: false
+
+\-- integer $variable: 0
+
+
+\-- data:
+if: { variable >= 1 }
+t1: Some t1 value
+t2: Some t2 value
+
+\-- show-data:
+if: { variable <= 1 }
+
+
+
+
+\-- component show-data:
+
+\-- ftd.text: Click here to show `data`
+role: $inherited.types.heading-small
+color: $inherited.colors.text-strong
+cursor: pointer
+$on-click$: $ftd.increment-by($a = $variable, v = 5)
+
+
+\-- end: show-data
+
+
+\-- component data:
+string t1:
+string t2:
+boolean render: $render-default
+
+\-- ftd.column:
+width: fill-container
+
+\-- ftd.text: Rendering with condition
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+\-- end: ftd.column
+
+\-- end: data
+
+
+-- ex.output: 
+
+
+-- data:
+if: { variable >= 1 }
+t1: Some t1 value
+t2: Some t2 value
+
+-- show-data:
+if: { variable <= 1 }
+
+-- end: ex.output
+
+-- end: ftd.row
+
+-- end: ex.example
+
+
+-- end: ftd.column
+
+
+
+
+-- boolean render-default: false
+
+-- integer $variable: 0
+
+
+-- component show-data:
+
+-- ftd.text: Click here to show `data`
+role: $inherited.types.heading-small
+color: $inherited.colors.text-strong
+cursor: pointer
+$on-click$: $ftd.increment-by($a = $variable, v = 5)
+
+
+-- end: show-data
+
+
+-- component data:
+string t1:
+string t2:
+boolean render: $render-default
+
+-- ftd.column:
+width: fill-container
+margin-vertical.px: 24
+
+-- ftd.text: Rendering with condition
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+-- end: ftd.column
+
+-- end: data
