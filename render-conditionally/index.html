@@ -10,15 +10,19 @@
 "dark": "#2b303b",
 "light": "#18181b"
 },
-"fifthtry.github.io/ftd-examples#code:body:0,0,1,0,0": "-- ftd.text: \nrole: $inherited.types.copy-regular\n\n- Lorem ipsum dolor sit amet, consectetur\n- Lorem ipsum dolor sit amet, consectetur \n- Lorem ipsum dolor sit amet, consectetur",
+"fifthtry.github.io/ftd-examples#code:body:0,0,1,0,0": "-- boolean render-default: false\n\n-- integer $variable: 0\n\n\n-- data:\nif: { variable >= 1 }\nt1: Some t1 value\nt2: Some t2 value\n\n-- show-data:\nif: { variable <= 1 }\n\n\n\n\n-- component show-data:\n\n-- ftd.text: Click here to show `data`\nrole: $inherited.types.heading-small\ncolor: $inherited.colors.text-strong\ncursor: pointer\n$on-click$: $ftd.increment-by($a = $variable, v = 5)\n\n\n-- end: show-data\n\n\n-- component data:\nstring t1:\nstring t2:\nboolean render: $render-default\n\n-- ftd.column:\nwidth: fill-container\n\n-- ftd.text: Rendering with condition\nrole: $inherited.types.copy-regular\ncolor: $inherited.colors.text\n\n-- end: ftd.column\n\n-- end: data",
 "fifthtry.github.io/ftd-examples#code:lang:0,0,1,0,0": "ftd",
 "fifthtry.github.io/ftd-examples#code:title:0,0,1,0,0": "FTD Code",
 "fifthtry.github.io/ftd-examples#example:open:0,0": true,
-"fifthtry.github.io/ftd-examples#example:title:0,0": "Unordered list with markdown",
-"fifthtry.github.io/ftd-examples#example:url:0,0": "unodered/#unodered-list-example",
+"fifthtry.github.io/ftd-examples#example:title:0,0": "Rendering a component with argument",
+"fifthtry.github.io/ftd-examples#example:url:0,0": "render-conditionally/#render-component-conditionally",
 "fifthtry.github.io/ftd-examples#example:wrapper:0,0": [],
 "fifthtry.github.io/ftd-examples#output:data:0,0,1,0,1": [],
 "fifthtry.github.io/ftd-examples#output:title:0,0,1,0,1": "Output",
+"fifthtry.github.io/ftd-examples/render-conditionally/#data:t1:0,0,1,0,1,1,0": "Some t1 value",
+"fifthtry.github.io/ftd-examples/render-conditionally/#data:t2:0,0,1,0,1,1,0": "Some t2 value",
+"fifthtry.github.io/ftd-examples/render-conditionally/#render-default": false,
+"fifthtry.github.io/ftd-examples/render-conditionally/#variable": 0,
 "ftd#breakpoint-width": {
 "mobile": 768
 },
@@ -711,14 +715,51 @@ margin-block-end: 1em;
 </head>
 <body style="height: 100%; margin: 0;">
 
-<div data-id="main" style="align-items: start; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; height: 100%; justify-content: start; text-decoration: none; width: 100%" ><div data-id="0:main" style="align-items: start; background-color: rgba(231,231,228,1); border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; height: 100%; justify-content: start; padding-left: 50px; padding-right: 50px; text-decoration: none; width: 100%" ><div data-id="0,0:main" style="align-items: start; border-bottom-width: 1px; border-color: rgba(145,145,146,1); border-left-width: 1px; border-radius: 8px; border-right-width: 1px; border-style: solid; border-top-width: 1px; box-sizing: border-box; display: flex; flex-direction: column; height: auto; justify-content: start; margin-bottom: 24px; margin-top: 24px; text-decoration: none; width: 100%" ><div data-id="0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;name&quot;:&quot;ftd__toggle___main&quot;,&quot;values&quot;:[[&quot;a&quot;,{&quot;mutable&quot;:true,&quot;reference&quot;:&quot;fifthtry.github.io/ftd-examples#example:open:0,0&quot;}]]}]', this)" style="align-items: start; border-bottom-width: 1px; border-color: rgba(145,145,146,1); border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; height: auto; justify-content: start; padding-bottom: 24px; padding-left: 24px; padding-right: 24px; padding-top: 24px; text-decoration: none; width: 100%" ><div data-id="0,0,0,0:main" style="align-items: start; align-self: start; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; gap: 12px; height: auto; justify-content: start; text-decoration: none; width: 100%" ><div data-id="0,0,0,0,0:main" style="border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; color: rgba(20,20,20,1); font-family: sans-serif; font-size: 24px; font-weight: 400; height: auto; line-height: 31px; text-decoration: none; width: auto" class="ft_md"><p>Unordered list with markdown</p></div><a data-id="0,0,0,0,1:main" href="unodered/#unodered-list-example" style="border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; color: rgba(88,75,66,1); font-family: sans-serif; font-size: 24px; font-weight: 400; height: auto; line-height: 31px; text-decoration: none; width: auto" class="ft_md"><p>¶</p></a></div><div data-id="0,0,0,1:main" style="align-items: start; align-self: end; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; height: auto; justify-content: start; text-decoration: none; width: auto" ><div data-id="0,0,0,1,0:main" style="border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; color: rgba(88,75,66,1); display: none; font-family: sans-serif; font-size: 18px; font-weight: 400; height: auto; line-height: 30px; text-decoration: none; white-space: nowrap; width: auto" class="ft_md"><p>Click to expand</p></div><div data-id="0,0,0,1,1:main" style="border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; color: rgba(88,75,66,1); font-family: sans-serif; font-size: 18px; font-weight: 400; height: auto; line-height: 30px; text-decoration: none; width: auto" class="ft_md"><p>close</p></div></div></div><div data-id="0,0,1:main" style="align-items: start; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; height: auto; justify-content: start; text-decoration: none; width: 100%" ><h1 data-id="0,0,1,0:main" id="unodered-list-example" style="align-items: start; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; height: auto; justify-content: start; text-decoration: none; width: 100%" ><div data-id="0,0,1,0,0:main" style="align-items: start; border-bottom-width: 0px; border-color: rgba(145,145,146,1); border-left-width: 0px; border-right-width: 1px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; height: auto; justify-content: start; text-decoration: none; width: 100%" ><div data-id="0,0,1,0,0,0:main" style="border-bottom-width: 1px; border-color: rgba(145,145,146,1); border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; color: rgba(88,75,66,1); font-family: sans-serif; font-size: 18px; font-weight: 400; height: auto; line-height: 24px; padding-bottom: 24px; padding-left: 24px; padding-right: 24px; padding-top: 24px; text-decoration: none; width: 100%" class="ft_md"><p>FTD Code</p></div><div data-id="0,0,1,0,0,1:main" style="background-color: rgba(24,24,27,1); border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; color: rgba(88,75,66,1); font-family: sans-serif; font-size: 18px; font-weight: 400; height: auto; line-height: 30px; max-height: 400px; max-width: 709px; overflow-x: auto; padding-bottom: 24px; padding-left: 24px; padding-right: 24px; padding-top: 24px; text-decoration: none; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#65737e;">-- </span><span style="color:#ebcb8b;">ftd.text</span><span style="color:#65737e;">:
-</span><span style="color:#b48ead;">role</span><span style="color:#65737e;">: </span><span style="color:#d08770;">$inherited.types.copy-regular
+<div data-id="main" style="align-items: start; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; height: 100%; justify-content: start; text-decoration: none; width: 100%" ><div data-id="0:main" style="align-items: start; background-color: rgba(231,231,228,1); border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; height: 100%; justify-content: start; padding-left: 50px; padding-right: 50px; text-decoration: none; width: 100%" ><div data-id="0,0:main" style="align-items: start; border-bottom-width: 1px; border-color: rgba(145,145,146,1); border-left-width: 1px; border-radius: 8px; border-right-width: 1px; border-style: solid; border-top-width: 1px; box-sizing: border-box; display: flex; flex-direction: column; height: auto; justify-content: start; margin-bottom: 24px; margin-top: 24px; text-decoration: none; width: 100%" ><div data-id="0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;name&quot;:&quot;ftd__toggle___main&quot;,&quot;values&quot;:[[&quot;a&quot;,{&quot;mutable&quot;:true,&quot;reference&quot;:&quot;fifthtry.github.io/ftd-examples#example:open:0,0&quot;}]]}]', this)" style="align-items: start; border-bottom-width: 1px; border-color: rgba(145,145,146,1); border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; height: auto; justify-content: start; padding-bottom: 24px; padding-left: 24px; padding-right: 24px; padding-top: 24px; text-decoration: none; width: 100%" ><div data-id="0,0,0,0:main" style="align-items: start; align-self: start; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; gap: 12px; height: auto; justify-content: start; text-decoration: none; width: 100%" ><div data-id="0,0,0,0,0:main" style="border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; color: rgba(20,20,20,1); font-family: sans-serif; font-size: 24px; font-weight: 400; height: auto; line-height: 31px; text-decoration: none; width: auto" class="ft_md"><p>Rendering a component with argument</p></div><a data-id="0,0,0,0,1:main" href="render-conditionally/#render-component-conditionally" style="border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; color: rgba(88,75,66,1); font-family: sans-serif; font-size: 24px; font-weight: 400; height: auto; line-height: 31px; text-decoration: none; width: auto" class="ft_md"><p>¶</p></a></div><div data-id="0,0,0,1:main" style="align-items: start; align-self: end; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; height: auto; justify-content: start; text-decoration: none; width: auto" ><div data-id="0,0,0,1,0:main" style="border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; color: rgba(88,75,66,1); display: none; font-family: sans-serif; font-size: 18px; font-weight: 400; height: auto; line-height: 30px; text-decoration: none; white-space: nowrap; width: auto" class="ft_md"><p>Click to expand</p></div><div data-id="0,0,0,1,1:main" style="border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; color: rgba(88,75,66,1); font-family: sans-serif; font-size: 18px; font-weight: 400; height: auto; line-height: 30px; text-decoration: none; width: auto" class="ft_md"><p>close</p></div></div></div><div data-id="0,0,1:main" style="align-items: start; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; height: auto; justify-content: start; text-decoration: none; width: 100%" ><h1 data-id="0,0,1,0:main" id="render-component-conditionally" style="align-items: start; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; height: auto; justify-content: start; text-decoration: none; width: 100%" ><div data-id="0,0,1,0,0:main" style="align-items: start; border-bottom-width: 0px; border-color: rgba(145,145,146,1); border-left-width: 0px; border-right-width: 1px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; height: auto; justify-content: start; text-decoration: none; width: 100%" ><div data-id="0,0,1,0,0,0:main" style="border-bottom-width: 1px; border-color: rgba(145,145,146,1); border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; color: rgba(88,75,66,1); font-family: sans-serif; font-size: 18px; font-weight: 400; height: auto; line-height: 24px; padding-bottom: 24px; padding-left: 24px; padding-right: 24px; padding-top: 24px; text-decoration: none; width: 100%" class="ft_md"><p>FTD Code</p></div><div data-id="0,0,1,0,0,1:main" style="background-color: rgba(24,24,27,1); border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; color: rgba(88,75,66,1); font-family: sans-serif; font-size: 18px; font-weight: 400; height: auto; line-height: 30px; max-height: 400px; max-width: 709px; overflow-x: auto; padding-bottom: 24px; padding-left: 24px; padding-right: 24px; padding-top: 24px; text-decoration: none; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#65737e;">-- </span><span style="color:#ebcb8b;">boolean render-default</span><span style="color:#65737e;">: </span><span style="color:#a3be8c;">false
 </span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">- Lorem ipsum dolor sit amet, consectetur
-</span><span style="color:#c0c5ce;">- Lorem ipsum dolor sit amet, consectetur
-</span><span style="color:#c0c5ce;">- Lorem ipsum dolor sit amet, consectetur
+</span><span style="color:#65737e;">-- </span><span style="color:#ebcb8b;">integer $variable</span><span style="color:#65737e;">: </span><span style="color:#a3be8c;">0
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;">-- </span><span style="color:#ebcb8b;">data</span><span style="color:#65737e;">:
+</span><span style="color:#b48ead;">if</span><span style="color:#65737e;">: </span><span style="color:#d08770;">{ variable &gt;= 1 }
+</span><span style="color:#b48ead;">t1</span><span style="color:#65737e;">: </span><span style="color:#d08770;">Some t1 value
+</span><span style="color:#b48ead;">t2</span><span style="color:#65737e;">: </span><span style="color:#d08770;">Some t2 value
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;">-- </span><span style="color:#ebcb8b;">show-data</span><span style="color:#65737e;">:
+</span><span style="color:#b48ead;">if</span><span style="color:#65737e;">: </span><span style="color:#d08770;">{ variable &lt;= 1 }
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;">-- </span><span style="color:#ebcb8b;">component show-data</span><span style="color:#65737e;">:
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;">-- </span><span style="color:#ebcb8b;">ftd.text</span><span style="color:#65737e;">: </span><span style="color:#a3be8c;">Click here to show `data`
+</span><span style="color:#b48ead;">role</span><span style="color:#65737e;">: </span><span style="color:#d08770;">$inherited.types.heading-small
+</span><span style="color:#b48ead;">color</span><span style="color:#65737e;">: </span><span style="color:#d08770;">$inherited.colors.text-strong
+</span><span style="color:#b48ead;">cursor</span><span style="color:#65737e;">: </span><span style="color:#d08770;">pointer
+</span><span style="color:#b48ead;">$on-click$</span><span style="color:#65737e;">: </span><span style="color:#d08770;">$ftd.increment-by($a = $variable, v = 5)
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;">-- </span><span style="color:#ebcb8b;">end</span><span style="color:#65737e;">: </span><span style="color:#a3be8c;">show-data
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;">-- </span><span style="color:#ebcb8b;">component data</span><span style="color:#65737e;">:
+</span><span style="color:#b48ead;">string t1</span><span style="color:#65737e;">:
+</span><span style="color:#b48ead;">string t2</span><span style="color:#65737e;">:
+</span><span style="color:#b48ead;">boolean render</span><span style="color:#65737e;">: </span><span style="color:#d08770;">$render-default
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;">-- </span><span style="color:#ebcb8b;">ftd.column</span><span style="color:#65737e;">:
+</span><span style="color:#b48ead;">width</span><span style="color:#65737e;">: </span><span style="color:#d08770;">fill-container
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;">-- </span><span style="color:#ebcb8b;">ftd.text</span><span style="color:#65737e;">: </span><span style="color:#a3be8c;">Rendering with condition
+</span><span style="color:#b48ead;">role</span><span style="color:#65737e;">: </span><span style="color:#d08770;">$inherited.types.copy-regular
+</span><span style="color:#b48ead;">color</span><span style="color:#65737e;">: </span><span style="color:#d08770;">$inherited.colors.text
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;">-- </span><span style="color:#ebcb8b;">end</span><span style="color:#65737e;">: </span><span style="color:#a3be8c;">ftd.column
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;">-- </span><span style="color:#ebcb8b;">end</span><span style="color:#65737e;">: </span><span style="color:#a3be8c;">data
 </span></pre>
-</div></div><div data-id="0,0,1,0,1:main" style="align-items: start; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; color: rgba(88,75,66,1); display: flex; flex-direction: column; height: auto; justify-content: start; text-decoration: none; width: 100%" ><div data-id="0,0,1,0,1,0:main" style="border-bottom-width: 1px; border-color: rgba(145,145,146,1); border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; color: rgba(88,75,66,1); font-family: sans-serif; font-size: 18px; font-weight: 400; height: auto; line-height: 24px; padding-bottom: 24px; padding-left: 24px; padding-right: 24px; padding-top: 24px; text-decoration: none; width: 100%" class="ft_md"><p>Output</p></div><div data-id="0,0,1,0,1,1:main" style="align-items: start; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; color: rgba(88,75,66,1); display: flex; flex-direction: column; height: auto; justify-content: start; max-height: 400px; overflow-x: auto; padding-bottom: 24px; padding-left: 24px; padding-right: 24px; padding-top: 24px; text-decoration: none; width: 100%" ><div data-id="0,0,1,0,1,1,0:main" style="border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; font-family: sans-serif; font-size: 18px; font-weight: 400; height: auto; line-height: 30px; text-decoration: none; width: auto" class="ft_md"><ul> <li>Lorem ipsum dolor sit amet, consectetur</li> <li>Lorem ipsum dolor sit amet, consectetur</li> <li>Lorem ipsum dolor sit amet, consectetur</li> </ul></div></div></div></h1></div></div></div></div>
+</div></div><div data-id="0,0,1,0,1:main" style="align-items: start; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; color: rgba(88,75,66,1); display: flex; flex-direction: column; height: auto; justify-content: start; text-decoration: none; width: 100%" ><div data-id="0,0,1,0,1,0:main" style="border-bottom-width: 1px; border-color: rgba(145,145,146,1); border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; color: rgba(88,75,66,1); font-family: sans-serif; font-size: 18px; font-weight: 400; height: auto; line-height: 24px; padding-bottom: 24px; padding-left: 24px; padding-right: 24px; padding-top: 24px; text-decoration: none; width: 100%" class="ft_md"><p>Output</p></div><div data-id="0,0,1,0,1,1:main" style="align-items: start; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; color: rgba(88,75,66,1); display: flex; flex-direction: column; height: auto; justify-content: start; max-height: 400px; overflow-x: auto; padding-bottom: 24px; padding-left: 24px; padding-right: 24px; padding-top: 24px; text-decoration: none; width: 100%" ><div data-id="0,0,1,0,1,1,0:main" style="align-items: start; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: none; flex-direction: column; height: auto; justify-content: start; margin-bottom: 24px; margin-top: 24px; text-decoration: none; width: 100%" ><div data-id="0,0,1,0,1,1,0,0:main" style="border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; color: rgba(88,75,66,1); font-family: sans-serif; font-size: 18px; font-weight: 400; height: auto; line-height: 30px; text-decoration: none; width: auto" class="ft_md"><p>Rendering with condition</p></div></div><div data-id="0,0,1,0,1,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;name&quot;:&quot;ftd__increment_by___main&quot;,&quot;values&quot;:[[&quot;a&quot;,{&quot;mutable&quot;:true,&quot;reference&quot;:&quot;fifthtry.github.io/ftd-examples/render-conditionally/#variable&quot;}],[&quot;v&quot;,5]]}]', this)" style="border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; color: rgba(20,20,20,1); cursor: pointer; font-family: sans-serif; font-size: 24px; font-weight: 400; height: auto; line-height: 31px; text-decoration: none; width: auto" class="ft_md"><p>Click here to show <code>data</code></p></div></div></div></h1></div></div></div></div>
 
 
 <script>
@@ -2134,39 +2175,105 @@ document.querySelector(`[data-id="0,0,1,0,1,1:main"]`).style["color"] = resolve_
 else {document.querySelector(`[data-id="0,0,1,0,1,1:main"]`).style["color"] = resolve_reference("ftd#default-colors.text", data).dark;}
 }
 
-window.node_change_main["0,0,1,0,1,1,0:main__font-family"] = function(data) {
-if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,1,0,1,1,0:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSONstringify(resolve_reference("ftd#default-types.copy-regular", data).desktop)));
+window.node_change_main["0,0,1,0,1,1,0:main__display"] = function(data) {
+if(function(){
+return (resolve_reference("fifthtry.github.io/ftd-examples/render-conditionally/#variable", data)>=1);
+}()){
+document.querySelector(`[data-id="0,0,1,0,1,1,0:main"]`).style["display"] = "flex";
 }
-else {document.querySelector(`[data-id="0,0,1,0,1,1,0:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSONstringify(resolve_reference("ftd#default-types.copy-regular", data).mobile)));}
-}
-
-window.node_change_main["0,0,1,0,1,1,0:main__font-size"] = function(data) {
-if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,1,0,1,1,0:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSONstringify(resolve_reference("ftd#default-types.copy-regular", data).desktop)));
-}
-else {document.querySelector(`[data-id="0,0,1,0,1,1,0:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSONstringify(resolve_reference("ftd#default-types.copy-regular", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,1,0,1,1,0:main"]`).style["display"] = "none";}
 }
 
-window.node_change_main["0,0,1,0,1,1,0:main__font-weight"] = function(data) {
-if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,1,0,1,1,0:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSONstringify(resolve_reference("ftd#default-types.copy-regular", data).desktop)));
+window.node_change_main["0,0,1,0,1,1,0,0:main__color"] = function(data) {
+if(!data["ftd#dark-mode"]){
+document.querySelector(`[data-id="0,0,1,0,1,1,0,0:main"]`).style["color"] = resolve_reference("ftd#default-colors.text", data).light;
 }
-else {document.querySelector(`[data-id="0,0,1,0,1,1,0:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSONstringify(resolve_reference("ftd#default-types.copy-regular", data).mobile)));}
-}
-
-window.node_change_main["0,0,1,0,1,1,0:main__letter-spacing"] = function(data) {
-if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,1,0,1,1,0:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSONstringify(resolve_reference("ftd#default-types.copy-regular", data).desktop)));
-}
-else {document.querySelector(`[data-id="0,0,1,0,1,1,0:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSONstringify(resolve_reference("ftd#default-types.copy-regular", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,1,0,1,1,0,0:main"]`).style["color"] = resolve_reference("ftd#default-colors.text", data).dark;}
 }
 
-window.node_change_main["0,0,1,0,1,1,0:main__line-height"] = function(data) {
+window.node_change_main["0,0,1,0,1,1,0,0:main__font-family"] = function(data) {
 if(data["ftd#device"] == "desktop"){
-document.querySelector(`[data-id="0,0,1,0,1,1,0:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSONstringify(resolve_reference("ftd#default-types.copy-regular", data).desktop)));
+document.querySelector(`[data-id="0,0,1,0,1,1,0,0:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSONstringify(resolve_reference("ftd#default-types.copy-regular", data).desktop)));
 }
-else {document.querySelector(`[data-id="0,0,1,0,1,1,0:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSONstringify(resolve_reference("ftd#default-types.copy-regular", data).mobile)));}
+else {document.querySelector(`[data-id="0,0,1,0,1,1,0,0:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSONstringify(resolve_reference("ftd#default-types.copy-regular", data).mobile)));}
+}
+
+window.node_change_main["0,0,1,0,1,1,0,0:main__font-size"] = function(data) {
+if(data["ftd#device"] == "desktop"){
+document.querySelector(`[data-id="0,0,1,0,1,1,0,0:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSONstringify(resolve_reference("ftd#default-types.copy-regular", data).desktop)));
+}
+else {document.querySelector(`[data-id="0,0,1,0,1,1,0,0:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSONstringify(resolve_reference("ftd#default-types.copy-regular", data).mobile)));}
+}
+
+window.node_change_main["0,0,1,0,1,1,0,0:main__font-weight"] = function(data) {
+if(data["ftd#device"] == "desktop"){
+document.querySelector(`[data-id="0,0,1,0,1,1,0,0:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSONstringify(resolve_reference("ftd#default-types.copy-regular", data).desktop)));
+}
+else {document.querySelector(`[data-id="0,0,1,0,1,1,0,0:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSONstringify(resolve_reference("ftd#default-types.copy-regular", data).mobile)));}
+}
+
+window.node_change_main["0,0,1,0,1,1,0,0:main__letter-spacing"] = function(data) {
+if(data["ftd#device"] == "desktop"){
+document.querySelector(`[data-id="0,0,1,0,1,1,0,0:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSONstringify(resolve_reference("ftd#default-types.copy-regular", data).desktop)));
+}
+else {document.querySelector(`[data-id="0,0,1,0,1,1,0,0:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSONstringify(resolve_reference("ftd#default-types.copy-regular", data).mobile)));}
+}
+
+window.node_change_main["0,0,1,0,1,1,0,0:main__line-height"] = function(data) {
+if(data["ftd#device"] == "desktop"){
+document.querySelector(`[data-id="0,0,1,0,1,1,0,0:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSONstringify(resolve_reference("ftd#default-types.copy-regular", data).desktop)));
+}
+else {document.querySelector(`[data-id="0,0,1,0,1,1,0,0:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSONstringify(resolve_reference("ftd#default-types.copy-regular", data).mobile)));}
+}
+window.node_change_main["0,0,1,0,1,1,1:main__display"] = function(data) {
+if(function(){
+return (resolve_reference("fifthtry.github.io/ftd-examples/render-conditionally/#variable", data)<=1);
+}()){
+document.querySelector(`[data-id="0,0,1,0,1,1,1:main"]`).style["display"] = "block";
+}
+else {document.querySelector(`[data-id="0,0,1,0,1,1,1:main"]`).style["display"] = "none";}
+}
+
+window.node_change_main["0,0,1,0,1,1,1:main__color"] = function(data) {
+if(!data["ftd#dark-mode"]){
+document.querySelector(`[data-id="0,0,1,0,1,1,1:main"]`).style["color"] = resolve_reference("ftd#default-colors.text-strong", data).light;
+}
+else {document.querySelector(`[data-id="0,0,1,0,1,1,1:main"]`).style["color"] = resolve_reference("ftd#default-colors.text-strong", data).dark;}
+}
+
+window.node_change_main["0,0,1,0,1,1,1:main__font-family"] = function(data) {
+if(data["ftd#device"] == "desktop"){
+document.querySelector(`[data-id="0,0,1,0,1,1,1:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSONstringify(resolve_reference("ftd#default-types.heading-small", data).desktop)));
+}
+else {document.querySelector(`[data-id="0,0,1,0,1,1,1:main"]`).style["font-family"] = eval(`({0})["font-family"]`.format(JSONstringify(resolve_reference("ftd#default-types.heading-small", data).mobile)));}
+}
+
+window.node_change_main["0,0,1,0,1,1,1:main__font-size"] = function(data) {
+if(data["ftd#device"] == "desktop"){
+document.querySelector(`[data-id="0,0,1,0,1,1,1:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSONstringify(resolve_reference("ftd#default-types.heading-small", data).desktop)));
+}
+else {document.querySelector(`[data-id="0,0,1,0,1,1,1:main"]`).style["font-size"] = eval(`({0})["size"]`.format(JSONstringify(resolve_reference("ftd#default-types.heading-small", data).mobile)));}
+}
+
+window.node_change_main["0,0,1,0,1,1,1:main__font-weight"] = function(data) {
+if(data["ftd#device"] == "desktop"){
+document.querySelector(`[data-id="0,0,1,0,1,1,1:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSONstringify(resolve_reference("ftd#default-types.heading-small", data).desktop)));
+}
+else {document.querySelector(`[data-id="0,0,1,0,1,1,1:main"]`).style["font-weight"] = eval(`({0}).weight`.format(JSONstringify(resolve_reference("ftd#default-types.heading-small", data).mobile)));}
+}
+
+window.node_change_main["0,0,1,0,1,1,1:main__letter-spacing"] = function(data) {
+if(data["ftd#device"] == "desktop"){
+document.querySelector(`[data-id="0,0,1,0,1,1,1:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSONstringify(resolve_reference("ftd#default-types.heading-small", data).desktop)));
+}
+else {document.querySelector(`[data-id="0,0,1,0,1,1,1:main"]`).style["letter-spacing"] = eval(`({0})["letter-spacing"]`.format(JSONstringify(resolve_reference("ftd#default-types.heading-small", data).mobile)));}
+}
+
+window.node_change_main["0,0,1,0,1,1,1:main__line-height"] = function(data) {
+if(data["ftd#device"] == "desktop"){
+document.querySelector(`[data-id="0,0,1,0,1,1,1:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSONstringify(resolve_reference("ftd#default-types.heading-small", data).desktop)));
+}
+else {document.querySelector(`[data-id="0,0,1,0,1,1,1:main"]`).style["line-height"] = eval(`({0})["line-height"]`.format(JSONstringify(resolve_reference("ftd#default-types.heading-small", data).mobile)));}
 }
 window.set_value_main = {};
 window.set_value_main["fifthtry.github.io/ftd-examples#code:body:0,0,1,0,0"] = function (data, new_value, remaining) {
@@ -2203,9 +2310,9 @@ if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fift
 let changes = window.ftd.immutable_value_main["fifthtry.github.io/ftd-examples#code:title:0,0,1,0,0"].changes;
 for(let i in changes) { changes[i](); }
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__display"]){window.node_change_main["0,0,1,0,0,0:main__display"](data);
-}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__text"]){window.node_change_main["0,0,1,0,0,0:main__text"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__display"]){window.node_change_main["0,0,1,0,0,0:main__display"](data);
 }
 };
 
@@ -2224,13 +2331,13 @@ if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fift
 let changes = window.ftd.immutable_value_main["fifthtry.github.io/ftd-examples#example:open:0,0"].changes;
 for(let i in changes) { changes[i](); }
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0:main__border-bottom-width"]){window.node_change_main["0,0,0:main__border-bottom-width"](data);
-}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__display"]){window.node_change_main["0,0,0,1,0:main__display"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1:main__display"]){window.node_change_main["0,0,1:main__display"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__display"]){window.node_change_main["0,0,0,1,1:main__display"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0:main__border-bottom-width"]){window.node_change_main["0,0,0:main__border-bottom-width"](data);
 }
 };
 
@@ -2293,6 +2400,27 @@ if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__
 }
 };
 
+window.set_value_main["fifthtry.github.io/ftd-examples/render-conditionally/#variable"] = function (data, new_value, remaining) {
+if (!!remaining) {
+set_data_value(data, "fifthtry.github.io/ftd-examples/render-conditionally/#variable" + "." + remaining, new_value);
+} else {
+set_data_value(data, "fifthtry.github.io/ftd-examples/render-conditionally/#variable", new_value);
+}
+
+if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/ftd-examples/render-conditionally/#variable"]) {
+let changes = window.ftd.mutable_value_main["fifthtry.github.io/ftd-examples/render-conditionally/#variable"].changes;
+for(let i in changes) { changes[i](); }
+}
+if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/ftd-examples/render-conditionally/#variable"]) {
+let changes = window.ftd.immutable_value_main["fifthtry.github.io/ftd-examples/render-conditionally/#variable"].changes;
+for(let i in changes) { changes[i](); }
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,0:main__display"]){window.node_change_main["0,0,1,0,1,1,0:main__display"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,1:main__display"]){window.node_change_main["0,0,1,0,1,1,1:main__display"](data);
+}
+};
+
 window.set_value_main["ftd#dark-mode"] = function (data, new_value, remaining) {
 if (!!remaining) {
 set_data_value(data, "ftd#dark-mode" + "." + remaining, new_value);
@@ -2308,37 +2436,41 @@ if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["ftd#
 let changes = window.ftd.immutable_value_main["ftd#dark-mode"].changes;
 for(let i in changes) { changes[i](); }
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0:main__border-color"]){window.node_change_main["0,0:main__border-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,1:main__color"]){window.node_change_main["0,0,0,0,1:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__color"]){window.node_change_main["0,0,0,0,0:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__border-color"]){window.node_change_main["0,0,1,0,1,0:main__border-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__color"]){window.node_change_main["0,0,0,1,0:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__border-color"]){window.node_change_main["0,0,1,0,0,0:main__border-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0:main__background-color"]){window.node_change_main["0:main__background-color"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,1:main__color"]){window.node_change_main["0,0,1,0,1,1,1:main__color"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,1:main__background-color"]){window.node_change_main["0,0,1,0,0,1:main__background-color"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0:main__border-color"]){window.node_change_main["0,0,0:main__border-color"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__color"]){window.node_change_main["0,0,1,0,1,0:main__color"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__color"]){window.node_change_main["0,0,0,1,1:main__color"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,1:main__color"]){window.node_change_main["0,0,0,0,1:main__color"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,1:main__color"]){window.node_change_main["0,0,1,0,0,1:main__color"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__color"]){window.node_change_main["0,0,1,0,0,0:main__color"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0:main__border-color"]){window.node_change_main["0,0,1,0,0:main__border-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0:main__border-color"]){window.node_change_main["0,0,0:main__border-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0:main__background-color"]){window.node_change_main["0:main__background-color"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1:main__color"]){window.node_change_main["0,0,1,0,1:main__color"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0:main__border-color"]){window.node_change_main["0,0,1,0,0:main__border-color"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__color"]){window.node_change_main["0,0,0,1,1:main__color"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__color"]){window.node_change_main["0,0,1,0,1,0:main__color"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__border-color"]){window.node_change_main["0,0,1,0,0,0:main__border-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0:main__border-color"]){window.node_change_main["0,0:main__border-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__color"]){window.node_change_main["0,0,0,1,0:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,0,0:main__color"]){window.node_change_main["0,0,1,0,1,1,0,0:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__border-color"]){window.node_change_main["0,0,1,0,1,0:main__border-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__color"]){window.node_change_main["0,0,1,0,0,0:main__color"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1:main__color"]){window.node_change_main["0,0,1,0,1,1:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__color"]){window.node_change_main["0,0,0,0,0:main__color"](data);
 }
 };
 
@@ -2357,31 +2489,35 @@ if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["ftd#
 let changes = window.ftd.immutable_value_main["ftd#default-colors"].changes;
 for(let i in changes) { changes[i](); }
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__color"]){window.node_change_main["0,0,0,1,0:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,1:main__color"]){window.node_change_main["0,0,1,0,0,1:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1:main__color"]){window.node_change_main["0,0,1,0,1,1:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__color"]){window.node_change_main["0,0,0,0,0:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0:main__border-color"]){window.node_change_main["0,0:main__border-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1:main__color"]){window.node_change_main["0,0,1,0,1:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,1:main__color"]){window.node_change_main["0,0,0,0,1:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__color"]){window.node_change_main["0,0,1,0,1,0:main__color"](data);
-}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0:main__border-color"]){window.node_change_main["0,0,1,0,0:main__border-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__color"]){window.node_change_main["0,0,0,1,1:main__color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__color"]){window.node_change_main["0,0,1,0,0,0:main__color"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__border-color"]){window.node_change_main["0,0,1,0,1,0:main__border-color"](data);
 }
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,1:main__color"]){window.node_change_main["0,0,1,0,1,1,1:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__color"]){window.node_change_main["0,0,1,0,0,0:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__color"]){window.node_change_main["0,0,1,0,1,0:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,0,0:main__color"]){window.node_change_main["0,0,1,0,1,1,0,0:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,1:main__color"]){window.node_change_main["0,0,1,0,0,1:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1:main__color"]){window.node_change_main["0,0,1,0,1:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__color"]){window.node_change_main["0,0,0,0,0:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__color"]){window.node_change_main["0,0,0,1,0:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0:main__border-color"]){window.node_change_main["0,0:main__border-color"](data);
+}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0:main__border-color"]){window.node_change_main["0,0,0:main__border-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,1:main__color"]){window.node_change_main["0,0,0,0,1:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__color"]){window.node_change_main["0,0,0,1,1:main__color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1:main__color"]){window.node_change_main["0,0,1,0,1,1:main__color"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__border-color"]){window.node_change_main["0,0,1,0,0,0:main__border-color"](data);
 }
@@ -2402,85 +2538,95 @@ if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["ftd#
 let changes = window.ftd.immutable_value_main["ftd#default-types"].changes;
 for(let i in changes) { changes[i](); }
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__line-height"]){window.node_change_main["0,0,1,0,0,0:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__font-size"]){window.node_change_main["0,0,0,1,1:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__line-height"]){window.node_change_main["0,0,0,0,0:main__line-height"](data);
-}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__letter-spacing"]){window.node_change_main["0,0,1,0,0,0:main__letter-spacing"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,1:main__font-size"]){window.node_change_main["0,0,0,0,1:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__font-size"]){window.node_change_main["0,0,0,0,0:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__font-weight"]){window.node_change_main["0,0,0,0,0:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__font-weight"]){window.node_change_main["0,0,1,0,1,0:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,1:main__line-height"]){window.node_change_main["0,0,1,0,0,1:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,1:main__font-family"]){window.node_change_main["0,0,0,0,1:main__font-family"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,1:main__letter-spacing"]){window.node_change_main["0,0,0,0,1:main__letter-spacing"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,1:main__font-weight"]){window.node_change_main["0,0,1,0,0,1:main__font-weight"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,1:main__line-height"]){window.node_change_main["0,0,1,0,0,1:main__line-height"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__font-weight"]){window.node_change_main["0,0,0,1,0:main__font-weight"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,1:main__font-size"]){window.node_change_main["0,0,1,0,1,1,1:main__font-size"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__line-height"]){window.node_change_main["0,0,0,1,1:main__line-height"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,1:main__font-weight"]){window.node_change_main["0,0,1,0,1,1,1:main__font-weight"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,1:main__font-family"]){window.node_change_main["0,0,1,0,0,1:main__font-family"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__letter-spacing"]){window.node_change_main["0,0,0,1,0:main__letter-spacing"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__font-size"]){window.node_change_main["0,0,1,0,0,0:main__font-size"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,1:main__letter-spacing"]){window.node_change_main["0,0,1,0,1,1,1:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__font-size"]){window.node_change_main["0,0,1,0,1,0:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__font-size"]){window.node_change_main["0,0,0,1,1:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__line-height"]){window.node_change_main["0,0,0,1,0:main__line-height"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,1:main__font-size"]){window.node_change_main["0,0,1,0,0,1:main__font-size"](data);
 }
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,0,0:main__font-size"]){window.node_change_main["0,0,1,0,1,1,0,0:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__letter-spacing"]){window.node_change_main["0,0,0,1,1:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__font-weight"]){window.node_change_main["0,0,1,0,1,0:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__line-height"]){window.node_change_main["0,0,0,0,0:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__font-weight"]){window.node_change_main["0,0,1,0,0,0:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,1:main__font-weight"]){window.node_change_main["0,0,1,0,0,1:main__font-weight"](data);
+}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__font-family"]){window.node_change_main["0,0,1,0,0,0:main__font-family"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,0:main__font-size"]){window.node_change_main["0,0,1,0,1,1,0:main__font-size"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,0,0:main__font-weight"]){window.node_change_main["0,0,1,0,1,1,0,0:main__font-weight"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__letter-spacing"]){window.node_change_main["0,0,0,1,0:main__letter-spacing"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__font-size"]){window.node_change_main["0,0,0,0,0:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,0,0:main__font-family"]){window.node_change_main["0,0,1,0,1,1,0,0:main__font-family"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__font-weight"]){window.node_change_main["0,0,0,0,0:main__font-weight"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,1:main__font-weight"]){window.node_change_main["0,0,0,0,1:main__font-weight"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__font-family"]){window.node_change_main["0,0,1,0,1,0:main__font-family"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,1:main__line-height"]){window.node_change_main["0,0,0,0,1:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,0:main__letter-spacing"]){window.node_change_main["0,0,1,0,1,1,0:main__letter-spacing"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__font-size"]){window.node_change_main["0,0,0,1,0:main__font-size"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,0,0:main__letter-spacing"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,1:main__letter-spacing"]){window.node_change_main["0,0,1,0,0,1:main__letter-spacing"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,1:main__font-size"]){window.node_change_main["0,0,0,0,1:main__font-size"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__font-family"]){window.node_change_main["0,0,0,1,1:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__font-size"]){window.node_change_main["0,0,0,1,0:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,0:main__font-family"]){window.node_change_main["0,0,1,0,1,1,0:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,0:main__line-height"]){window.node_change_main["0,0,1,0,1,1,0:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__letter-spacing"]){window.node_change_main["0,0,0,1,1:main__letter-spacing"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__font-weight"]){window.node_change_main["0,0,1,0,0,0:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,0:main__font-weight"]){window.node_change_main["0,0,1,0,1,1,0:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__letter-spacing"]){window.node_change_main["0,0,1,0,1,0:main__letter-spacing"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,0,0:main__letter-spacing"]){window.node_change_main["0,0,1,0,1,1,0,0:main__letter-spacing"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__font-family"]){window.node_change_main["0,0,0,1,0:main__font-family"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__line-height"]){window.node_change_main["0,0,0,1,0:main__line-height"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,1:main__font-family"]){window.node_change_main["0,0,0,0,1:main__font-family"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__line-height"]){window.node_change_main["0,0,1,0,1,0:main__line-height"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,0,0:main__line-height"]){window.node_change_main["0,0,1,0,1,1,0,0:main__line-height"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__font-weight"]){window.node_change_main["0,0,0,1,1:main__font-weight"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,1:main__letter-spacing"]){window.node_change_main["0,0,1,0,0,1:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,1:main__font-family"]){window.node_change_main["0,0,1,0,1,1,1:main__font-family"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__line-height"]){window.node_change_main["0,0,0,1,1:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,1:main__line-height"]){window.node_change_main["0,0,1,0,1,1,1:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,1:main__line-height"]){window.node_change_main["0,0,0,0,1:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__letter-spacing"]){window.node_change_main["0,0,1,0,1,0:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__line-height"]){window.node_change_main["0,0,1,0,0,0:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__font-size"]){window.node_change_main["0,0,1,0,0,0:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,1:main__font-family"]){window.node_change_main["0,0,1,0,0,1:main__font-family"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__font-family"]){window.node_change_main["0,0,0,0,0:main__font-family"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__font-size"]){window.node_change_main["0,0,1,0,1,0:main__font-size"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__font-weight"]){window.node_change_main["0,0,0,1,1:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__font-family"]){window.node_change_main["0,0,0,1,1:main__font-family"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__font-weight"]){window.node_change_main["0,0,0,1,0:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__line-height"]){window.node_change_main["0,0,1,0,1,0:main__line-height"](data);
 }
 };
 
@@ -2499,89 +2645,99 @@ if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["ftd#
 let changes = window.ftd.immutable_value_main["ftd#device"].changes;
 for(let i in changes) { changes[i](); }
 }
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__line-height"]){window.node_change_main["0,0,1,0,1,0:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__font-size"]){window.node_change_main["0,0,0,0,0:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__letter-spacing"]){window.node_change_main["0,0,1,0,0,0:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__font-size"]){window.node_change_main["0,0,0,1,0:main__font-size"](data);
+}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__font-weight"]){window.node_change_main["0,0,1,0,1,0:main__font-weight"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__font-family"]){window.node_change_main["0,0,0,1,1:main__font-family"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,0,0:main__line-height"]){window.node_change_main["0,0,1,0,1,1,0,0:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0:main__padding-right"]){window.node_change_main["0:main__padding-right"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,1:main__font-family"]){window.node_change_main["0,0,1,0,0,1:main__font-family"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,1:main__line-height"]){window.node_change_main["0,0,1,0,0,1:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,1:main__line-height"]){window.node_change_main["0,0,0,0,1:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,1:main__font-weight"]){window.node_change_main["0,0,1,0,1,1,1:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,1:main__font-size"]){window.node_change_main["0,0,0,0,1:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,1:main__font-size"]){window.node_change_main["0,0,1,0,1,1,1:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__line-height"]){window.node_change_main["0,0,1,0,0,0:main__line-height"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__font-weight"]){window.node_change_main["0,0,1,0,0,0:main__font-weight"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__letter-spacing"]){window.node_change_main["0,0,0,1,0:main__letter-spacing"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__font-size"]){window.node_change_main["0,0,1,0,0,0:main__font-size"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,1:main__font-size"]){window.node_change_main["0,0,1,0,0,1:main__font-size"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,0:main__letter-spacing"]){window.node_change_main["0,0,1,0,1,1,0:main__letter-spacing"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__line-height"]){window.node_change_main["0,0,0,0,0:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,0,0:main__letter-spacing"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,1:main__font-weight"]){window.node_change_main["0,0,1,0,0,1:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__font-size"]){window.node_change_main["0,0,0,1,0:main__font-size"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__font-weight"]){window.node_change_main["0,0,0,0,0:main__font-weight"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,1:main__letter-spacing"]){window.node_change_main["0,0,1,0,0,1:main__letter-spacing"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,0:main__line-height"]){window.node_change_main["0,0,1,0,1,1,0:main__line-height"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__font-family"]){window.node_change_main["0,0,0,1,1:main__font-family"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__font-family"]){window.node_change_main["0,0,0,1,0:main__font-family"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__font-family"]){window.node_change_main["0,0,1,0,0,0:main__font-family"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,1:main__font-size"]){window.node_change_main["0,0,1,0,0,1:main__font-size"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,1:main__font-family"]){window.node_change_main["0,0,0,0,1:main__font-family"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0:main__padding-right"]){window.node_change_main["0:main__padding-right"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,1:main__line-height"]){window.node_change_main["0,0,0,0,1:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__font-size"]){window.node_change_main["0,0,0,0,0:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0:main__padding-left"]){window.node_change_main["0:main__padding-left"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__font-family"]){window.node_change_main["0,0,0,0,0:main__font-family"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__font-weight"]){window.node_change_main["0,0,0,1,0:main__font-weight"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__font-size"]){window.node_change_main["0,0,0,1,1:main__font-size"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__letter-spacing"]){window.node_change_main["0,0,1,0,0,0:main__letter-spacing"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__font-family"]){window.node_change_main["0,0,0,1,0:main__font-family"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,1:main__letter-spacing"]){window.node_change_main["0,0,0,0,1:main__letter-spacing"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,1:main__font-weight"]){window.node_change_main["0,0,1,0,0,1:main__font-weight"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,1:main__font-family"]){window.node_change_main["0,0,0,0,1:main__font-family"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,1:main__font-family"]){window.node_change_main["0,0,1,0,1,1,1:main__font-family"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__line-height"]){window.node_change_main["0,0,1,0,0,0:main__line-height"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__letter-spacing"]){window.node_change_main["0,0,0,0,0:main__letter-spacing"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,1:main__font-family"]){window.node_change_main["0,0,1,0,0,1:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__font-family"]){window.node_change_main["0,0,0,0,0:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,1:main__font-size"]){window.node_change_main["0,0,0,0,1:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__font-size"]){window.node_change_main["0,0,1,0,1,0:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__line-height"]){window.node_change_main["0,0,0,1,1:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__font-family"]){window.node_change_main["0,0,1,0,1,0:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,0:main__font-size"]){window.node_change_main["0,0,1,0,1,1,0:main__font-size"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__line-height"]){window.node_change_main["0,0,0,1,0:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__line-height"]){window.node_change_main["0,0,1,0,1,0:main__line-height"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__font-family"]){window.node_change_main["0,0,1,0,0,0:main__font-family"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__font-weight"]){window.node_change_main["0,0,0,0,0:main__font-weight"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,1:main__line-height"]){window.node_change_main["0,0,1,0,0,1:main__line-height"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__line-height"]){window.node_change_main["0,0,0,0,0:main__line-height"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__font-weight"]){window.node_change_main["0,0,0,1,1:main__font-weight"](data);
 }
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,1:main__line-height"]){window.node_change_main["0,0,1,0,1,1,1:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,1:main__font-weight"]){window.node_change_main["0,0,0,0,1:main__font-weight"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,0,0:main__font-weight"]){window.node_change_main["0,0,1,0,1,1,0,0:main__font-weight"](data);
+}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__letter-spacing"]){window.node_change_main["0,0,0,1,1:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__font-family"]){window.node_change_main["0,0,1,0,1,0:main__font-family"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,1:main__letter-spacing"]){window.node_change_main["0,0,1,0,1,1,1:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0:main__padding-left"]){window.node_change_main["0:main__padding-left"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__line-height"]){window.node_change_main["0,0,0,1,0:main__line-height"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,0,0:main__font-size"]){window.node_change_main["0,0,1,0,0,0:main__font-size"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__font-size"]){window.node_change_main["0,0,1,0,1,0:main__font-size"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,0:main__letter-spacing"]){window.node_change_main["0,0,1,0,1,0:main__letter-spacing"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,0:main__font-family"]){window.node_change_main["0,0,1,0,1,1,0:main__font-family"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,1:main__letter-spacing"]){window.node_change_main["0,0,0,0,1:main__letter-spacing"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,0:main__font-weight"]){window.node_change_main["0,0,1,0,1,1,0:main__font-weight"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,0,0:main__font-size"]){window.node_change_main["0,0,1,0,1,1,0,0:main__font-size"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,1:main__font-weight"]){window.node_change_main["0,0,0,0,1:main__font-weight"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,0,0:main__letter-spacing"]){window.node_change_main["0,0,1,0,1,1,0,0:main__letter-spacing"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,1,0,1,1,0,0:main__font-family"]){window.node_change_main["0,0,1,0,1,1,0,0:main__font-family"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__line-height"]){window.node_change_main["0,0,0,1,1:main__line-height"](data);
 }
 };
 
