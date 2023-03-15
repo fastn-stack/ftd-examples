@@ -1,0 +1,312 @@
+-- import: fifthtry.github.io/ftd-examples as ex
+
+
+-- ftd.column:
+width: fill-container
+padding-horizontal.px: 50
+padding-horizontal.px if { ftd.device == "mobile" }: 20
+background.solid: $inherited.colors.background.base
+height: fill-container
+
+-- ex.example: Dropdown example
+url: examples/dropdown/#dropdown-example
+$open: true
+
+-- ftd.row:
+id: dropdown-example
+region: h1
+width: fill-container
+
+-- ex.code: 
+lang: ftd
+
+\-- component dropdown:
+caption title: $selected-item
+boolean $show-options: false
+
+\-- ftd.column:
+width: fill-container
+
+\-- ftd.row:
+background.solid: $inherited.colors.background.base
+padding-vertical.px: 11
+padding-horizontal.px: 14
+border-radius.px: 30
+min-width.fixed.px: 152
+$on-click$: $ftd.toggle($a = $dropdown.show-options)
+border-color: $inherited.colors.border
+border-width.px: 1
+
+\-- ftd.text: $selected-item
+role: $inherited.types.button-large
+color: $inherited.colors.accent.primary
+padding-right.px: 52
+min-width.fixed.px: 112
+
+\-- ftd.image:
+src: https://fifthtry.github.io/fastn-ui/-/fifthtry.github.io/fastn-ui/static/footer/down-dark.svg
+width.fixed.px: 24
+height: auto
+align-self: center
+
+\-- ftd.column:
+if: { $dropdown.show-options }
+
+\-- mode-changer: $dropdown.title
+
+\-- end: ftd.column
+
+\-- end: ftd.row
+
+\-- end: ftd.column
+
+\-- end: dropdown
+
+
+
+
+\-- component mode-changer:
+caption title:
+string $mode-1: Dark
+string $mode-2: Light
+string $mode-3: System
+boolean $mouse-in: false
+
+\-- ftd.column:
+background.solid: $inherited.colors.background.base
+padding-vertical.px: 11
+padding-horizontal.px: 14
+anchor: parent
+top.px: 38
+left.px: -136
+min-width.fixed.px: 152
+spacing.fixed.px: 20
+border-color: $inherited.colors.border
+border-width.px: 1
+border-radius.px: 10
+
+\-- ftd.column:
+if: { mode-changer.title == "System" }
+spacing.fixed.px: 24
+
+\-- ftd.text: $mode-changer.mode-1
+role: $inherited.types.button-large
+color: $inherited.colors.accent.primary
+padding-right.px: 52
+min-width.fixed.px: 112
+$on-click$: $ftd.set-string($a = $selected-item, v = $mode-changer.mode-1)
+$on-click$: $ftd.enable-dark-mode()
+
+\-- ftd.text: $mode-changer.mode-2
+role: $inherited.types.button-large
+color: $inherited.colors.accent.primary
+padding-right.px: 52
+width.fixed.px: 112
+$on-click$: $ftd.set-string($a = $selected-item, v = $mode-changer.mode-2)
+$on-click$: $ftd.enable-light-mode()
+
+\-- end: ftd.column
+
+\-- ftd.column:
+if: { mode-changer.title == "Dark" }
+spacing.fixed.px: 12
+
+\-- ftd.text: $mode-changer.mode-2
+role: $inherited.types.button-large
+color: $inherited.colors.accent.primary
+$on-click$: $ftd.set-string($a = $selected-item, v = $mode-changer.mode-2)
+$on-click$: $ftd.enable-light-mode()
+min-width.fixed.px: 112
+
+\-- ftd.text: $mode-changer.mode-3
+role: $inherited.types.button-large
+color: $inherited.colors.accent.primary
+$on-click$: $ftd.set-string($a = $selected-item, v = $mode-changer.mode-3)
+$on-click$: $ftd.enable-system-mode()
+min-width.fixed.px: 112
+
+\-- end: ftd.column
+
+\-- ftd.column:
+if: { mode-changer.title == "Light" }
+spacing.fixed.px: 12
+
+\-- ftd.text: $mode-changer.mode-1
+role: $inherited.types.button-large
+color: $inherited.colors.accent.primary
+$on-click$: $ftd.set-string($a = $selected-item, v = $mode-changer.mode-1)
+$on-click$: $ftd.enable-dark-mode()
+min-width.fixed.px: 112
+
+\-- ftd.text: $mode-changer.mode-3
+role: $inherited.types.button-large
+color: $inherited.colors.accent.primary
+$on-click$: $ftd.set-string($a = $selected-item, v = $mode-changer.mode-3)
+$on-click$: $ftd.enable-system-mode()
+min-width.fixed.px: 112
+
+\-- end: ftd.column
+
+\-- end: ftd.column
+
+\-- end: mode-changer
+
+-- ex.output: 
+
+-- ftd.column:
+width: fill-container
+height.fixed.px: 200
+
+-- dropdown:
+
+-- end: ftd.column
+
+-- end: ex.output
+
+
+-- end: ftd.row
+
+-- end: ex.example
+
+-- end: ftd.column
+
+
+
+
+-- string $selected-item: System
+
+
+
+
+
+
+-- component dropdown:
+caption title: $selected-item
+boolean $show-options: false
+
+-- ftd.column:
+width: fill-container
+
+-- ftd.row:
+background.solid: $inherited.colors.background.base
+padding-vertical.px: 11
+padding-horizontal.px: 14
+border-radius.px: 30
+min-width.fixed.px: 152
+$on-click$: $ftd.toggle($a = $dropdown.show-options)
+border-color: $inherited.colors.border
+border-width.px: 1
+
+-- ftd.text: $selected-item
+role: $inherited.types.button-large
+color: $inherited.colors.accent.primary
+padding-right.px: 52
+min-width.fixed.px: 112
+
+-- ftd.image:
+src: https://fifthtry.github.io/fastn-ui/-/fifthtry.github.io/fastn-ui/static/footer/down-dark.svg
+width.fixed.px: 24
+height: auto
+align-self: center
+
+-- ftd.column:
+if: { $dropdown.show-options }
+
+-- mode-changer: $dropdown.title
+
+-- end: ftd.column
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: dropdown
+
+
+
+
+-- component mode-changer:
+caption title:
+string $mode-1: Dark
+string $mode-2: Light
+string $mode-3: System
+boolean $mouse-in: false
+
+-- ftd.column:
+background.solid: $inherited.colors.background.base
+padding-vertical.px: 11
+padding-horizontal.px: 14
+anchor: parent
+top.px: 38
+left.px: -136
+min-width.fixed.px: 152
+spacing.fixed.px: 20
+border-color: $inherited.colors.border
+border-width.px: 1
+border-radius.px: 10
+
+-- ftd.column:
+if: { mode-changer.title == "System" }
+spacing.fixed.px: 24
+
+-- ftd.text: $mode-changer.mode-1
+role: $inherited.types.button-large
+color: $inherited.colors.accent.primary
+padding-right.px: 52
+min-width.fixed.px: 112
+$on-click$: $ftd.set-string($a = $selected-item, v = $mode-changer.mode-1)
+$on-click$: $ftd.enable-dark-mode()
+
+-- ftd.text: $mode-changer.mode-2
+role: $inherited.types.button-large
+color: $inherited.colors.accent.primary
+padding-right.px: 52
+width.fixed.px: 112
+$on-click$: $ftd.set-string($a = $selected-item, v = $mode-changer.mode-2)
+$on-click$: $ftd.enable-light-mode()
+
+-- end: ftd.column
+
+-- ftd.column:
+if: { mode-changer.title == "Dark" }
+spacing.fixed.px: 12
+
+-- ftd.text: $mode-changer.mode-2
+role: $inherited.types.button-large
+color: $inherited.colors.accent.primary
+$on-click$: $ftd.set-string($a = $selected-item, v = $mode-changer.mode-2)
+$on-click$: $ftd.enable-light-mode()
+min-width.fixed.px: 112
+
+-- ftd.text: $mode-changer.mode-3
+role: $inherited.types.button-large
+color: $inherited.colors.accent.primary
+$on-click$: $ftd.set-string($a = $selected-item, v = $mode-changer.mode-3)
+$on-click$: $ftd.enable-system-mode()
+min-width.fixed.px: 112
+
+-- end: ftd.column
+
+-- ftd.column:
+if: { mode-changer.title == "Light" }
+spacing.fixed.px: 12
+
+-- ftd.text: $mode-changer.mode-1
+role: $inherited.types.button-large
+color: $inherited.colors.accent.primary
+$on-click$: $ftd.set-string($a = $selected-item, v = $mode-changer.mode-1)
+$on-click$: $ftd.enable-dark-mode()
+min-width.fixed.px: 112
+
+-- ftd.text: $mode-changer.mode-3
+role: $inherited.types.button-large
+color: $inherited.colors.accent.primary
+$on-click$: $ftd.set-string($a = $selected-item, v = $mode-changer.mode-3)
+$on-click$: $ftd.enable-system-mode()
+min-width.fixed.px: 112
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: mode-changer
